@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Wanderlust.WebClient.Models;
+using Wanderlust.Business.Identity;
+using Wanderlust.Business.Models;
 
 namespace Wanderlust.WebClient.Controllers
 {

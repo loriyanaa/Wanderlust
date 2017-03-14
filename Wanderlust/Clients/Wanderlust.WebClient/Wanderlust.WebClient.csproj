@@ -191,7 +191,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -262,6 +261,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business\Wanderlust.Business.Data\Wanderlust.Business.Data.csproj">
+      <Project>{2D2219BD-78BC-4CE1-A1A9-9C6EB14C60AE}</Project>
+      <Name>Wanderlust.Business.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\Wanderlust.Business.Identity\Wanderlust.Business.Identity.csproj">
+      <Project>{95172d8b-ebaa-455a-8ae0-3cb3d717adad}</Project>
+      <Name>Wanderlust.Business.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\Wanderlust.Business.Models\Wanderlust.Business.Models.csproj">
+      <Project>{f51860d2-1411-42f8-a265-17dc157105a9}</Project>
+      <Name>Wanderlust.Business.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

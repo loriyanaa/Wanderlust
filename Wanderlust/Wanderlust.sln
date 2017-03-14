@@ -11,6 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.WebClient", "Cli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.UnitTests", "Tests\Wanderlust.UnitTests\Wanderlust.UnitTests.csproj", "{20497DC6-C8C2-4715-9D6E-C044ABB0CEA6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{BA7B0727-0F86-4075-AF2D-874401021D97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.Business.Data", "Business\Wanderlust.Business.Data\Wanderlust.Business.Data.csproj", "{2D2219BD-78BC-4CE1-A1A9-9C6EB14C60AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.Business.Models", "Business\Wanderlust.Business.Models\Wanderlust.Business.Models.csproj", "{F51860D2-1411-42F8-A265-17DC157105A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.Business.Identity", "Business\Wanderlust.Business.Identity\Wanderlust.Business.Identity.csproj", "{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +33,18 @@ Global
 		{20497DC6-C8C2-4715-9D6E-C044ABB0CEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20497DC6-C8C2-4715-9D6E-C044ABB0CEA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20497DC6-C8C2-4715-9D6E-C044ABB0CEA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2219BD-78BC-4CE1-A1A9-9C6EB14C60AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2219BD-78BC-4CE1-A1A9-9C6EB14C60AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2219BD-78BC-4CE1-A1A9-9C6EB14C60AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2219BD-78BC-4CE1-A1A9-9C6EB14C60AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F51860D2-1411-42F8-A265-17DC157105A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51860D2-1411-42F8-A265-17DC157105A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F51860D2-1411-42F8-A265-17DC157105A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F51860D2-1411-42F8-A265-17DC157105A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +52,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6B8B1571-365B-4F01-BCCF-42D2393556AA} = {B37DB852-DE22-4362-8E0A-E4E400C94F2D}
 		{20497DC6-C8C2-4715-9D6E-C044ABB0CEA6} = {D764A922-9B85-4596-95FF-C78C6DCBCC46}
+		{2D2219BD-78BC-4CE1-A1A9-9C6EB14C60AE} = {BA7B0727-0F86-4075-AF2D-874401021D97}
+		{F51860D2-1411-42F8-A265-17DC157105A9} = {BA7B0727-0F86-4075-AF2D-874401021D97}
+		{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD} = {BA7B0727-0F86-4075-AF2D-874401021D97}
 	EndGlobalSection
 EndGlobal
