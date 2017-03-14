@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using Wanderlust.Business.Data.Contracts;
-using Wanderlust.Business.Models;
+using Wanderlust.Business.Models.Users;
 
 namespace Wanderlust.Business.Data
 {

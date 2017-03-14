@@ -4,7 +4,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using System;
 using Wanderlust.Business.Data;
-using Wanderlust.Business.Models;
+using Wanderlust.Business.Models.Users;
 
 namespace Wanderlust.Business.Identity
 {

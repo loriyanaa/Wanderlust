@@ -3,7 +3,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Wanderlust.Business.Models;
+using Wanderlust.Business.Models.Users;
 
 namespace Wanderlust.Business.Identity
 {

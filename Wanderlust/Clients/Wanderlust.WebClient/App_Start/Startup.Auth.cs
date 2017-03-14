@@ -6,7 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Owin;
 using Wanderlust.Business.Data;
 using Wanderlust.Business.Identity;
-using Wanderlust.Business.Models;
+using Wanderlust.Business.Models.Users;
 
 namespace Wanderlust.WebClient
 {

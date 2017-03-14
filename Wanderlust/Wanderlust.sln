@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.Business.Models"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.Business.Identity", "Business\Wanderlust.Business.Identity\Wanderlust.Business.Identity.csproj", "{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.Business.Common", "Business\Wanderlust.Business.Common\Wanderlust.Business.Common.csproj", "{0955FE72-1C2D-4BF7-B238-482FF11941FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.Business.Services", "Business\Wanderlust.Business.Services\Wanderlust.Business.Services.csproj", "{3D0D09C5-800A-4FF8-8D6B-C069718B8D8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0955FE72-1C2D-4BF7-B238-482FF11941FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0955FE72-1C2D-4BF7-B238-482FF11941FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0955FE72-1C2D-4BF7-B238-482FF11941FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0955FE72-1C2D-4BF7-B238-482FF11941FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D0D09C5-800A-4FF8-8D6B-C069718B8D8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D0D09C5-800A-4FF8-8D6B-C069718B8D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D0D09C5-800A-4FF8-8D6B-C069718B8D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D0D09C5-800A-4FF8-8D6B-C069718B8D8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +67,7 @@ Global
 		{2D2219BD-78BC-4CE1-A1A9-9C6EB14C60AE} = {BA7B0727-0F86-4075-AF2D-874401021D97}
 		{F51860D2-1411-42F8-A265-17DC157105A9} = {BA7B0727-0F86-4075-AF2D-874401021D97}
 		{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD} = {BA7B0727-0F86-4075-AF2D-874401021D97}
+		{0955FE72-1C2D-4BF7-B238-482FF11941FF} = {BA7B0727-0F86-4075-AF2D-874401021D97}
+		{3D0D09C5-800A-4FF8-8D6B-C069718B8D8E} = {BA7B0727-0F86-4075-AF2D-874401021D97}
 	EndGlobalSection
 EndGlobal
