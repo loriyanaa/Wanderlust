@@ -56,9 +56,9 @@ namespace Wanderlust.WebClient
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "125242884673439",
+               appSecret: "a8890bc5ccbf63947b04454740857fbf");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

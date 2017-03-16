@@ -384,6 +384,10 @@ namespace Wanderlust.WebClient.Controllers
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRoles(user.Id, "User");
+
+                    this.registrationService.CreateUser(user.Id, user.UserName, user.Email);
+
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
