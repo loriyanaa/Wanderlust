@@ -57,6 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Locations\City.cs" />
+    <Compile Include="Locations\Contacts\ICity.cs" />
+    <Compile Include="Locations\Contacts\ICountry.cs" />
+    <Compile Include="Locations\Country.cs" />
     <Compile Include="UserRoles\Role.cs" />
     <Compile Include="Users\Admin.cs" />
     <Compile Include="Users\ApplicationUser.cs" />
