@@ -26,5 +26,7 @@ namespace Wanderlust.Business.Data
         {
             base.SaveChanges();
         }
+
+        public virtual IDbSet<User> RegularUsers { get; set; }
     }
 }

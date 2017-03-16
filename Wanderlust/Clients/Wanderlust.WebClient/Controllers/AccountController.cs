@@ -11,6 +11,8 @@ using Microsoft.Owin.Security;
 using Wanderlust.WebClient.Models;
 using Wanderlust.Business.Identity;
 using Wanderlust.Business.Models.Users;
+using Wanderlust.Business.Services.Contracts;
+using Bytes2you.Validation;
 
 namespace Wanderlust.WebClient.Controllers
 {
@@ -20,8 +22,13 @@ namespace Wanderlust.WebClient.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        private readonly IRegistrationService registrationService;
+
+        public AccountController(IRegistrationService registrationService)
         {
+            Guard.WhenArgument(registrationService, "registrationService").IsNull().Throw();
+
+            this.registrationService = registrationService;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -158,6 +165,8 @@ namespace Wanderlust.WebClient.Controllers
                 if (result.Succeeded)
                 {
                     UserManager.AddToRoles(user.Id, "User");
+
+                    this.registrationService.CreateUser(user.Id, user.UserName, user.Email);
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
