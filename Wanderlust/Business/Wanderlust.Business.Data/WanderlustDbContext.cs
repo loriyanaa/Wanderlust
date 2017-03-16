@@ -8,7 +8,7 @@ namespace Wanderlust.Business.Data
     public class WanderlustDbContext : IdentityDbContext<ApplicationUser>, IWanderlustDbContext
     {
         public WanderlustDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("WanderlustDb", throwIfV1Schema: false)
         {
         }
 
@@ -27,6 +27,6 @@ namespace Wanderlust.Business.Data
             base.SaveChanges();
         }
 
-        public virtual IDbSet<User> RegularUsers { get; set; }
+        public virtual IDbSet<RegularUser> RegularUsers { get; set; }
     }
 }

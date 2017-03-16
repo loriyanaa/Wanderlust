@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Wanderlust.Business.Models.Users.Contracts
 {
-    public interface IUser
+    public interface IRegularUser
     {
         string Id { get; set; }
 
@@ -26,8 +22,8 @@ namespace Wanderlust.Business.Models.Users.Contracts
 
         ApplicationUser ApplicationUser { get; set; }
 
-        ICollection<User> Followers { get; set; }
+        ICollection<RegularUser> Followers { get; set; }
 
-        ICollection<User> Following { get; set; }
+        ICollection<RegularUser> Following { get; set; }
     }
 }

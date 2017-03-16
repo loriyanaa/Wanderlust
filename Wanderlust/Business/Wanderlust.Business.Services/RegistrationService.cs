@@ -10,10 +10,10 @@ namespace Wanderlust.Business.Services
     public class RegistrationService : IRegistrationService
     {
         private readonly IEntityFrameworkRepository<Role> userRolesRepo;
-        private readonly IEntityFrameworkRepository<User> usersRepo;
+        private readonly IEntityFrameworkRepository<RegularUser> usersRepo;
         private readonly IUnitOfWork unitOfWork;
 
-        public RegistrationService(IEntityFrameworkRepository<Role> userRolesRepo, IEntityFrameworkRepository<User> usersRepo,
+        public RegistrationService(IEntityFrameworkRepository<Role> userRolesRepo, IEntityFrameworkRepository<RegularUser> usersRepo,
             IUnitOfWork unitOfWork)
         {
             Guard.WhenArgument(userRolesRepo, "userRolesRepo").IsNull().Throw();
@@ -38,7 +38,7 @@ namespace Wanderlust.Business.Services
 
             using (var uow = this.unitOfWork)
             {
-                this.usersRepo.Add(new User()
+                this.usersRepo.Add(new RegularUser()
                 {
                     Id = userId,
                     Username = username,

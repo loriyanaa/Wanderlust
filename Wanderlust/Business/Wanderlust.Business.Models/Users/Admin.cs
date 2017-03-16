@@ -7,10 +7,10 @@ using Wanderlust.Business.Models.Users.Contracts;
 
 namespace Wanderlust.Business.Models.Users
 {
-    public class Admin : User, IUser
-    {
-        public Admin() : base()
-        {
-        }
-    }
+    //public class Admin : RegularUser, IUser
+    //{
+    //    public Admin() : base()
+    //    {
+    //    }
+    //}
 }

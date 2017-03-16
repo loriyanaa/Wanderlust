@@ -6,18 +6,18 @@ using Wanderlust.Business.Models.Users.Contracts;
 
 namespace Wanderlust.Business.Models.Users
 {
-    public class User : IUser
+    public class RegularUser : IRegularUser
     {
         //private ICollection<UploadedImage> uploadedImages;
 
-        private ICollection<User> followers;
+        private ICollection<RegularUser> followers;
 
-        private ICollection<User> following;
+        private ICollection<RegularUser> following;
 
-        public User()
+        public RegularUser()
         {
-            this.followers = new HashSet<User>();
-            this.following = new HashSet<User>();
+            this.followers = new HashSet<RegularUser>();
+            this.following = new HashSet<RegularUser>();
             //this.uploadedImages = new HashSet<UploadedImage>();
         }
 
@@ -43,7 +43,7 @@ namespace Wanderlust.Business.Models.Users
 
         public bool IsDeleted { get; set; }
 
-        public virtual ICollection<User> Followers
+        public virtual ICollection<RegularUser> Followers
         {
             get
             {
@@ -55,7 +55,7 @@ namespace Wanderlust.Business.Models.Users
             }
         }
 
-        public virtual ICollection<User> Following
+        public virtual ICollection<RegularUser> Following
         {
             get
             {
