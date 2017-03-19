@@ -6,14 +6,14 @@ namespace Wanderlust.Business.Data.UnitTests.WanderlustDbContext
     [TestFixture]
     public class Create_Should
     {
-        [Test]
-        public void ReturnObjectOfTypeIWanderlustDbContext()
-        {
-            //Arrange & Act
-            var dbContext = Data.WanderlustDbContext.Create();
+        //[Test]
+        //public void ReturnObjectOfTypeIWanderlustDbContext()
+        //{
+        //    //Arrange & Act
+        //    var dbContext = Data.WanderlustDbContext.Create();
 
-            //Assert
-            Assert.IsInstanceOf<IWanderlustDbContext>(dbContext);
-        }
+        //    //Assert
+        //    Assert.IsInstanceOf<IWanderlustDbContext>(dbContext);
+        //}
     }
 }
