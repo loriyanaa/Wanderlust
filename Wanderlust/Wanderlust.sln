@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D764A922
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.WebClient", "Clients\Wanderlust.WebClient\Wanderlust.WebClient.csproj", "{6B8B1571-365B-4F01-BCCF-42D2393556AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.UnitTests", "Tests\Wanderlust.UnitTests\Wanderlust.UnitTests.csproj", "{20497DC6-C8C2-4715-9D6E-C044ABB0CEA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wanderlust.Business.Data.UnitTests", "Tests\Wanderlust.UnitTests\Wanderlust.Business.Data.UnitTests.csproj", "{20497DC6-C8C2-4715-9D6E-C044ABB0CEA6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{BA7B0727-0F86-4075-AF2D-874401021D97}"
 EndProject

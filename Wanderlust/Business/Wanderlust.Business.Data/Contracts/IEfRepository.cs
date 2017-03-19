@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace Wanderlust.Business.Data.Contracts
 {
-    public interface IEntityFrameworkRepository<T> where T : class
+    public interface IEfRepository<T> where T : class
     {
         IQueryable<T> Entities { get; }
 

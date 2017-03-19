@@ -61,12 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IEntityFrameworkRepository.cs" />
+    <Compile Include="Contracts\IEfRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IWanderlustDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\EntityFrameworkRepository.cs" />
+    <Compile Include="Repositories\EfRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="WanderlustDbContext.cs" />
   </ItemGroup>

@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Wanderlust.Business.Data.Contracts;
 
 namespace Wanderlust.Business.Data.Repositories
 {
-    public class EntityFrameworkRepository<T> : IEntityFrameworkRepository<T>
+    public class EfRepository<T> : IEfRepository<T>
         where T : class
     {
         private readonly IWanderlustDbContext context;
         private readonly IDbSet<T> dbSet;
 
-        public EntityFrameworkRepository(IWanderlustDbContext context)
+        public EfRepository(IWanderlustDbContext context)
         {
             if (context == null)
             {

@@ -5,18 +5,18 @@ namespace Wanderlust.Business.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly IWanderlustDbContext context;
+        protected readonly IWanderlustDbContext dbContext;
 
-        public UnitOfWork(IWanderlustDbContext context)
+        public UnitOfWork(IWanderlustDbContext dbContext)
         {
-            Guard.WhenArgument(context, "Db context").IsNull().Throw();
+            Guard.WhenArgument(dbContext, "Db context").IsNull().Throw();
 
-            this.context = context;
+            this.dbContext = dbContext;
         }
 
         public void SaveChanges()
         {
-            this.context.SaveChanges();
+            this.dbContext.SaveChanges();
         }
 
         public void Dispose()
