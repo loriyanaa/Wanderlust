@@ -7,6 +7,9 @@ using Owin;
 using Wanderlust.Business.Data;
 using Wanderlust.Business.Identity;
 using Wanderlust.Business.Models.Users;
+using Microsoft.Owin.Security.Google;
+using Microsoft.Owin.Security.Twitter;
+using Microsoft.Owin.Security;
 
 namespace Wanderlust.WebClient
 {
@@ -36,7 +39,7 @@ namespace Wanderlust.WebClient
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
-            });            
+            });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
@@ -52,19 +55,30 @@ namespace Wanderlust.WebClient
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseTwitterAuthentication(new TwitterAuthenticationOptions
+            {
+                ConsumerKey = "kS7kM9PU6i92Fu4oEmgMOVIZr",
+                ConsumerSecret = "qWB3jtTqBF1LZSSXJqsui9NpQ0rmrTEBH3ql4t1PauCSWrOQGF",
+                BackchannelCertificateValidator = new CertificateSubjectKeyIdentifierValidator(new[]
+                {
+                    "A5EF0B11CEC04103A34A659048B21CE0572D7D47", // VeriSign Class 3 Secure Server CA - G2
+                    "0D445C165344C1827E1D20AB25F40163D8BE79A5", // VeriSign Class 3 Secure Server CA - G3
+                    "7FD365A7C2DDECBBF03009F34339FA02AF333133", // VeriSign Class 3 Public Primary Certification Authority - G5
+                    "39A55D933676616E73A761DFA16A7E59CDE66FAD", // Symantec Class 3 Secure Server CA - G4
+                    "5168FF90AF0207753CCCD9656462A212B859723B", //DigiCert SHA2 High Assurance Server C‎A 
+                    "B13EC36903F8BF4701D498261A0802EF63642BC3" //DigiCert High Assurance EV Root CA
+                })
+            });
 
             app.UseFacebookAuthentication(
                appId: "125242884673439",
                appSecret: "a8890bc5ccbf63947b04454740857fbf");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "586521101834-78gg38hin8qm3q1n6egm5sv0g2ro4um7.apps.googleusercontent.com",
+                ClientSecret = "6xOvntooMMuELSarQokCVfh9"
+            });
         }
     }
 }
