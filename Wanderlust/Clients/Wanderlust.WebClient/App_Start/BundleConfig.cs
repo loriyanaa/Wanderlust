@@ -25,6 +25,8 @@ namespace Wanderlust.WebClient
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/login.css",
+                      "~/Content/home.css",
+                      "~/Content/font-awesome.css",
                       "~/Content/site.css"));
         }
     }

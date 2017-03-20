@@ -1,0 +1,238 @@
+﻿@charset "UTF-8";
+@import url(font-awesome.min.css);
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,500,700");
+
+html {
+  font-family: "Raleway", Helvetica, sans-serif !important;
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  font:inherit;
+}
+
+body {
+  font-family: "Raleway", Helvetica, sans-serif !important;
+  margin: 0;
+}
+
+header, footer {
+    font-family: "Raleway", Helvetica, sans-serif !important;
+    display: block;
+}
+
+[hidden] {
+  display: none;
+}
+
+.home h1 {
+   font-family: "Raleway", Helvetica, sans-serif;
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-transition: all 0.33s ease-in-out;
+  transition: all 0.33s ease-in-out;
+  font-family: "Raleway", Helvetica, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #ffffff;
+  line-height: 1.5;
+  font-family: "Raleway", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-size: 1em;
+  line-height: 1.15;
+  color: #fff;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.home h1, .home h2.h3, .home h4, .home h5, .home h6 {
+  color: #7A7F82;
+  font-weight: bold;
+}
+
+.home h1 {
+  font-size: 3.5em;
+  line-height: 1.05;
+}
+
+.home h2 {
+  font-size: 1.5em;
+  line-height: 1.15;
+}
+
+.home h3 {
+  font-size: 1.625em;
+  line-height: 1.38;
+}
+
+.home h4 {
+  font-size: 1.15em;
+  line-height: 1.38;
+}
+
+.home {
+  background-attachment: fixed;
+  background-image: url("./Images/home.jpg");
+  background-size: cover;
+  text-align: center;
+}
+
+@media screen and (max-width: 1680px) {
+
+			.home .container {
+				padding: 6em 0 14em 0;
+			}
+
+		}
+
+		@media screen and (max-width: 1280px) {
+
+			.home .container {
+				padding: 6em 0 14em 0;
+			}
+
+				.home .container h2 {
+					font-size: 1.5em;
+				}
+
+		}
+
+		@media screen and (max-width: 980px) {
+
+			.home .container {
+				padding: 6em 2em 14em 2em;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.home .container {
+				padding: 6em 2em 14em 2em;
+			}
+
+                .home .container h1 {
+					font-size: 3em;
+				}
+
+				.home .container h2 {
+					font-size: 1.5em;
+				}
+
+				.home .container p {
+					font-size: 1em;
+				}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+            .home .container {
+                padding: 3em 2em 6em 2em;
+            }
+
+		}
+
+
+.home #jumbotron {
+  text-align: center;
+  color: white;
+}
+
+@media (min-width: 12.5em) {
+  .home #jumbotron {
+    margin-top: 1.15em;
+  }
+}
+
+@media (min-width: 63em) {
+  .home #jumbotron {
+    margin-top: 3em;
+  }
+}
+
+.home #supporting-header {
+  text-align: center;
+  color: white;
+}
+
+@media (min-width: 12.5em) {
+  .home #supporting-header {
+    margin-top: 0.8em;
+  }
+}
+
+@media (min-width: 30em) {
+  .home #supporting-header {
+    margin-top: 0.7em;
+  }
+}
+
+@media (min-width: 63em) {
+  .home #supporting-header {
+    margin-top: 1em;
+  }
+}
+
+.home .btn {
+  border: 2px white solid;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+@media (min-width: 12.5em) {
+  .home .btn {
+    padding: 1em;
+    width: 70%;
+  }
+}
+
+@media (min-width: 30em) {
+  .home .btn {
+    width: 40%;
+  }
+}
+
+@media (min-width: 47.5em) {
+  .home .btn {
+    padding: 1em 3em;
+    width: 30%;
+  }
+}
+
+@media (min-width: 63em) {
+  .home .btn {
+    width: 20%;
+    margin-top: 3em;
+  }
+  .home .btn:hover {
+    background-color: #fff;
+    color: #7a7f82;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+}

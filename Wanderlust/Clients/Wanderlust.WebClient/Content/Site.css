@@ -1,12 +1,10 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    background-color: #FAFAFA;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -22,3 +20,169 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.logo-img {
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+    margin-right: 5px;
+    float:left;
+}
+
+#footer {
+		background-color: white;
+		color: black;
+		text-align: center;
+        border-top: solid 1px black;
+	}
+
+		#footer a {
+			color: black;
+		}
+
+		#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
+			color: black;
+		}
+
+		#footer hr {
+			border-bottom-color: transparent;
+		}
+
+		#footer a {
+			-moz-transition: color 0.2s ease-in-out;
+			-webkit-transition: color 0.2s ease-in-out;
+			-ms-transition: color 0.2s ease-in-out;
+			transition: color 0.2s ease-in-out;
+			color: black;
+		}
+
+			#footer a:active, #footer a:focus, #footer a:hover {
+				color: black;
+			}
+
+		#footer .inner {
+			padding: 6em 0 4em 0;
+			margin: 0 auto;
+			width: 75%;
+		}
+
+		#footer ul.icons li {
+			padding-right: 2.5em;
+		}
+
+			#footer ul.icons li:last-child {
+				padding-right: 0;
+			}
+
+		#footer .copyright {
+			color: #a5a9ad;
+			font-size: 0.9em;
+			margin: 0 0 2em 0;
+			padding: 0;
+			text-transform: uppercase;
+		}
+
+			#footer .copyright li {
+				display: inline-block;
+				list-style: none;
+				margin: 0 0.1em;
+			}
+
+		@media screen and (max-width: 980px) {
+
+			#footer .inner {
+				padding: 5em 0 3em 0;
+				width: 100%;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			#footer .inner {
+				padding: 3em 0 1em 0;
+			}
+
+			#footer .copyright li {
+				display: block;
+				margin: 0;
+			}
+
+			#footer ul.icons li {
+				font-size: 0.9em;
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			#footer .inner {
+				padding: 2em 0 0.1em 0;
+			}
+
+		}
+
+/* Icon */
+
+	.icon {
+		text-decoration: none;
+		border-bottom: none;
+		position: relative;
+	}
+
+		.icon:before {
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			font-family: FontAwesome;
+			font-style: normal;
+			font-weight: normal;
+			text-transform: none !important;
+		}
+
+		.icon > .label {
+			display: none;
+		}
+
+        ul {
+		list-style: disc;
+		margin: 0 0 2em 0;
+	}
+
+		ul li {
+			padding-left: 0.5em;
+		}
+
+		ul.alt {
+			list-style: none;
+			padding-left: 0;
+		}
+
+			ul.alt > li {
+				border-top-style: solid;
+				border-top-width: 1px;
+				padding: 0.5em 0;
+			}
+
+				ul.alt > li:first-child {
+					border-top: 0;
+					padding-top: 0;
+				}
+
+		ul.icons {
+			cursor: default;
+			list-style: none;
+			padding-left: 0;
+		}
+
+			ul.icons > li {
+				display: inline-block;
+				padding: 0 1em 0 0;
+			}
+
+				ul.icons > li:last-child {
+					padding-right: 0;
+				}
+
+				ul.icons > li .icon:before {
+					font-size: 2em;
+				}
