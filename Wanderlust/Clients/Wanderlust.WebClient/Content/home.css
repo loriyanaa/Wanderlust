@@ -1,8 +1,4 @@
-﻿@charset "UTF-8";
-@import url(font-awesome.min.css);
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,500,700");
-
-html {
+﻿html {
   font-family: "Raleway", Helvetica, sans-serif !important;
   -ms-text-size-adjust: 100%;
   /* 2 */
@@ -10,6 +6,7 @@ html {
   /* 2 */
   font:inherit;
 }
+
 
 body {
   font-family: "Raleway", Helvetica, sans-serif !important;
