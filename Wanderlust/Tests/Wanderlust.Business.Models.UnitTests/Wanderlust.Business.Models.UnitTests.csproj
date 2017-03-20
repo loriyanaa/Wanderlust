@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{20497DC6-C8C2-4715-9D6E-C044ABB0CEA6}</ProjectGuid>
+    <ProjectGuid>{75813C71-169F-4F45-9319-880009AA221F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Wanderlust.Business.Data.UnitTests</RootNamespace>
-    <AssemblyName>Wanderlust.Business.Data.UnitTests</AssemblyName>
+    <RootNamespace>Wanderlust.Business.Models.UnitTests</RootNamespace>
+    <AssemblyName>Wanderlust.Business.Models.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -81,25 +81,26 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="EfRepository\Constructor_Should.cs" />
-    <Compile Include="Mocks\UnitOfWorkMock.cs" />
+    <Compile Include="Locations\City.cs" />
+    <Compile Include="Locations\Country.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitOfWork\Constructor_Should.cs" />
-    <Compile Include="UnitOfWork\SaveChanges_Should.cs" />
-    <Compile Include="WanderlustDbContext\Constructor_Should.cs" />
-    <Compile Include="WanderlustDbContext\Create_Should.cs" />
+    <Compile Include="UserRoles\Role.cs" />
+    <Compile Include="Users\RegularUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Business\Wanderlust.Business.Data\Wanderlust.Business.Data.csproj">
-      <Project>{2d2219bd-78bc-4ce1-a1a9-9c6eb14c60ae}</Project>
-      <Name>Wanderlust.Business.Data</Name>
+    <ProjectReference Include="..\..\Business\Wanderlust.Business.Common\Wanderlust.Business.Common.csproj">
+      <Project>{0955FE72-1C2D-4BF7-B238-482FF11941FF}</Project>
+      <Name>Wanderlust.Business.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\Wanderlust.Business.Models\Wanderlust.Business.Models.csproj">
+      <Project>{F51860D2-1411-42F8-A265-17DC157105A9}</Project>
+      <Name>Wanderlust.Business.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
