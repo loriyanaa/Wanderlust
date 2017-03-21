@@ -4,7 +4,10 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    background-color: #FAFAFA;
+    padding-right: 25px;
+    padding-left: 25px;
+    background-color: #f2f2f2;
+    font-family: "Raleway", Helvetica, sans-serif !important;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -30,10 +33,10 @@ textarea {
 }
 
 #footer {
-		background-color: white;
-		color: black;
+		background-color: #3A3532;
+		color: white;
 		text-align: center;
-        border-top: solid 1px black;
+        border-top: solid 0px black;
 	}
 
 		#footer a {
@@ -53,11 +56,11 @@ textarea {
 			-webkit-transition: color 0.2s ease-in-out;
 			-ms-transition: color 0.2s ease-in-out;
 			transition: color 0.2s ease-in-out;
-			color: black;
+			color: white;
 		}
 
 			#footer a:active, #footer a:focus, #footer a:hover {
-				color: black;
+				color: white;
 			}
 
 		#footer .inner {

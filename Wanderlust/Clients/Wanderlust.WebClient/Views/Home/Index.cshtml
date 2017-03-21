@@ -2,37 +2,51 @@
     ViewBag.Title = "Home Page";
 }
 
-@*<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>*@
-
 <header class="home">
     <div class="container">
         <h1 id="jumbotron">Wanderlust</h1>
         <h2 id="supporting-header">DESIGNED FOR PASSIONATE TRAVELLERS</h2><a href="#" class="btn">Discover</a>
     </div>
 </header>
+<section id="about" class="light-grey">
+    <div class="container">
+        <h1 class="port">About Wanderlust</h1>
+        <div class="self-pic"></div>
+        <!-- Change paragraph text here, add subheadings by using h2 or h3 tags -->
+        <p class="about-para">Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Sed porttitor lectus nibh. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla porttitor <strong>accumsan tincidunt</strong>. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus.</p>
+        <p class="about-para">Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Sed porttitor lectus nibh. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus.</p>
+        <p class="about-para">Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Sed porttitor lectus nibh. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa, <strong>convallis</strong> a pellentesque nec, egestas non nisi. Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus.</p>
+    </div>
+</section>
+<section class="light-grey">
+    <h2 class="port">Most popular locations</h2>
+    <div class="container">
+        <div class="flex">
+            <figure id="one">
+                <figcaption id="img1" class="overlay">London, United Kingdom</figcaption><a href="http://externallinkgoeshere.co.uk" target="_blank"><img src="~/Content/Images/london.jpg" alt=""></a>
+            </figure>
+            <figure id="two">
+                <figcaption id="img2" class="overlay">Phuket, Thailand</figcaption><a href="http://externallinkgoeshere.co.uk" target="_blank"><img src="~/Content/Images/phuket.jpg" alt=""></a>
+            </figure>
+            <figure id="three">
+                <figcaption id="img3" class="overlay">Barcelona, Spain</figcaption><a href="http://externallinkgoeshere.co.uk" target="_blank"><img src="~/Content/Images/barcelona.jpg" alt=""></a>
+            </figure>
+            <figure id="four">
+                <figcaption id="img4" class="overlay">Dubai, United Arab Emirates</figcaption><a href="http://externallinkgoeshere.co.uk" target="_blank"><img src="~/Content/Images/BurjKhalifa.jpg" alt=""></a>
+            </figure>
+            <figure id="five">
+                <figcaption id="img5" class="overlay">Paris, France</figcaption><a href="http://externallinkgoeshere.co.uk" target="_blank"><img src="~/Content/Images/paris.jpg" alt=""></a>
+            </figure>
+            <figure id="six">
+                <figcaption id="img6" class="overlay">Venice, Italy</figcaption><a href="http://externallinkgoeshere.co.uk" target="_blank"><img src="~/Content/Images/venice.jpg" alt=""></a>
+            </figure>
+        </div>
+    </div>
+</section>
+<section class="grey" id="contact">
+    <div class="container">
+        <!-- edit this h2 and paragraph text here!-->
+        <h2 class="contact">Contact Me!</h2>
+        <p class="contact">Whether it's a question or you want to talk about your latest project, feel free to reach out to me!</p><a href="mailto:example@example.com" class="contact-button">Email Me!</a>
+    </div>
+</section>

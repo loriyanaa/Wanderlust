@@ -52,7 +52,7 @@ audio:not([controls]) {
 }
 
 html {
-  font-family: sans-serif;
+  font-family: "Raleway", Helvetica, sans-serif !important;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -311,7 +311,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Raleway", Helvetica, sans-serif !important;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -474,7 +474,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Raleway", Helvetica, sans-serif !important;
   font-weight: 500;
   line-height: 1.1;
 }
@@ -4504,12 +4504,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse {
-  background-color: white;
-  border-color: #080808;
+  background-color: #3A3532;
 }
 
 .navbar-inverse .navbar-brand {
-  color: #000;
+  color: white;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -4519,11 +4518,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-text {
-  color: #000;
+  color: white;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #000;
+  color: white;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
