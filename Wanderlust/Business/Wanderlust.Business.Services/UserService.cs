@@ -9,9 +9,9 @@ namespace Wanderlust.Business.Services
     public class UserService : IUserService
     {
         private readonly IEfRepository<RegularUser> regularUsersRepo;
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IEfUnitOfWork unitOfWork;
 
-        public UserService(IEfRepository<RegularUser> regularUsersRepo, IUnitOfWork unitOfWork)
+        public UserService(IEfRepository<RegularUser> regularUsersRepo, IEfUnitOfWork unitOfWork)
         {
             Guard.WhenArgument(regularUsersRepo, "regularUsersRepo").IsNull().Throw();
             Guard.WhenArgument(unitOfWork, "unitOfWork").IsNull().Throw();

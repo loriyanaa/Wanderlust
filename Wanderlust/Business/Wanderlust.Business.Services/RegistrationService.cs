@@ -11,10 +11,10 @@ namespace Wanderlust.Business.Services
     {
         private readonly IEfRepository<Role> userRolesRepo;
         private readonly IEfRepository<RegularUser> usersRepo;
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IEfUnitOfWork unitOfWork;
 
         public RegistrationService(IEfRepository<Role> userRolesRepo, IEfRepository<RegularUser> usersRepo,
-            IUnitOfWork unitOfWork)
+            IEfUnitOfWork unitOfWork)
         {
             Guard.WhenArgument(userRolesRepo, "userRolesRepo").IsNull().Throw();
             Guard.WhenArgument(usersRepo, "usersRepo").IsNull().Throw();

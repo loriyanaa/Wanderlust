@@ -17,7 +17,7 @@ namespace Wanderlust.Business.Services.UnitTests.RegistrationService
             //Arange
             var mockedRoleRepository = new Mock<IEfRepository<Role>>();
             var mockedUserRepository = new Mock<IEfRepository<RegularUser>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedUnitOfWork = new Mock<IEfUnitOfWork>();
 
             var registrationService = new Services.RegistrationService(
                 mockedRoleRepository.Object,

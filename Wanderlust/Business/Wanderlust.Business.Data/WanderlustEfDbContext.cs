@@ -2,33 +2,36 @@
 using System.Data.Entity;
 using Wanderlust.Business.Data.Contracts;
 using Wanderlust.Business.Models.Locations;
+using Wanderlust.Business.Models.UploadedImages;
 using Wanderlust.Business.Models.Users;
 
 namespace Wanderlust.Business.Data
 {
-    public class WanderlustDbContext : IdentityDbContext<ApplicationUser>, IWanderlustDbContext
+    public class WanderlustEfDbContext : IdentityDbContext<ApplicationUser>, IWanderlustEfDbContext
     {
-        public WanderlustDbContext()
+        public WanderlustEfDbContext()
             : base("WanderlustDb", throwIfV1Schema: false)
         {
         }
 
-        public static WanderlustDbContext Create()
+        public static WanderlustEfDbContext Create()
         {
-            return new WanderlustDbContext();
+            return new WanderlustEfDbContext();
         }
 
-        IDbSet<T> IWanderlustDbContext.Set<T>()
+        IDbSet<T> IWanderlustEfDbContext.Set<T>()
         {
             return base.Set<T>();
         }
 
-        void IWanderlustDbContext.SaveChanges()
+        void IWanderlustEfDbContext.SaveChanges()
         {
             base.SaveChanges();
         }
 
         public virtual IDbSet<RegularUser> RegularUsers { get; set; }
+
+        public virtual IDbSet<UploadedImage> UploadedImages { get; set; }
 
         public virtual IDbSet<City> Cities { get; set; }
 

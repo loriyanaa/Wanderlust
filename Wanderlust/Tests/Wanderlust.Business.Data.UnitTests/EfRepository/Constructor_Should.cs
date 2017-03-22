@@ -21,7 +21,7 @@ namespace Wanderlust.Business.Data.UnitTests.EfRepository
         public void SetDbContextCorrectly_WhenValidArgumentsArePassed()
         {
             //Arrange
-            var dbContextMock = new Mock<IWanderlustDbContext>();
+            var dbContextMock = new Mock<IWanderlustEfDbContext>();
 
             //Act
             var repository = new EfRepository<object>(dbContextMock.Object);
@@ -34,7 +34,7 @@ namespace Wanderlust.Business.Data.UnitTests.EfRepository
         public void SetDbSetCorrectly_WhenValidArgumentsArePassed()
         {
             //Arrange
-            var dbContextMock = new Mock<IWanderlustDbContext>();
+            var dbContextMock = new Mock<IWanderlustEfDbContext>();
             var dbSetMock = new Mock<IDbSet<object>>();
             dbContextMock.Setup(x => x.Set<object>()).Returns(dbSetMock.Object);
 
@@ -49,7 +49,7 @@ namespace Wanderlust.Business.Data.UnitTests.EfRepository
         public void CreateObjectOfTypeIEfRepository_WhenValidArgumentsPassed()
         {
             // Arrange
-            var dbContextMock = new Mock<IWanderlustDbContext>();
+            var dbContextMock = new Mock<IWanderlustEfDbContext>();
 
             // Act
             var repository = new EfRepository<object>(dbContextMock.Object);

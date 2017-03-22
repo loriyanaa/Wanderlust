@@ -61,6 +61,10 @@
     <Compile Include="Locations\Contracts\ICity.cs" />
     <Compile Include="Locations\Contracts\ICountry.cs" />
     <Compile Include="Locations\Country.cs" />
+    <Compile Include="UploadedImageComments\IUploadedImageComment.cs" />
+    <Compile Include="UploadedImageComments\UploadedImageComment.cs" />
+    <Compile Include="UploadedImages\IUploadedImage.cs" />
+    <Compile Include="UploadedImages\UploadedImage.cs" />
     <Compile Include="UserRoles\Role.cs" />
     <Compile Include="Users\Admin.cs" />
     <Compile Include="Users\ApplicationUser.cs" />

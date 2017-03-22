@@ -13,14 +13,14 @@ namespace Wanderlust.Business.Data.UnitTests.UnitOfWork
         public void ThrowArgumentNullException_WhenDbContextParameterIsNull()
         {
             //Arrange && Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new Data.UnitOfWork(null));
+            Assert.Throws<ArgumentNullException>(() => new Data.EfUnitOfWork(null));
         }
 
         [Test]
         public void SetDbContextCorrectly_WhenParametersAreValid()
         {
             //Arrange
-            var dbContextMock = new Mock<IWanderlustDbContext>();
+            var dbContextMock = new Mock<IWanderlustEfDbContext>();
 
             //Act
             var uow = new UnitOfWorkMock(dbContextMock.Object);
@@ -33,13 +33,13 @@ namespace Wanderlust.Business.Data.UnitTests.UnitOfWork
         public void CreateObjectOfTypeIUnitOfWork_WhenParametersAreValid()
         {
             //Arrange
-            var dbContextMock = new Mock<IWanderlustDbContext>();
+            var dbContextMock = new Mock<IWanderlustEfDbContext>();
 
             //Act
-            var uow = new Data.UnitOfWork(dbContextMock.Object);
+            var uow = new Data.EfUnitOfWork(dbContextMock.Object);
 
             //Assert
-            Assert.IsInstanceOf<IUnitOfWork>(uow);
+            Assert.IsInstanceOf<IEfUnitOfWork>(uow);
         }
     }
 }

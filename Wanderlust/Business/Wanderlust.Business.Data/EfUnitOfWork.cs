@@ -3,11 +3,11 @@ using Wanderlust.Business.Data.Contracts;
 
 namespace Wanderlust.Business.Data
 {
-    public class UnitOfWork : IUnitOfWork
+    public class EfUnitOfWork : IEfUnitOfWork
     {
-        protected readonly IWanderlustDbContext dbContext;
+        protected readonly IWanderlustEfDbContext dbContext;
 
-        public UnitOfWork(IWanderlustDbContext dbContext)
+        public EfUnitOfWork(IWanderlustEfDbContext dbContext)
         {
             Guard.WhenArgument(dbContext, "Db context").IsNull().Throw();
 

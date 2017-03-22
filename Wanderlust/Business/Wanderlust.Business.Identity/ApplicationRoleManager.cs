@@ -16,7 +16,7 @@ namespace Wanderlust.Business.Identity
 
         public static ApplicationRoleManager Create(IdentityFactoryOptions<ApplicationRoleManager> options, Microsoft.Owin.IOwinContext context)
         {
-            var roleManager = new ApplicationRoleManager(new RoleStore<Role>(context.Get<WanderlustDbContext>()));
+            var roleManager = new ApplicationRoleManager(new RoleStore<Role>(context.Get<WanderlustEfDbContext>()));
 
             string userRole = "User";
             string adminRole = "Admin";

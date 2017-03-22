@@ -16,7 +16,7 @@ namespace Wanderlust.Business.Services.UnitTests.RegistrationService
             //Arrange
             var mockedRoleRepository = new Mock<IEfRepository<Role>>();
             var mockedUserRepository = new Mock<IEfRepository<RegularUser>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedUnitOfWork = new Mock<IEfUnitOfWork>();
 
             var registrationService = new Services.RegistrationService(
                 mockedRoleRepository.Object,
@@ -34,7 +34,7 @@ namespace Wanderlust.Business.Services.UnitTests.RegistrationService
             //Arrange
             var mockedRoleRepository = (IEfRepository<Role>)null;
             var mockedUserRepository = new Mock<IEfRepository<RegularUser>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedUnitOfWork = new Mock<IEfUnitOfWork>();
 
             //Act & Assert
             Assert.Throws<ArgumentNullException>(() =>
@@ -52,7 +52,7 @@ namespace Wanderlust.Business.Services.UnitTests.RegistrationService
             //Arrange
             var mockedRoleRepository = new Mock<IEfRepository<Role>>();
             var mockedUserRepository = (IEfRepository<RegularUser>)null;
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedUnitOfWork = new Mock<IEfUnitOfWork>();
 
             //Act & Assert
             Assert.Throws<ArgumentNullException>(() =>
@@ -70,7 +70,7 @@ namespace Wanderlust.Business.Services.UnitTests.RegistrationService
             //Arrange
             var mockedRoleRepository = new Mock<IEfRepository<Role>>();
             var mockedUserRepository = new Mock<IEfRepository<RegularUser>>();
-            var mockedUnitOfWork = (IUnitOfWork)null;
+            var mockedUnitOfWork = (IEfUnitOfWork)null;
 
             //Act & Assert
             Assert.Throws<ArgumentNullException>(() =>

@@ -10,10 +10,10 @@ namespace Wanderlust.Business.Data.UnitTests.WanderlustDbContext
         public void CreateObjectOfTypeIWanderlustDbContext()
         {
             //Arange && Act
-            var dbContext = new Data.WanderlustDbContext();
+            var dbContext = new Data.WanderlustEfDbContext();
 
             //Assert
-            Assert.IsInstanceOf<IWanderlustDbContext>(dbContext);
+            Assert.IsInstanceOf<IWanderlustEfDbContext>(dbContext);
         }
     }
 }

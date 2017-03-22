@@ -8,10 +8,10 @@ namespace Wanderlust.Business.Data.Repositories
     public class EfRepository<T> : IEfRepository<T>
         where T : class
     {
-        private readonly IWanderlustDbContext context;
+        private readonly IWanderlustEfDbContext context;
         private readonly IDbSet<T> dbSet;
 
-        public EfRepository(IWanderlustDbContext context)
+        public EfRepository(IWanderlustEfDbContext context)
         {
             if (context == null)
             {
@@ -21,7 +21,7 @@ namespace Wanderlust.Business.Data.Repositories
             this.dbSet = this.context.Set<T>();
         }
 
-        public IWanderlustDbContext DbContext
+        public IWanderlustEfDbContext DbContext
         {
             get
             {

@@ -4,7 +4,7 @@ namespace Wanderlust.Business.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<Wanderlust.Business.Data.WanderlustDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<Wanderlust.Business.Data.WanderlustEfDbContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace Wanderlust.Business.Data.Migrations
             ContextKey = "Wanderlust.Business.Data.WanderlustDbContext";
         }
 
-        protected override void Seed(Wanderlust.Business.Data.WanderlustDbContext context)
+        protected override void Seed(Wanderlust.Business.Data.WanderlustEfDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

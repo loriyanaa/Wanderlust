@@ -13,7 +13,7 @@ namespace Wanderlust.Business.Data.UnitTests.Migrations
             var configuration = new Data.Migrations.Configuration();
 
             //Assert
-            Assert.IsInstanceOf<DbMigrationsConfiguration<Data.WanderlustDbContext>>(configuration);
+            Assert.IsInstanceOf<DbMigrationsConfiguration<Data.WanderlustEfDbContext>>(configuration);
         }
     }
 }

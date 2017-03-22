@@ -3,7 +3,7 @@ using System.Data.Entity.Infrastructure;
 
 namespace Wanderlust.Business.Data.Contracts
 {
-    public interface IWanderlustDbContext
+    public interface IWanderlustEfDbContext
     {
         IDbSet<T> Set<T>() where T : class;
 

@@ -2,13 +2,13 @@
 
 namespace Wanderlust.Business.Data.UnitTests.Mocks
 {
-    public class UnitOfWorkMock : Data.UnitOfWork
+    public class UnitOfWorkMock : Data.EfUnitOfWork
     {
-        public UnitOfWorkMock(IWanderlustDbContext context) : base(context)
+        public UnitOfWorkMock(IWanderlustEfDbContext context) : base(context)
         {
         }
 
-        public IWanderlustDbContext DbContext
+        public IWanderlustEfDbContext DbContext
         {
             get
             {

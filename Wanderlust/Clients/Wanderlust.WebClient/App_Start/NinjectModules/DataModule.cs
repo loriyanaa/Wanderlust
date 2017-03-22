@@ -13,8 +13,8 @@ namespace Wanderlust.WebClient.App_Start.NinjectModules
         {
             this.Bind(x => x.From("Wanderlust.Business.Models").SelectAllClasses().BindDefaultInterface());
             this.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
-            this.Bind<IWanderlustDbContext>().To<WanderlustDbContext>().InRequestScope();
-            this.Bind<IUnitOfWork>().To<UnitOfWork>();
+            this.Bind<IWanderlustEfDbContext>().To<WanderlustEfDbContext>().InRequestScope();
+            this.Bind<IEfUnitOfWork>().To<EfUnitOfWork>();
         }
     }
 }

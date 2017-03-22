@@ -13,5 +13,10 @@ namespace Wanderlust.Business.Common
 
         public const int MinAge = 18;
         public const int MaxAge = 100;
+
+        public const int CommentMinLength = 5;
+        public const int CommentMaxLength = 500;
+
+        public const int UploadedImageDescriptionMaxLength = 500;
     }
 }

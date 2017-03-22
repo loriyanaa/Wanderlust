@@ -17,7 +17,7 @@ namespace Wanderlust.Business.Models.UnitTests.Locations
             var country = new Models.Locations.Country() { Id = countryId };
 
             //Assert
-            Assert.AreEqual(country.Id, countryId);
+            Assert.AreEqual(countryId, country.Id);
         }
 
         [TestCase("eiiee eueieiouheyu")]
@@ -27,7 +27,7 @@ namespace Wanderlust.Business.Models.UnitTests.Locations
             var country = new Models.Locations.Country { Name = name };
 
             //Assert
-            Assert.AreEqual(country.Name, name);
+            Assert.AreEqual(name, country.Name);
         }
 
         [Test]
@@ -89,7 +89,7 @@ namespace Wanderlust.Business.Models.UnitTests.Locations
 
             var country = new Models.Locations.Country { Cities = set };
 
-            Assert.AreEqual(country.Cities.First().Id, cityId);
+            Assert.AreEqual(cityId, country.Cities.First().Id);
         }
     }
 }

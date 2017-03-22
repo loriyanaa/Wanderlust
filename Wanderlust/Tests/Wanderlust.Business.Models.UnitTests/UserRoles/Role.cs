@@ -24,7 +24,7 @@ namespace Wanderlust.Business.Models.UnitTests.UserRoles
 
             // Assert
             Assert.IsInstanceOf<Models.UserRoles.Role>(role);
-            Assert.AreEqual(role.Name, roleName);
+            Assert.AreEqual(roleName, role.Name);
         }
 
         [TestCase("eiiee eueieiouheyu")]
@@ -34,7 +34,7 @@ namespace Wanderlust.Business.Models.UnitTests.UserRoles
             var role = new Models.UserRoles.Role { Description = description };
 
             //Assert
-            Assert.AreEqual(role.Description, description);
+            Assert.AreEqual(description, role.Description);
         }
     }
 }

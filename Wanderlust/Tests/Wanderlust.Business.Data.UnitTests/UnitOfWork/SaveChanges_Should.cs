@@ -11,8 +11,8 @@ namespace Wanderlust.Business.Data.UnitTests.UnitOfWork
         public void CallDbContexSaveChangesOnce()
         {
             //Arrange
-            var dbContextMock = new Mock<IWanderlustDbContext>();
-            var unitOfWork = new Data.UnitOfWork(dbContextMock.Object);
+            var dbContextMock = new Mock<IWanderlustEfDbContext>();
+            var unitOfWork = new Data.EfUnitOfWork(dbContextMock.Object);
 
             //Act
             unitOfWork.SaveChanges();

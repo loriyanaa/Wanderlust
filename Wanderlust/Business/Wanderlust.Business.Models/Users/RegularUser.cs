@@ -2,13 +2,16 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Wanderlust.Business.Common;
+using Wanderlust.Business.Models.UploadedImages;
 using Wanderlust.Business.Models.Users.Contracts;
 
 namespace Wanderlust.Business.Models.Users
 {
     public class RegularUser : IRegularUser
     {
-        //private ICollection<UploadedImage> uploadedImages;
+        private ICollection<UploadedImage> uploadedImages;
+
+        private ICollection<UploadedImage> likedImages;
 
         private ICollection<RegularUser> followers;
 
@@ -18,7 +21,8 @@ namespace Wanderlust.Business.Models.Users
         {
             this.followers = new HashSet<RegularUser>();
             this.following = new HashSet<RegularUser>();
-            //this.uploadedImages = new HashSet<UploadedImage>();
+            this.uploadedImages = new HashSet<UploadedImage>();
+            this.likedImages = new HashSet<UploadedImage>();
         }
 
         [Key, ForeignKey("ApplicationUser")]
@@ -69,16 +73,28 @@ namespace Wanderlust.Business.Models.Users
             }
         }
 
-        //public virtual ICollection<UploadedImage> UploadedImages
-        //{
-        //    get
-        //    {
-        //        return this.uploadedImages;
-        //    }
-        //    set
-        //    {
-        //        this.uploadedImages = value;
-        //    }
-        //}
+        public virtual ICollection<UploadedImage> UploadedImages
+        {
+            get
+            {
+                return this.uploadedImages;
+            }
+            set
+            {
+                this.uploadedImages = value;
+            }
+        }
+
+        public virtual ICollection<UploadedImage> LikedImages
+        {
+            get
+            {
+                return this.likedImages;
+            }
+            set
+            {
+                this.likedImages = value;
+            }
+        }
     }
 }

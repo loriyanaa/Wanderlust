@@ -48,7 +48,7 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             var user = new RegularUser() { Username = testName };
 
             //Assert
-            Assert.AreEqual(user.Username, testName);
+            Assert.AreEqual(testName, user.Username);
         }
 
         [TestCase("uuseerTeest123")]
@@ -69,7 +69,7 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             var user = new RegularUser() { Email = email };
 
             //Assert
-            Assert.AreEqual(user.Email, email);
+            Assert.AreEqual(email, user.Email);
         }
 
         [TestCase("randomstringhrrhhyeueeyeegge")]
@@ -79,7 +79,7 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             var user = new RegularUser() { UserInfo = info };
 
             //Assert
-            Assert.AreEqual(user.UserInfo, info);
+            Assert.AreEqual(info, user.UserInfo);
         }
 
         [TestCase("facebook.com/pesho")]
@@ -89,7 +89,7 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             var user = new RegularUser() { FacebookProfile = fb };
 
             //Assert
-            Assert.AreEqual(user.FacebookProfile, fb);
+            Assert.AreEqual(fb, user.FacebookProfile);
         }
 
         [TestCase("37827383hg37362g372")]
@@ -100,7 +100,7 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             var user = new RegularUser() { Id = userId };
 
             //Assert
-            Assert.AreEqual(user.Id, userId);
+            Assert.AreEqual(userId, user.Id);
         }
 
         [TestCase(20)]
@@ -111,7 +111,7 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             var user = new RegularUser() { Age = testAge };
 
             //Assert
-            Assert.AreEqual(user.Age, testAge);
+            Assert.AreEqual(testAge, user.Age);
         }
 
         [TestCase(0)]
@@ -122,7 +122,7 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             var user = new RegularUser() { Posts = posts };
 
             //Assert
-            Assert.AreEqual(user.Posts, posts);
+            Assert.AreEqual(posts, user.Posts);
         }
 
         [Test]
@@ -155,6 +155,26 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             Assert.That(starredUsers, Is.Not.Null.And.InstanceOf<ICollection<RegularUser>>());
         }
 
+        [Test]
+        public void RegularUserConstructor_ShouldInitializeUploadedImagesCollectionCorrectly()
+        {
+            var user = new RegularUser();
+
+            var uploadedImages = user.UploadedImages;
+
+            Assert.That(uploadedImages, Is.Not.Null.And.InstanceOf<ICollection<UploadedImages.UploadedImage>>());
+        }
+
+        [Test]
+        public void RegularUserConstructor_ShouldInitializeLikedImagesCollectionCorrectly()
+        {
+            var user = new RegularUser();
+
+            var likedImaged = user.LikedImages;
+
+            Assert.That(likedImaged, Is.Not.Null.And.InstanceOf<ICollection<UploadedImages.UploadedImage>>());
+        }
+
         [TestCase(true)]
         [TestCase(false)]
         public void IsDeleted_ShouldBeSetAndGottenCorrectly(bool isDeleted)
@@ -178,7 +198,7 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             var user = new RegularUser { Followers = set };
 
             //Assert
-            Assert.AreEqual(user.Followers.First().Id, followerId);
+            Assert.AreEqual(followerId, user.Followers.First().Id);
         }
 
         [TestCase("heuehu3738trg3")]
@@ -193,7 +213,37 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             var user = new RegularUser { Following = set };
 
             //Assert
-            Assert.AreEqual(user.Following.First().Id, followingId);
+            Assert.AreEqual(followingId, user.Following.First().Id);
+        }
+
+        [TestCase(323232)]
+        [TestCase(1)]
+        public void UploadedImagesCollection_ShouldBeSetAndGottenCorrectly(int imageId)
+        {
+            //Arrange
+            var image = new UploadedImages.UploadedImage() { Id = imageId };
+            var set = new List<UploadedImages.UploadedImage> { image };
+
+            //Act
+            var user = new RegularUser { UploadedImages = set };
+
+            //Assert
+            Assert.AreEqual(imageId, user.UploadedImages.First().Id);
+        }
+
+        [TestCase(323232)]
+        [TestCase(1)]
+        public void LikedImagesCollection_ShouldBeSetAndGottenCorrectly(int imageId)
+        {
+            //Arrange
+            var image = new UploadedImages.UploadedImage() { Id = imageId };
+            var set = new List<UploadedImages.UploadedImage> { image };
+
+            //Act
+            var user = new RegularUser { LikedImages = set };
+
+            //Assert
+            Assert.AreEqual(imageId, user.LikedImages.First().Id);
         }
 
         [TestCase("dhwdwhddh73783ge3e3ye7")]
@@ -205,7 +255,7 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             var regularUser = new RegularUser { ApplicationUser = user };
 
             //Assert
-            Assert.AreEqual(regularUser.ApplicationUser.Id, testUserId);
+            Assert.AreEqual(testUserId, regularUser.ApplicationUser.Id);
         }
     }
 }

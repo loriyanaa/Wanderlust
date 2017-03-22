@@ -8,8 +8,8 @@ namespace Wanderlust.WebClient.App_Start
     {
         public static void Initialize()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<WanderlustDbContext, Configuration>());
-            WanderlustDbContext.Create().Database.Initialize(true);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<WanderlustEfDbContext, Configuration>());
+            WanderlustEfDbContext.Create().Database.Initialize(true);
         }
     }
 }
