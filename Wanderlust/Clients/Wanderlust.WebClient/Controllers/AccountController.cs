@@ -166,7 +166,7 @@ namespace Wanderlust.WebClient.Controllers
                 {
                     UserManager.AddToRoles(user.Id, "User");
 
-                    this.registrationService.CreateUser(user.Id, user.UserName, user.Email);
+                    this.registrationService.CreateUser(user.Id, model.Username, user.Email);
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
@@ -386,7 +386,7 @@ namespace Wanderlust.WebClient.Controllers
                 {
                     UserManager.AddToRoles(user.Id, "User");
 
-                    this.registrationService.CreateUser(user.Id, user.UserName, user.Email);
+                    this.registrationService.CreateUser(user.Id, model.Username, user.Email);
 
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)

@@ -363,7 +363,7 @@ figure {
   }
 }
 
-img:hover {
+.homepage img:hover {
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
 }

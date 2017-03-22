@@ -41,6 +41,8 @@ namespace Wanderlust.Business.Models.Users
 
         public int Age { get; set; }
 
+        public int Posts { get; set; }
+
         public bool IsDeleted { get; set; }
 
         public virtual ICollection<RegularUser> Followers

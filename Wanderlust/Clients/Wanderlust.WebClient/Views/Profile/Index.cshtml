@@ -1,0 +1,25 @@
+﻿@model Wanderlust.WebClient.Models.ProfileViewModel
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="body-content container">
+    <div class="profile-header">
+        <img src="~/Content/Images/profile-pic.png" class="profile-pic" />
+        <div class="personal-info">
+            <div class="profile-options">
+                <h1>@Model.Username's Profile</h1>
+                <button class="btn btn-edit"><a>Edit Profile</a></button>
+            </div>
+            <ul class="statistics">
+                <li>@Model.Posts posts</li>
+                <li>@Model.Followers followers</li>
+                <li>@Model.Following following<li>
+            </ul>
+            <div class="profile-info">@Model.Userinfo</div>
+        </div>    
+    </div>   
+</div>
+
