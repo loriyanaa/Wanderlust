@@ -25,11 +25,6 @@ namespace Wanderlust.Business.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public IQueryable<Role> GetAllUserRoles()
-        {
-            return this.userRolesRepo.All();
-        }
-
         public void CreateUser(string userId, string username, string email)
         {
             Guard.WhenArgument(userId, "userId").IsNullOrEmpty().Throw();
