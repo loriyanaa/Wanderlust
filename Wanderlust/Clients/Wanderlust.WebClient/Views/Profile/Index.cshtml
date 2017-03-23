@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="body-content container">
+<div class="body-content">
     <div class="profile-header">
         <img src="~/Content/Images/profile-pic.png" class="profile-pic" />
         <div class="personal-info">
@@ -16,10 +16,25 @@
             <ul class="statistics">
                 <li>@Model.Posts posts</li>
                 <li>@Model.Followers followers</li>
-                <li>@Model.Following following<li>
+                <li>@Model.Following following
+                <li>
             </ul>
             <div class="profile-info">@Model.Userinfo</div>
-        </div>    
-    </div>   
+        </div>
+    </div>
+    <div class="container gallery">
+    <div class="flex">
+        @foreach (var image in Model.UploadedImages)
+        {
+            <figure class="gallery-item">
+                <figcaption class="overlay">London, United Kingdom</figcaption><a href="http://externallinkgoeshere.co.uk" target="_blank"><img src="@image.ThumbnailSrc" class="image-gallery" alt=""></a>
+                <div class="image-stats">LIKES & COMMENTS</div>
+            </figure>
+        }
+    </div>
+
+    </div>
 </div>
+
+
 

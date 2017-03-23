@@ -1,4 +1,7 @@
-﻿namespace Wanderlust.WebClient.Models
+﻿using System.Collections.Generic;
+using Wanderlust.Business.Models.UploadedImages;
+
+namespace Wanderlust.WebClient.Models
 {
     public class ProfileViewModel
     {
@@ -11,5 +14,7 @@
         public int Followers { get; set; }
 
         public int Following { get; set; }
+
+        public IEnumerable<UploadedImage> UploadedImages { get; set; }
     }
 }

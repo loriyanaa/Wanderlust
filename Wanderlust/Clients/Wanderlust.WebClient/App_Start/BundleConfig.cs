@@ -28,6 +28,7 @@ namespace Wanderlust.WebClient
                       "~/Content/login.css",
                       "~/Content/home.css",
                       "~/Content/profile.css",
+                      "~/Content/posts.css",
                       "~/Content/font-awesome.css",
                       "~/Content/font-awesome.min.css",
                       "~/Content/site.css"));

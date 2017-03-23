@@ -116,51 +116,51 @@ namespace Wanderlust.Business.Models.UnitTests.UploadedImage
             Assert.AreEqual(src, image.OriginalSrc);
         }
 
-        [TestCase(234)]
-        [TestCase(2)]
-        public void Country_ShouldBeSetAndGottenCorrectly(int testCountryId)
-        {
-            // Arrange & Act         
-            var country = new Country { Id = testCountryId };
-            var image = new UploadedImages.UploadedImage { Country = country };
+        //[TestCase(234)]
+        //[TestCase(2)]
+        //public void Country_ShouldBeSetAndGottenCorrectly(int testCountryId)
+        //{
+        //    // Arrange & Act         
+        //    var country = new Country { Id = testCountryId };
+        //    var image = new UploadedImages.UploadedImage { Country = country };
 
-            //Assert
-            Assert.AreEqual(testCountryId, image.Country.Id);
-        }
+        //    //Assert
+        //    Assert.AreEqual(testCountryId, image.Country.Id);
+        //}
 
-        [TestCase(3)]
-        [TestCase(236)]
-        public void CointryId_ShouldBeSetAndGottenCorrectly(int countryId)
-        {
-            // Arrange & Act
-            var image = new UploadedImages.UploadedImage { CountryId = countryId };
+        //[TestCase(3)]
+        //[TestCase(236)]
+        //public void CointryId_ShouldBeSetAndGottenCorrectly(int countryId)
+        //{
+        //    // Arrange & Act
+        //    var image = new UploadedImages.UploadedImage { CountryId = countryId };
 
-            //Assert
-            Assert.AreEqual(countryId, image.CountryId);
-        }
+        //    //Assert
+        //    Assert.AreEqual(countryId, image.CountryId);
+        //}
 
-        [TestCase(234)]
-        [TestCase(2)]
-        public void City_ShouldBeSetAndGottenCorrectly(int testCityId)
-        {
-            // Arrange & Act         
-            var city = new City { Id = testCityId };
-            var image = new UploadedImages.UploadedImage { City = city };
+        //[TestCase(234)]
+        //[TestCase(2)]
+        //public void City_ShouldBeSetAndGottenCorrectly(int testCityId)
+        //{
+        //    // Arrange & Act         
+        //    var city = new City { Id = testCityId };
+        //    var image = new UploadedImages.UploadedImage { City = city };
 
-            //Assert
-            Assert.AreEqual(testCityId, image.City.Id);
-        }
+        //    //Assert
+        //    Assert.AreEqual(testCityId, image.City.Id);
+        //}
 
-        [TestCase(3)]
-        [TestCase(236)]
-        public void CityId_ShouldBeSetAndGottenCorrectly(int cityId)
-        {
-            // Arrange & Act
-            var image = new UploadedImages.UploadedImage { CityId = cityId };
+        //[TestCase(3)]
+        //[TestCase(236)]
+        //public void CityId_ShouldBeSetAndGottenCorrectly(int cityId)
+        //{
+        //    // Arrange & Act
+        //    var image = new UploadedImages.UploadedImage { CityId = cityId };
 
-            //Assert
-            Assert.AreEqual(cityId, image.CityId);
-        }
+        //    //Assert
+        //    Assert.AreEqual(cityId, image.CityId);
+        //}
 
         [TestCase(12344)]
         [TestCase(0)]

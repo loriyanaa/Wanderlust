@@ -1,0 +1,29 @@
+﻿.upload-image .file-upload {
+    width: 500px;
+    margin-left: 20px;
+    margin-bottom: 20px
+}
+
+.upload-image .img-title {
+    height:40px;
+    width: 300px;
+    margin-bottom: 10px
+}
+
+.upload-image select.upload-by {
+    height: 40px;
+    margin-left: 10px
+}
+
+.upload-image .k-upload {
+    margin-bottom: 10px
+}
+
+.upload-image p.upload-by {
+    margin-bottom: 10px
+}
+
+.upload-image .message {
+    margin: 20px 0 15px 20px;
+    font-size: 18px
+}

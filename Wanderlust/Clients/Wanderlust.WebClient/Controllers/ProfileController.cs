@@ -28,9 +28,10 @@ namespace Wanderlust.WebClient.Controllers
             {
                 Username = regularUser.Username,
                 Userinfo = regularUser.UserInfo,
-                Posts = regularUser.Posts,
+                Posts = regularUser.UploadedImages.Count,
                 Followers = regularUser.Followers.Count,
-                Following = regularUser.Following.Count
+                Following = regularUser.Following.Count,
+                UploadedImages = regularUser.UploadedImages
             };
         
             return View(model);

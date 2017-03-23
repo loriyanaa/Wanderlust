@@ -14,13 +14,13 @@ namespace Wanderlust.Business.Models.UploadedImages
 
         DateTime DateUploaded { get; set; }
 
-        int CountryId { get; set; }
+        //int CountryId { get; set; }
 
-        Country Country { get; set; }
+        //Country Country { get; set; }
 
-        int CityId { get; set; }
+        //int CityId { get; set; }
 
-        City City { get; set; }
+        //City City { get; set; }
 
         bool IsDeleted { get; set; }
 

@@ -12,7 +12,7 @@
 }
 
 .profile-header {
-    margin-left: 10em;
+    margin-left: 16em;
     margin-right: 10em;
 }
 
@@ -56,5 +56,29 @@
 
 .personal-info{
     display: inline-block;
+    position: absolute;
+}
+
+.container.gallery {
+    padding-top: 15px;
+}
+
+
+.gallery-item:hover{
+    opacity:0.5;
+    background-color: Black;
+    z-index:10;
+}
+
+.image-gallery {
+    z-index: 5;
+}
+
+.image-stats {
+    display: none;
+}
+    
+.gallery-item:hover .image-stats {
+    display: block;
     position: absolute;
 }

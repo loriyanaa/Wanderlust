@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Wanderlust.Business.Common
+﻿namespace Wanderlust.Business.Common
 {
     public class GlobalConstants
     {
@@ -18,5 +12,18 @@ namespace Wanderlust.Business.Common
         public const int CommentMaxLength = 500;
 
         public const int UploadedImageDescriptionMaxLength = 500;
+
+        public const int ThumbnailImageSize = 500;
+        public const int LargeImageSize = 700;
+
+        public const int ThumbnailImageQualityPercentage = 80;
+        public const int OriginalImageQualityPercentage = 100;
+
+        public const string FailedUploadMessage = "Unfortunately, your uploading  has failed.\r\nPlease, try again later.";
+
+        public const string WanderlustUrl = "http://www.dev.wanderlust.com/";
+        public const string ContentUploadedWanderlustThumbnailsRelPath = "Content/Uploaded/Images/Thumbnails/";
+        public const string ContentUploadedWanderlustOriginalsRelPath = "Content/Uploaded/Images/Originals/";
+        public const string ContentUploadedProfilesRelPath = "Content/Uploaded/Profiles/";
     }
 }

@@ -240,3 +240,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Wanderlust/Clients/Wanderlust.WebClient/Content/Uploaded/Images
