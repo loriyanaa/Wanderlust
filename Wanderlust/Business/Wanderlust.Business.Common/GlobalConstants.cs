@@ -26,6 +26,6 @@
         public const string ContentUploadedWanderlustOriginalsRelPath = "Content/Uploaded/Images/Originals/";
         public const string ContentUploadedProfilesRelPath = "Content/Uploaded/Profiles/";
 
-        public const int ImagesPerPage = 6;
+        public const int ImagesInitial = 6;
     }
 }

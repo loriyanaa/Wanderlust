@@ -204,6 +204,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\LoadMoreImagesViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Models\UploadImageViewModel.cs" />

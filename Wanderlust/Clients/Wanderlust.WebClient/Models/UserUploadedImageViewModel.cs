@@ -7,9 +7,5 @@
         public string ImgUrl { get; set; }
 
         public string UploaderId { get; set; }
-
-        public string ErrorMessage { get; set; }
-
-        public bool Succeeded { get; set; }
     }
 }

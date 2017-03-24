@@ -1,7 +1,6 @@
 ﻿using Bytes2you.Validation;
 using Microsoft.AspNet.Identity;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Web.Mvc;
 using Wanderlust.Business.Common;
 using Wanderlust.Business.Services.Contracts;
@@ -26,11 +25,10 @@ namespace Wanderlust.WebClient.Controllers
         // GET: Profile
         public ActionResult Index()
         {
-            this.TempData["images"] = GlobalConstants.ImagesPerPage;
+            this.TempData["images"] = GlobalConstants.ImagesInitial;
             var userId = User.Identity.GetUserId();
-
             var regularUser = this.userService.GetRegularUserById(userId);
-            var userImages = this.uploadedImageService.GetImagesByUser(userId, 0, GlobalConstants.ImagesPerPage);
+            var userImages = this.uploadedImageService.GetImagesByUser(userId, 0, GlobalConstants.ImagesInitial);
 
             var model = new ProfileViewModel
             {
@@ -48,14 +46,11 @@ namespace Wanderlust.WebClient.Controllers
         public ActionResult GetProfileImages()
         {
             var images = this.TempData["images"];
-
             var userId = User.Identity.GetUserId();
-
-            var moreImages = uploadedImageService.GetImagesByUser(userId, (int)images, GlobalConstants.ImagesPerPage);
-
+            var moreImages = uploadedImageService.GetImagesByUser(userId, (int)images, GlobalConstants.ImagesInitial);
             this.TempData["images"] = (int)this.TempData["images"] + moreImages.Count();
 
-            var model = new ProfileViewModel() { UploadedImages = moreImages };
+            var model = new LoadMoreImagesViewModel() { UploadedImages = moreImages };
 
             return PartialView("ProfileImagesPresenter", model);
         }

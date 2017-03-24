@@ -63,7 +63,7 @@ namespace Wanderlust.WebClient.Controllers
 
                 //this.View.Model.Succeeded = true;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 //this.View.Model.ErrorMessage = ex.Message;
                 //this.View.Model.Succeeded = false;
