@@ -1,11 +1,11 @@
 ﻿using Bytes2you.Validation;
-using Microsoft.AspNet.Identity;
 using System;
 using System.Data.SqlClient;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using Wanderlust.Business.Common;
+using Wanderlust.Business.Identity.Contracts;
 using Wanderlust.Business.Services.Contracts;
 using Wanderlust.WebClient.Models;
 
@@ -17,19 +17,22 @@ namespace Wanderlust.WebClient.Controllers
         private readonly IUserService userService;
         private readonly IImageProcessorService imageProcessorService;
         private readonly IFileSaverService fileSaverService;
+        private readonly IUserProvider userProvider;
 
         public PostsController(IUploadedImageService imageService, IUserService userService,
-            IImageProcessorService imageProcessorService, IFileSaverService fileSaverService)
+            IImageProcessorService imageProcessorService, IFileSaverService fileSaverService, IUserProvider userProvider)
         {
             Guard.WhenArgument(imageService, "uploadedImageService").IsNull().Throw();
             Guard.WhenArgument(userService, "userService").IsNull().Throw();
             Guard.WhenArgument(imageProcessorService, "imageProcessorService").IsNull().Throw();
             Guard.WhenArgument(fileSaverService, "fileSaverService").IsNull().Throw();
+            Guard.WhenArgument(userProvider, "userProvider").IsNull().Throw();
 
             this.uploadedImageService = imageService;
             this.userService = userService;
             this.imageProcessorService = imageProcessorService;
             this.fileSaverService = fileSaverService;
+            this.userProvider = userProvider;
         }
 
         // GET: Posts
@@ -41,7 +44,7 @@ namespace Wanderlust.WebClient.Controllers
         // GET: Upload
         public ActionResult UserUploadImage()
         {
-            if (!this.User.Identity.IsAuthenticated)
+            if (!this.userProvider.IsAuthenticated())
             {
                 Response.Redirect(string.Format("~/Account/Login?ReturnUrl={0}", HttpUtility.UrlEncode("/posts/useruploadimage")));
             }
@@ -57,7 +60,7 @@ namespace Wanderlust.WebClient.Controllers
 
             try
             {
-                var uploader = this.userService.GetRegularUserById(this.User.Identity.GetUserId());
+                var uploader = this.userService.GetRegularUserById(this.userProvider.GetUserId());
                 this.uploadedImageService.UploadImage(imgDescription, imgUrl, imgUrl, uploader);
                 this.Response.Redirect("~/posts");
 
@@ -135,7 +138,7 @@ namespace Wanderlust.WebClient.Controllers
             {
                 var thumbnailImgUrl = GlobalConstants.WanderlustUrl + GlobalConstants.ContentUploadedWanderlustThumbnailsRelPath + folderName + "/" + fileName;
                 var originalImgUrl = GlobalConstants.WanderlustUrl + GlobalConstants.ContentUploadedWanderlustOriginalsRelPath + folderName + "/" + fileName;
-                var uploader = this.userService.GetRegularUserById(this.User.Identity.GetUserId());
+                var uploader = this.userService.GetRegularUserById(this.userProvider.GetUserId());
                 this.uploadedImageService.UploadImage(this.Request.Headers["image-description"], thumbnailImgUrl, originalImgUrl, uploader);
 
                 model.Succeeded = true;

@@ -64,7 +64,8 @@ namespace Wanderlust.WebClient.App_Start
         {
             kernel.Load(
                 new DataModule(),
-                new ServicesModule());
+                new ServicesModule(),
+                new IdentityModule());
         }        
     }
 }

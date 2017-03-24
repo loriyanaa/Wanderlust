@@ -191,6 +191,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectModules\DataModule.cs" />
+    <Compile Include="App_Start\NinjectModules\IdentityModule.cs" />
     <Compile Include="App_Start\NinjectModules\ServicesModule.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
