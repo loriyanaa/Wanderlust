@@ -28,9 +28,24 @@ namespace Wanderlust.Business.Services
             return this.repo.All().Where(i => !i.IsDeleted).OrderBy(i => i.DateUploaded);
         }
 
+        public IQueryable<UploadedImage> GetImages(int startAt, int count)
+        {
+            return this.repo.All().Where(i => !i.IsDeleted).OrderBy(i => i.DateUploaded).Skip(startAt).Take(count);
+        }
+
         public IQueryable<UploadedImage> GetImagesWithTitle(string titleKeyword)
         {
             return this.repo.All().Where(i => !i.IsDeleted && i.Description.Contains(titleKeyword));
+        }
+
+        public IQueryable<UploadedImage> GetAllImagesByUser(string userId)
+        {
+            return this.repo.All().Where(i => !i.IsDeleted && i.UploaderId == userId);
+        }
+
+        public IQueryable<UploadedImage> GetImagesByUser(string userId, int startAt, int count)
+        {
+            return this.repo.All().Where(i => !i.IsDeleted && i.UploaderId == userId).OrderBy(i => i.DateUploaded).Skip(startAt).Take(count);
         }
 
         public UploadedImage GetImageById(int id)
@@ -57,7 +72,9 @@ namespace Wanderlust.Business.Services
                 ThumbnailSrc = thumbnailImgUrl,
                 OriginalSrc = originalImgUrl,
                 DateUploaded = DateTime.Now,
-                IsDeleted = false
+                IsDeleted = false,
+                Uploader = uploader,
+                UploaderId = uploader.Id
             };
 
             using (var uow = this.uow)

@@ -2,7 +2,7 @@
 
 namespace Wanderlust.Business.Models.Users
 {
-    public class Admin : RegularUser, IRegularUser
+    public class Admin
     {
         public string AdminStuff { get; set; }
     }

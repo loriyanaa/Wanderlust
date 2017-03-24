@@ -64,7 +64,11 @@
 }
 
 
-.gallery-item:hover{
+.gallery-item{
+    position: relative;
+}
+
+.gallery-item:hover .image-gallery{
     opacity:0.5;
     background-color: Black;
     z-index:10;
@@ -76,9 +80,29 @@
 
 .image-stats {
     display: none;
+    position:absolute;
+    
+}
+
+i {
+    font-style:normal;
 }
     
 .gallery-item:hover .image-stats {
     display: block;
     position: absolute;
+    top: 130px;
+    left: 108px;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.show-more {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
+.show-more-btn {
+    padding: 10px 30px;
 }

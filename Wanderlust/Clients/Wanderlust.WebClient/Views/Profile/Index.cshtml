@@ -21,19 +21,8 @@
             </ul>
             <div class="profile-info">@Model.Userinfo</div>
         </div>
-    </div>
-    <div class="container gallery">
-    <div class="flex">
-        @foreach (var image in Model.UploadedImages)
-        {
-            <figure class="gallery-item">
-                <figcaption class="overlay">London, United Kingdom</figcaption><a href="http://externallinkgoeshere.co.uk" target="_blank"><img src="@image.ThumbnailSrc" class="image-gallery" alt=""></a>
-                <div class="image-stats">LIKES & COMMENTS</div>
-            </figure>
-        }
-    </div>
-
-    </div>
+    </div>   
+    @Html.Partial("ProfileImages", Model)
 </div>
 
 

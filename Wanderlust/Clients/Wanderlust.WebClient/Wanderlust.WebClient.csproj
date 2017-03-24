@@ -272,6 +272,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -320,6 +322,8 @@
     <Content Include="Views\Posts\UserUploadImage.cshtml" />
     <Content Include="Scripts\kendo.all.min.js.map" />
     <Content Include="Views\Posts\UploadImage.cshtml" />
+    <Content Include="Views\Profile\ProfileImages.cshtml" />
+    <Content Include="Views\Profile\ProfileImagesPresenter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
