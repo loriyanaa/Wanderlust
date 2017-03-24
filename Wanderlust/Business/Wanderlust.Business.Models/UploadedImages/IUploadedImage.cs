@@ -14,6 +14,10 @@ namespace Wanderlust.Business.Models.UploadedImages
 
         DateTime DateUploaded { get; set; }
 
+        string Country { get; set; }
+
+        string City { get; set; }
+
         //int CountryId { get; set; }
 
         //Country Country { get; set; }

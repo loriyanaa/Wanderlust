@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Wanderlust.Business.Models.Locations;
 using Wanderlust.Business.Models.UploadedImages;
 using Wanderlust.Business.Models.Users;
 
@@ -18,7 +19,7 @@ namespace Wanderlust.Business.Services.Contracts
 
         UploadedImage GetImageById(int id);
 
-        void UploadImage(string imgDescription, string thumbnailImgUrl, string originalImgUrl, RegularUser uploader);
+        void UploadImage(string imgDescription, string country, string city, string thumbnailImgUrl, string originalImgUrl, RegularUser uploader);
 
         void CommentImage(int imgId, string comment, string authorId);
     }

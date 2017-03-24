@@ -1,10 +1,10 @@
 ﻿@using (Ajax.BeginForm("GetProfileImages", "Profile",
-                                                     new AjaxOptions
-                                                     {
-                                                         HttpMethod = "GET",
-                                                         UpdateTargetId = "gallery",
-                                                         InsertionMode = InsertionMode.InsertAfter
-                                                     }))
+                                                        new AjaxOptions
+                                                        {
+                                                            HttpMethod = "GET",
+                                                            UpdateTargetId = "gallery",
+                                                            InsertionMode = InsertionMode.InsertAfter
+                                                        }))
 {
     <div class="container gallery">
         <div id="gallery" class="flex">

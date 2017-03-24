@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using Wanderlust.Business.Data.Contracts;
+using Wanderlust.Business.Models.Locations;
 using Wanderlust.Business.Models.UploadedImageComments;
 using Wanderlust.Business.Models.UploadedImages;
 using Wanderlust.Business.Models.Users;
@@ -64,11 +65,13 @@ namespace Wanderlust.Business.Services
             }
         }
 
-        public void UploadImage(string ImgDescription, string thumbnailImgUrl, string originalImgUrl, RegularUser uploader)
+        public void UploadImage(string ImgDescription, string country, string city, string thumbnailImgUrl, string originalImgUrl, RegularUser uploader)
         {
             var image = new UploadedImage()
             {
                 Description = ImgDescription,
+                Country = country,
+                City = city,
                 ThumbnailSrc = thumbnailImgUrl,
                 OriginalSrc = originalImgUrl,
                 DateUploaded = DateTime.Now,

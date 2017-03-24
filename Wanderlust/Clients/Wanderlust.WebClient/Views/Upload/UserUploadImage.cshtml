@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "UserUploadImage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -10,9 +9,7 @@
     <link href="@Url.Content("~/Content/Kendo/kendo.silver.mobile.min.css")" rel="stylesheet" type="text/css" />
 }
 
-<h2>UserUploadImage</h2>
-
-@using (Html.BeginForm("UserUploadImage", "Posts", FormMethod.Post))
+@using (Html.BeginForm("UserUploadImage", "Upload", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -30,6 +27,8 @@
                         <option value="url">Url</option>
                     </select>
                 </p>
+                <input name="countryName" id="Country" type="text" class="img-title" placeholder="Country..." />
+                <input name="cityName" id="City" type="text" class="img-title" placeholder="City..." />
                 <input name="imgDescription" id="ImageDescription" type="text" class="img-title" placeholder="Image description..." />
                 <input name="imgUrl" hidden="hidden" id="ImageUrl" type="text" class="img-title" placeholder="Image url..." />
                 <input name="files" id="file-upload-image" type="file" />

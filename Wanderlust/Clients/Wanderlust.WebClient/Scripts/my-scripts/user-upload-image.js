@@ -13,8 +13,8 @@ $(document).ready(() => {
         saveUrl = "https://www.programmersspot.com/Account/UploadProfilePic";
         redirectUrl = "https://www.programmersspot.com/Account/Profile";
         buttonToHide = $("#MainContent_ButtonUpdateAvatarUrl");
-    } else if (url.indexOf("/posts/useruploadimage") > 0) {
-        saveUrl = "http://www.dev.wanderlust.com/posts/uploadimage";
+    } else if (url.indexOf("/upload/useruploadimage") > 0) {
+        saveUrl = "http://www.dev.wanderlust.com/upload/uploadimage";
         redirectUrl = "http://www.dev.wanderlust.com/posts";
         buttonToHide = $("#Submit");
     }
@@ -70,6 +70,32 @@ $(document).ready(() => {
                 xhr.addEventListener("readystatechange", function (e) {
                     if (xhr.readyState === 1 /* OPENED */) {
                         xhr.setRequestHeader("Image-Description", encodeURIComponent(imgTitle));
+                    }
+                });
+            }
+        }
+
+        var inputImgCountry = $('#Country');
+        if (inputImgCountry) {
+            var imgCountry = inputImgCountry.val();
+            var xhr = e.XMLHttpRequest;
+            if (xhr) {
+                xhr.addEventListener("readystatechange", function (e) {
+                    if (xhr.readyState === 1 /* OPENED */) {
+                        xhr.setRequestHeader("Image-Country", encodeURIComponent(imgCountry));
+                    }
+                });
+            }
+        }
+
+        var inputImgCity = $('#City');
+        if (inputImgCity) {
+            var imgCity = inputImgCity.val();
+            var xhr = e.XMLHttpRequest;
+            if (xhr) {
+                xhr.addEventListener("readystatechange", function (e) {
+                    if (xhr.readyState === 1 /* OPENED */) {
+                        xhr.setRequestHeader("Image-City", encodeURIComponent(imgCity));
                     }
                 });
             }
