@@ -40,9 +40,9 @@ namespace Wanderlust.WebClient.Controllers
                 Username = regularUser.Username,
                 AvatarUrl = regularUser.AvatarUrl,
                 Userinfo = regularUser.UserInfo,
-                Posts = this.userService.GetNumberOfPostsForUser(userId),
-                Followers = this.userService.GetNumberOfFollowersForUser(userId),
-                Following = this.userService.GetNumberOfFollowingForUser(userId),
+                Posts = userService.GetNumberOfPostsForUser(userId),
+                Followers = userService.GetNumberOfFollowersForUser(userId),
+                Following = userService.GetNumberOfFollowingForUser(userId),
                 UploadedImages = userImages
             };
         
@@ -58,7 +58,7 @@ namespace Wanderlust.WebClient.Controllers
             var moreImages = uploadedImageService.GetImagesByUser(userId, (int)images, GlobalConstants.ImagesInitial);
             this.TempData["images"] = (int)this.TempData["images"] + moreImages.Count();
 
-            var model = new LoadMoreImagesViewModel() { UploadedImages = moreImages };
+            var model = new ImagesViewModel() { UploadedImages = moreImages };
 
             return PartialView("ProfileImagesPresenter", model);
         }
@@ -85,9 +85,9 @@ namespace Wanderlust.WebClient.Controllers
                 Username = regularUser.Username,
                 AvatarUrl = regularUser.AvatarUrl,
                 Userinfo = regularUser.UserInfo,
-                Posts = this.userService.GetNumberOfPostsForUser(userId),
-                Followers = this.userService.GetNumberOfFollowersForUser(userId),
-                Following = this.userService.GetNumberOfFollowingForUser(userId),
+                Posts = regularUser.UploadedImages.Count,
+                Followers = regularUser.Followers.Count(),
+                Following = regularUser.Following.Count(),
                 UploadedImages = userImages
             };
 

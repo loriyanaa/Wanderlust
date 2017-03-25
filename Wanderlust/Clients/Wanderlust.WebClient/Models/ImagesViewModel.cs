@@ -3,7 +3,7 @@ using Wanderlust.Business.Models.UploadedImages;
 
 namespace Wanderlust.WebClient.Models
 {
-    public class LoadMoreImagesViewModel
+    public class ImagesViewModel
     {
         public IEnumerable<UploadedImage> UploadedImages { get; set; }
     }

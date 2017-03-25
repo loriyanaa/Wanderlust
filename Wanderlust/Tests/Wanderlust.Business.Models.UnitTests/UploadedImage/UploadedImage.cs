@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Wanderlust.Business.Common;
-using Wanderlust.Business.Models.Locations;
 using Wanderlust.Business.Models.Users;
 
 namespace Wanderlust.Business.Models.UnitTests.UploadedImage

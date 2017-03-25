@@ -38,7 +38,7 @@ namespace Wanderlust.Business.Services
                     Id = userId,
                     Username = username,
                     Email = email,
-                    //AvatarUrl = "https://www.programmersspot.com/Content/Images/profile.png"
+                    AvatarUrl = "http://www.dev.wanderlust.com/Content/Images/profile.png"
                 });
 
                 uow.SaveChanges();

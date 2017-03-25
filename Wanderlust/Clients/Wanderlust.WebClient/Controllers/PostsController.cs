@@ -1,12 +1,9 @@
 ﻿using Bytes2you.Validation;
-using System;
-using System.Data.SqlClient;
-using System.IO;
-using System.Web;
+using System.Linq;
 using System.Web.Mvc;
-using Wanderlust.Business.Common;
 using Wanderlust.Business.Identity.Contracts;
 using Wanderlust.Business.Services.Contracts;
+using Wanderlust.WebClient.Models;
 
 namespace Wanderlust.WebClient.Controllers
 {
@@ -35,10 +32,23 @@ namespace Wanderlust.WebClient.Controllers
             this.userProvider = userProvider;
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var userId = this.userProvider.GetUserId();
+            var user = this.userService.GetRegularUserById(userId);
+            var imagesFromFollowing = this.uploadedImageService.GetAllImages().Where(i => user.Following.Contains(i.Uploader)).ToList();
+            var imagesFromUser = this.uploadedImageService.GetAllImagesByUser(userId).ToList();
+
+            var imagesResult = imagesFromFollowing.Concat(imagesFromUser).OrderBy(i => i.DateUploaded);
+
+            var model = new ImagesViewModel()
+            {
+                UploadedImages = imagesResult
+            };
+
+            return View(model);
         }       
     }
 }

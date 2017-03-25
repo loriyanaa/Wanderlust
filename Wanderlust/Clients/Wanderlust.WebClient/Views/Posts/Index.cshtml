@@ -1,7 +1,46 @@
-﻿@{
+﻿@model Wanderlust.WebClient.Models.ImagesViewModel
+@{
     ViewBag.Title = "Posts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @Html.ActionLink("Upload Image", "UserUploadImage", "Upload", new { area = "" }, new { @class = "btn" })
+
+<section class="page-image-details body-content">
+    <div>
+        @foreach (var image in Model.UploadedImages)
+        {
+            <div class="image-details">
+                <div class="image-uploader">
+                    <img src="@image.Uploader.AvatarUrl" class="uploader-avatar"/>
+                    @image.Uploader.Username
+                </div>
+                <img src="@image.OriginalSrc" class="uploaded-image"/>
+                <p>
+                    <div class="likes"> @image.LikesCount likes</div>
+                </p>
+                @if (!string.IsNullOrEmpty(image.Description))
+                {
+                    <div class="comment">
+                        <strong>@image.Uploader.Username  </strong><span class="comment-content"> @image.Description </span>
+                    </div>
+                }
+               
+                @foreach (var comment in image.Comments)
+                {
+                <div class="comment">
+                    <strong>@comment.Author.Username  </strong><span class="comment-content"> @comment.Content </span>
+                </div>
+                }
+                <hr />
+                <div class="add-comment">
+                    <input TextMode="MultiLine" ID="TextBoxComment" class="add-comment" />
+                    <button ID="ButtonAddComment" Text="Add comment" class="btn btn-primary" />
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+
 

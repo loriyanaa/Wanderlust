@@ -27,3 +27,51 @@
     margin: 20px 0 15px 20px;
     font-size: 18px
 }
+
+.page-image-details {
+    width: 100%;
+    border-top: 1px solid lightgrey;
+    padding-bottom: 40px;
+}
+
+.image-details {
+    text-align: center;
+    width: 45%;
+    margin: 0 auto;
+    margin-top: 60px;
+    background-color: white;
+}
+
+    .image-details .uploaded-image {
+        margin-bottom: 20px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 0;
+    }
+
+    .image-details .image-uploader {
+        border-bottom: 1px solid lightgrey;
+        text-align: left;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        font-weight: 600;
+    }
+
+        .image-details .image-uploader .uploader-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;          
+        }
+
+    .image-details .likes{
+        text-align: left;
+        padding-left: 10px;
+        font-weight: 600;
+    }
+
+    .image-details .comment{
+        text-align: left;
+        padding-left: 10px;
+        font-weight: 500;
+    }

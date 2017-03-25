@@ -57,10 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Locations\City.cs" />
-    <Compile Include="Locations\Contracts\ICity.cs" />
-    <Compile Include="Locations\Contracts\ICountry.cs" />
-    <Compile Include="Locations\Country.cs" />
     <Compile Include="UploadedImageComments\IUploadedImageComment.cs" />
     <Compile Include="UploadedImageComments\UploadedImageComment.cs" />
     <Compile Include="UploadedImages\IUploadedImage.cs" />

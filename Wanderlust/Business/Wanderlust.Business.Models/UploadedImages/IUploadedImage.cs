@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Wanderlust.Business.Models.Locations;
 using Wanderlust.Business.Models.UploadedImageComments;
 using Wanderlust.Business.Models.Users;
 
@@ -17,14 +16,6 @@ namespace Wanderlust.Business.Models.UploadedImages
         string Country { get; set; }
 
         string City { get; set; }
-
-        //int CountryId { get; set; }
-
-        //Country Country { get; set; }
-
-        //int CityId { get; set; }
-
-        //City City { get; set; }
 
         bool IsDeleted { get; set; }
 

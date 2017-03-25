@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Wanderlust.Business.Models.Locations;
 using Wanderlust.Business.Models.UploadedImages;
 using Wanderlust.Business.Models.Users;
 
@@ -10,8 +9,6 @@ namespace Wanderlust.Business.Services.Contracts
         IQueryable<UploadedImage> GetAllImages();
 
         IQueryable<UploadedImage> GetImages(int startAt, int count);
-
-        IQueryable<UploadedImage> GetImagesWithTitle(string titleKeyword);
 
         IQueryable<UploadedImage> GetAllImagesByUser(string userId);
 
