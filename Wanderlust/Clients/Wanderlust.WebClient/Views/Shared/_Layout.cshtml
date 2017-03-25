@@ -12,7 +12,10 @@
     {
         @RenderSection("AddToHead", required: false)
     }
-
+    	
+    <!--This bundle was moved by the Telerik VS Extensions for compatibility reasons-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/main")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -59,8 +62,8 @@
 			</div>
 		</footer>
     
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+   
+    @RenderSection("scripts", required: false)  
 </body>
 </html>

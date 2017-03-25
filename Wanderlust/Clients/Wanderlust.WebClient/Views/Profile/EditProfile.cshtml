@@ -5,9 +5,11 @@
 }
 
 @section AddToHead{
-    <link href="@Url.Content("~/Content/Kendo/kendo.common.min.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/Kendo/kendo.silver.min.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/Kendo/kendo.silver.mobile.min.css")" rel="stylesheet" type="text/css" />
+    <link href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.common-nova.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.dataviz.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.silver.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.dataviz.silver.min.css" rel="stylesheet" type="text/css" />
 }
 
 <div class="row edit-profile-page">
@@ -18,14 +20,14 @@
             @using (Html.BeginForm("UpdateUserAvatarUrl", "Upload", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
-
+                <script src="https://kendo.cdn.telerik.com/2017.1.223/js/jquery.min.js"></script>
+                <script src="https://kendo.cdn.telerik.com/2017.1.223/js/jszip.min.js"></script>
+                <script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>
+                <script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.aspnetmvc.min.js"></script>
                 <div class="form-horizontal">
                     @Html.ValidationSummary(true)
                     <div class="upload-image">
-                        <p class="text-danger message" ID="ErrorMessage">
-                        </p>
-
-                        <div class="file-upload k-content">
+                        <div class="file-upload k-content upload">
                             <p class="upload-by">
                                 Upload by:
                                 <select name="upload-by" id="upload-by" class="upload-by">
@@ -34,7 +36,21 @@
                                 </select>
                             </p>
                             <input name="imgUrl" hidden="hidden" id="ImageUrl" type="text" class="img-title" placeholder="Image url..." />
-                            <input name="files" id="file-upload-image" type="file" />
+                            @using Kendo.Mvc.UI
+                            @(Html.Kendo().Upload()
+                            .Name("file-upload-image")
+                            .Async(a => a
+                                .Save("UploadProfilePic", "Upload")
+                                .AutoUpload(true)
+                            )
+                            .Validation(v => v.AllowedExtensions(new string[] { ".jpg", ".jpeg", ".png" }))
+                            .Validation(v => v.MaxFileSize(5 * 1024 * 1024))
+                            .Multiple(false)
+                            .Events(e => e
+                                .Upload("onUpload")
+                                .Success("onAvatarUploadSuccess")
+                                .Error("onAvatarUploadError")
+                            ))
                             <input type="submit" id="Submit" class="btn btn-default" value="Upload" />
                         </div>
                     </div>
@@ -57,7 +73,6 @@
 </div>
 
 @section Scripts {
-    <script src="~/Scripts/kendo.all.min.js"></script>
     <script src="~/Scripts/my-scripts/user-upload-image.js"></script>
 }
 

@@ -2,7 +2,6 @@
 using System;
 using System.Data.SqlClient;
 using System.IO;
-using System.Web;
 using System.Web.Mvc;
 using Wanderlust.Business.Common;
 using Wanderlust.Business.Identity.Contracts;
@@ -35,18 +34,14 @@ namespace Wanderlust.WebClient.Controllers
             this.userProvider = userProvider;
         }
 
-        // GET: Upload
+        [Authorize]
+        [HttpGet]
         public ActionResult UserUploadImage(string countryName)
         {
-            if (!this.userProvider.IsAuthenticated())
-            {
-                Response.Redirect(string.Format("~/Account/Login?ReturnUrl={0}", HttpUtility.UrlEncode("/posts/useruploadimage")));
-            }
-
             return View();
         }
 
-        //POST: Upload image with url
+        [Authorize]
         [HttpPost]
         public ActionResult UserUploadImage(string imgDescription, string imgUrl, string countryName, string cityName)
         {
@@ -64,17 +59,11 @@ namespace Wanderlust.WebClient.Controllers
             return View("posts/index");
         }
 
-        //POST: Upload image
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult UploadImage()
         {
-            if (this.Request.Files.Count == 0)
-            {
-                Response.StatusCode = 400;
-                Response.End();
-            }
-
             var file = this.Request.Files[0];
 
             int fileLength = file.ContentLength;
@@ -119,7 +108,7 @@ namespace Wanderlust.WebClient.Controllers
                 var uploader = this.userService.GetRegularUserById(this.userProvider.GetUserId());
                 this.uploadedImageService.UploadImage(this.Request.Headers["image-description"],
                     this.Request.Headers["image-country"],
-                    this.Request.Headers["image-description"],
+                    this.Request.Headers["image-city"],
                     thumbnailImgUrl,
                     originalImgUrl,
                     uploader);
@@ -132,25 +121,21 @@ namespace Wanderlust.WebClient.Controllers
             }
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult UpdateUserAvatarUrl(string imgUrl)
         {
             this.userService.UpdateRegularUserAvatarUrl(this.userProvider.GetUserId(), imgUrl);
 
-            return View("profile/index");
+            return RedirectToAction("Index", "Profile");
         }
 
-        //POST: Upload profile pic
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult UploadProfilePic()
         {
-            if (!this.userProvider.IsAuthenticated())
-            {
-                Response.Redirect(string.Format("~/Account/Login?ReturnUrl={0}", HttpUtility.UrlEncode("/profile/editprofile")));
-            }
-
             var file = this.Request.Files[0];
          
             int fileLength = file.ContentLength;

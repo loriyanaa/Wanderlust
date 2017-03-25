@@ -26,7 +26,8 @@ namespace Wanderlust.WebClient.Controllers
             this.userProvider = userProvider;          
         }
 
-        // GET: Profile
+        [Authorize]
+        [HttpGet]
         public ActionResult Index()
         {
             this.TempData["images"] = GlobalConstants.ImagesInitial;
@@ -48,6 +49,8 @@ namespace Wanderlust.WebClient.Controllers
             return View(model);
         }
 
+        [Authorize]
+        [HttpGet]
         public ActionResult GetProfileImages()
         {
             var images = this.TempData["images"];
@@ -60,13 +63,15 @@ namespace Wanderlust.WebClient.Controllers
             return PartialView("ProfileImagesPresenter", model);
         }
 
-        // GET: Edit profile view
+        [Authorize]
+        [HttpGet]
         public ActionResult EditProfile()
         {
             return View();
         }
 
-        // POST: Update user info
+        [Authorize]
+        [HttpPost]
         public ActionResult UpdateUserInfo(string userInfo)
         {
             this.userService.UpdateRegularUserInfo(this.userProvider.GetUserId(), userInfo);

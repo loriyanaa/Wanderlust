@@ -22,8 +22,11 @@ namespace Wanderlust.WebClient
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js",
-                      "~/Scripts/main.js"));
+                      "~/Scripts/respond.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/main").Include(
+                      "~/Scripts/main.js",
+                      "~/Scripts/my-scripts/user-upload-image"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

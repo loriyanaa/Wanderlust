@@ -35,12 +35,10 @@ namespace Wanderlust.WebClient.Controllers
             this.userProvider = userProvider;
         }
 
-        // GET: Posts
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
-        }
-
-        
+        }       
     }
 }
