@@ -64,8 +64,9 @@
             border-radius: 50%;          
         }
 
-    .image-details .likes-comments {
+    .image-details .likes-section {
         text-align:left;
+        height: 40px;
     }
 
     .image-details .likes{
@@ -73,6 +74,7 @@
         padding-left: 10px;
         padding-top: 10px;
         font-weight: 600;
+        display: inline-block;
     }
 
     .image-details .comment{
@@ -82,12 +84,29 @@
     }
 
     .image-details hr {
-        margin-top: 10px;
+        margin-top: 5px;
         margin-bottom: 10px;
     }
 
     .image-details .btn-like{
-        margin-left: 10px;
-        margin-bottom: 10px;
+        margin-right: 10px;
+        margin-top: 5px;
+        margin-bottom: 0px;
         border: 0px;
+        float:right;
+    }
+
+    .image-details .comment-input{
+        max-width: 100%;
+        width: 90%;
+        height: 40px;
+        border: 0px;
+        padding-left: 5px;
+    }
+
+    .image-details .btn-comment{
+        border: 0px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 8px 15px 8px 15px;
     }

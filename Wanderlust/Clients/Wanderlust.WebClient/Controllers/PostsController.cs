@@ -16,7 +16,7 @@ namespace Wanderlust.WebClient.Controllers
         private readonly IUserProvider userProvider;
 
         public PostsController(IUploadedImageService imageService, IUserService userService,
-            IImageProcessorService imageProcessorService, IFileSaverService fileSaverService, 
+            IImageProcessorService imageProcessorService, IFileSaverService fileSaverService,
             IUserProvider userProvider)
         {
             Guard.WhenArgument(imageService, "uploadedImageService").IsNull().Throw();
@@ -46,12 +46,12 @@ namespace Wanderlust.WebClient.Controllers
             var model = new PostsViewModel()
             {
                 UploadedImages = imagesResult,
-                AlreadyLikedImages = userService.GetLikedImagesForUser(userId)            
+                AlreadyLikedImages = userService.GetLikedImagesForUser(userId)
             };
 
             return View(model);
         }
-        
+
         [Authorize]
         [HttpPost]
         public ActionResult LikeOrDislikeImage(string likeImg, string imgId)
@@ -59,7 +59,7 @@ namespace Wanderlust.WebClient.Controllers
             var userId = userProvider.GetUserId();
             var image = uploadedImageService.GetImageById(int.Parse(imgId));
 
-            if(likeImg == "Like")
+            if (likeImg == "Like")
             {
                 this.userService.LikeImage(userId, int.Parse(imgId));
             }
@@ -75,6 +75,29 @@ namespace Wanderlust.WebClient.Controllers
             };
 
             return PartialView("LikeImage", model);
-        }    
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult CommentImage(string commentContent, string imgId)
+        {
+            var userId = this.userProvider.GetUserId();
+            var user = this.userService.GetRegularUserById(userId);
+
+            if (!string.IsNullOrEmpty(commentContent))
+            {
+                this.uploadedImageService.CommentImage(int.Parse(imgId), commentContent, userId);
+            }
+
+            var model = new CommentImageModelView()
+            {
+                CommentContent = commentContent,
+                CommentAuthor = user.Username
+            };
+
+            ModelState.Clear();
+
+            return PartialView("CommentImage", model);
+        }
     }
 }
