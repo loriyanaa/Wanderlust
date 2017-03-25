@@ -326,6 +326,7 @@
     <Content Include="Views\Upload\UploadImage.cshtml" />
     <Content Include="Views\Profile\ProfileImages.cshtml" />
     <Content Include="Views\Profile\ProfileImagesPresenter.cshtml" />
+    <Content Include="Views\Profile\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

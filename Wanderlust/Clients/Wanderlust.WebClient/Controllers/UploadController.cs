@@ -61,7 +61,7 @@ namespace Wanderlust.WebClient.Controllers
                 return Content("Unsuccessful uploading. Please try again.");
             }
 
-            return View();
+            return View("posts/index");
         }
 
         //POST: Upload image
@@ -130,6 +130,67 @@ namespace Wanderlust.WebClient.Controllers
             {
                 return Content("Unsuccessful uploading. Please try again.");
             }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateUserAvatarUrl(string imgUrl)
+        {
+            this.userService.UpdateRegularUserAvatarUrl(this.userProvider.GetUserId(), imgUrl);
+
+            return View("profile/index");
+        }
+
+        //POST: Upload profile pic
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UploadProfilePic()
+        {
+            if (!this.userProvider.IsAuthenticated())
+            {
+                Response.Redirect(string.Format("~/Account/Login?ReturnUrl={0}", HttpUtility.UrlEncode("/profile/editprofile")));
+            }
+
+            var file = this.Request.Files[0];
+         
+            int fileLength = file.ContentLength;
+            string fileName = "avatar" + Path.GetExtension(file.FileName);
+            var folderName = this.userProvider.GetUserId();
+            byte[] photoBytes = new byte[fileLength];
+            file.InputStream.Read(photoBytes, 0, fileLength);
+
+            // saving image
+            try
+            {
+                var processedImg = this.imageProcessorService.ProcessImage(
+                    photoBytes,
+                    GlobalConstants.ThumbnailImageSize,
+                    GlobalConstants.ThumbnailImageSize,
+                    Path.GetExtension(fileName),
+                    GlobalConstants.ThumbnailImageQualityPercentage);
+
+                var dirToSaveIn = Path.Combine(Server.MapPath("../" + GlobalConstants.ContentUploadedProfilesRelPath), folderName);
+
+                this.fileSaverService.SaveFile(processedImg, dirToSaveIn, fileName, true);
+            }
+            catch (Exception)
+            {
+                return Content("Unsuccessful uploading. Please try again.");
+            }
+
+            // saving image url to db
+            try
+            {
+                var imgUrl = GlobalConstants.WanderlustUrl + GlobalConstants.ContentUploadedProfilesRelPath + folderName + "/" + fileName;
+                var uploader = this.userService.GetRegularUserById(this.userProvider.GetUserId());
+                this.userService.UpdateRegularUserAvatarUrl(this.userProvider.GetUserId(), imgUrl);
+            }
+            catch (SqlException)
+            {
+                return Content("Unsuccessful uploading. Please try again.");
+            }
+
+            return Content("");
         }
     }
 }

@@ -37,10 +37,11 @@ namespace Wanderlust.WebClient.Controllers
             var model = new ProfileViewModel
             {
                 Username = regularUser.Username,
+                AvatarUrl = regularUser.AvatarUrl,
                 Userinfo = regularUser.UserInfo,
-                Posts = regularUser.UploadedImages.Count,
-                Followers = regularUser.Followers.Count,
-                Following = regularUser.Following.Count,
+                Posts = this.userService.GetNumberOfPostsForUser(userId),
+                Followers = this.userService.GetNumberOfFollowersForUser(userId),
+                Following = this.userService.GetNumberOfFollowingForUser(userId),
                 UploadedImages = userImages
             };
         
@@ -57,6 +58,12 @@ namespace Wanderlust.WebClient.Controllers
             var model = new LoadMoreImagesViewModel() { UploadedImages = moreImages };
 
             return PartialView("ProfileImagesPresenter", model);
+        }
+
+        // GET: Edit profile view
+        public ActionResult EditProfile()
+        {
+            return View();
         }
     }
 }

@@ -36,6 +36,24 @@ namespace Wanderlust.Business.Services
             }
         }
 
+        public int GetNumberOfPostsForUser(string userId)
+        {
+            var user = this.regularUsersRepo.GetById(userId);
+            return user.UploadedImages.Count();
+        }
+
+        public int GetNumberOfFollowersForUser(string userId)
+        {
+            var user = this.regularUsersRepo.GetById(userId);
+            return user.Followers.Count();
+        }
+
+        public int GetNumberOfFollowingForUser(string userId)
+        {
+            var user = this.regularUsersRepo.GetById(userId);
+            return user.Following.Count();
+        }
+
         public IQueryable<RegularUser> GetAllRegularUsers()
         {
             return this.regularUsersRepo.All();

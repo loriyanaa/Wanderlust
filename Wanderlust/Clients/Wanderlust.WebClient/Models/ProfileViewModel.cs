@@ -15,6 +15,8 @@ namespace Wanderlust.WebClient.Models
 
         public int Following { get; set; }
 
+        public string AvatarUrl { get; set; }
+
         public IEnumerable<UploadedImage> UploadedImages { get; set; }
     }
 }

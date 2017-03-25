@@ -9,9 +9,9 @@ $(document).ready(() => {
     var redirectUrl = "";
     var buttonToHide;
     var url = window.location.toString().toLowerCase();
-    if (url.indexOf("/account/manage") > 0) {
-        saveUrl = "https://www.programmersspot.com/Account/UploadProfilePic";
-        redirectUrl = "https://www.programmersspot.com/Account/Profile";
+    if (url.indexOf("/profile/editprofile") > 0) {
+        saveUrl = "http://www.dev.wanderlust.com/upload/uploadprofilepic";
+        redirectUrl = "http://www.dev.wanderlust.com/profile";
         buttonToHide = $("#MainContent_ButtonUpdateAvatarUrl");
     } else if (url.indexOf("/upload/useruploadimage") > 0) {
         saveUrl = "http://www.dev.wanderlust.com/upload/uploadimage";

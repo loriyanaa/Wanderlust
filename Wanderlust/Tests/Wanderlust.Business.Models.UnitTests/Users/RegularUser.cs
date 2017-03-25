@@ -114,17 +114,6 @@ namespace Wanderlust.Business.Models.UnitTests.Users
             Assert.AreEqual(testAge, user.Age);
         }
 
-        [TestCase(0)]
-        [TestCase(183732)]
-        public void Posts_ShouldBeSetAndGottenCorrectly(int posts)
-        {
-            // Arrange & Act
-            var user = new RegularUser() { Posts = posts };
-
-            //Assert
-            Assert.AreEqual(posts, user.Posts);
-        }
-
         [Test]
         public void RegularUser_ShouldHaveParameterlessConstructor()
         {

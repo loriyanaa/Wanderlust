@@ -18,8 +18,6 @@ namespace Wanderlust.Business.Models.Users.Contracts
 
         int Age { get; set; }
 
-        int Posts { get; set; }
-
         bool IsDeleted { get; set; }
 
         ApplicationUser ApplicationUser { get; set; }

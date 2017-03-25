@@ -9,6 +9,12 @@ namespace Wanderlust.Business.Services.Contracts
 
         RegularUser GetRegularUserById(string id);
 
+        int GetNumberOfPostsForUser(string userId);
+
+        int GetNumberOfFollowersForUser(string userId);
+
+        int GetNumberOfFollowingForUser(string userId);
+
         void LikeImage(string loggedUserId, int imageId);
 
         void DislikeImage(string loggedUserId, int imageId);

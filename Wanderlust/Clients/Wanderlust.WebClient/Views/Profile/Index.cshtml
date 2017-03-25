@@ -7,11 +7,11 @@
 
 <div class="body-content">
     <div class="profile-header">
-        <img src="~/Content/Images/profile-pic.png" class="profile-pic" />
+        <img src="@Model.AvatarUrl" class="profile-pic" />
         <div class="personal-info">
             <div class="profile-options">
                 <h1>@Model.Username's Profile</h1>
-                <button class="btn btn-edit"><a>Edit Profile</a></button>
+                @Html.ActionLink("Edit Profile", "EditProfile", "Profile", new { area = ""}, new { @class = "btn btn-edit" })
             </div>
             <ul class="statistics">
                 <li>@Model.Posts posts</li>
