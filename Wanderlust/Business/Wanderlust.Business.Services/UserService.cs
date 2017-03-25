@@ -36,6 +36,17 @@ namespace Wanderlust.Business.Services
             }
         }
 
+        public void UpdateRegularUserInfo(string id, string userInfo)
+        {
+            var user = this.regularUsersRepo.GetById(id);
+            user.UserInfo = userInfo;
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.regularUsersRepo.Update(user);
+                unitOfWork.SaveChanges();
+            }
+        }
+
         public int GetNumberOfPostsForUser(string userId)
         {
             var user = this.regularUsersRepo.GetById(userId);

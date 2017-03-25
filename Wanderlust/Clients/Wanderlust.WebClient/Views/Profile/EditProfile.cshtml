@@ -46,6 +46,12 @@
         <section id="socialLoginForm">
             <h4>Change profile description</h4>
                 <hr />
+                @using (Html.BeginForm("UpdateUserInfo", "Profile", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <textarea name="userInfo"></textarea>
+                    <input type="submit" id="Submit" class="btn btn-default" value="Update" />
+                }
         </section>
     </div>
 </div>

@@ -21,6 +21,8 @@ namespace Wanderlust.Business.Services.Contracts
 
         void UpdateRegularUserAge(string id, int age);
 
+        void UpdateRegularUserInfo(string id, string userInfo);
+
         void UpdateRegularUserAvatarUrl(string id, string avatarUrl);
     }
 }

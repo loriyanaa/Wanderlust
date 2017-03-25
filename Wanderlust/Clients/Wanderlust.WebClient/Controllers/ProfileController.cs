@@ -65,5 +65,28 @@ namespace Wanderlust.WebClient.Controllers
         {
             return View();
         }
+
+        // POST: Update user info
+        public ActionResult UpdateUserInfo(string userInfo)
+        {
+            this.userService.UpdateRegularUserInfo(this.userProvider.GetUserId(), userInfo);
+
+            var userId = this.userProvider.GetUserId();
+            var regularUser = this.userService.GetRegularUserById(userId);
+            var userImages = this.uploadedImageService.GetImagesByUser(userId, 0, GlobalConstants.ImagesInitial);
+
+            var model = new ProfileViewModel
+            {
+                Username = regularUser.Username,
+                AvatarUrl = regularUser.AvatarUrl,
+                Userinfo = regularUser.UserInfo,
+                Posts = this.userService.GetNumberOfPostsForUser(userId),
+                Followers = this.userService.GetNumberOfFollowersForUser(userId),
+                Following = this.userService.GetNumberOfFollowingForUser(userId),
+                UploadedImages = userImages
+            };
+
+            return View("index", model);
+        }
     }
 }
