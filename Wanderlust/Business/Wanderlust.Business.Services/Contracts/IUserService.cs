@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Wanderlust.Business.Models.UploadedImages;
 using Wanderlust.Business.Models.Users;
 
 namespace Wanderlust.Business.Services.Contracts
@@ -18,6 +19,8 @@ namespace Wanderlust.Business.Services.Contracts
         int GetNumberOfFollowersForUser(string userId);
 
         int GetNumberOfFollowingForUser(string userId);
+
+        IQueryable<UploadedImage> GetLikedImagesForUser(string userId);
 
         void UpdateRegularUserAge(string id, int age);
 

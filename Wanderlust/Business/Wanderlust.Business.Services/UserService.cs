@@ -59,6 +59,12 @@ namespace Wanderlust.Business.Services
             return user.Followers.Count();
         }
 
+        public IQueryable<UploadedImage> GetLikedImagesForUser(string userId)
+        {
+            var user = this.regularUsersRepo.GetById(userId);
+            return user.LikedImages.AsQueryable();
+        }
+
         public int GetNumberOfFollowingForUser(string userId)
         {
             var user = this.regularUsersRepo.GetById(userId);

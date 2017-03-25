@@ -43,12 +43,38 @@ namespace Wanderlust.WebClient.Controllers
 
             var imagesResult = imagesFromFollowing.Concat(imagesFromUser).OrderBy(i => i.DateUploaded);
 
-            var model = new ImagesViewModel()
+            var model = new PostsViewModel()
             {
-                UploadedImages = imagesResult
+                UploadedImages = imagesResult,
+                AlreadyLikedImages = userService.GetLikedImagesForUser(userId)            
             };
 
             return View(model);
-        }       
+        }
+        
+        [Authorize]
+        [HttpPost]
+        public ActionResult LikeOrDislikeImage(string likeImg, string imgId)
+        {
+            var userId = userProvider.GetUserId();
+            var image = uploadedImageService.GetImageById(int.Parse(imgId));
+
+            if(likeImg == "Like")
+            {
+                this.userService.LikeImage(userId, int.Parse(imgId));
+            }
+            else
+            {
+                this.userService.DislikeImage(userId, int.Parse(imgId));
+            }
+
+            var model = new LikeImageModelView()
+            {
+                AlreadyLikedImages = userService.GetLikedImagesForUser(userId),
+                ImageToLike = image
+            };
+
+            return PartialView("LikeImage", model);
+        }    
     }
 }

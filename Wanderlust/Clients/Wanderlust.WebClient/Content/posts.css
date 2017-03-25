@@ -64,9 +64,14 @@
             border-radius: 50%;          
         }
 
+    .image-details .likes-comments {
+        text-align:left;
+    }
+
     .image-details .likes{
         text-align: left;
         padding-left: 10px;
+        padding-top: 10px;
         font-weight: 600;
     }
 
@@ -74,4 +79,15 @@
         text-align: left;
         padding-left: 10px;
         font-weight: 500;
+    }
+
+    .image-details hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .image-details .btn-like{
+        margin-left: 10px;
+        margin-bottom: 10px;
+        border: 0px;
     }
