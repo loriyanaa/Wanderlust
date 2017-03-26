@@ -34,10 +34,8 @@ namespace Wanderlust.WebClient.Controllers
                 {
                     Travellers = this.userService.GetAllRegularUsers().ToList()
                                                  .Select(t => new TravellerViewModel(t)).ToList(),
-
                     AlreadyFollowedTravellers = this.userService.GetFollowingForUser(userId).ToList()
                                                                 .Select(t => new TravellerViewModel(t)).ToList(),
-
                     UserIsAuthenticated = true
                 };    
             }
@@ -47,14 +45,51 @@ namespace Wanderlust.WebClient.Controllers
                 {
                     Travellers = this.userService.GetAllRegularUsers().ToList()
                                                  .Select(t => new TravellerViewModel(t)).ToList(),
-
                     AlreadyFollowedTravellers = null,
-
                     UserIsAuthenticated = false
                 };
             }
 
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult FilteredTravellers(string searchTerm)
+        {
+            TravellersViewModel model = null;
+
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                model = new TravellersViewModel()
+                {
+                    Travellers = this.userService.GetAllRegularUsers()
+                                                 .ToList().Select(t => new TravellerViewModel(t))
+                };
+            }
+            else
+            {
+
+                model = new TravellersViewModel()
+                {
+                    Travellers = this.userService.SearchUsersByUsername(searchTerm)
+                                                 .ToList().Select(t => new TravellerViewModel(t))
+                };
+            }
+
+            if (userProvider.IsAuthenticated())
+            {
+                var userId = this.userProvider.GetUserId();
+                model.AlreadyFollowedTravellers = userService.GetFollowingForUser(userId)
+                                                                .ToList().Select(t => new TravellerViewModel(t));
+                model.UserIsAuthenticated = true;
+            }
+            else
+            {
+                model.AlreadyFollowedTravellers = null;
+                model.UserIsAuthenticated = false;
+            }
+
+            return PartialView("_FilteredTravellersPartial", model);
         }
     }
 }

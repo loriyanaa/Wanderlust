@@ -334,6 +334,8 @@
     <Content Include="Views\Travellers\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ImagesViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PostsViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TravellersViewModel.cshtml" />
+    <Content Include="Views\Travellers\_FilteredTravellersPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

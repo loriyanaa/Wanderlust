@@ -95,16 +95,30 @@ namespace Wanderlust.WebClient.Controllers
         [HttpPost]
         public ActionResult FilteredImages(string searchTerm)
         {
-            if (string.IsNullOrEmpty(searchTerm.ToString()))
+            PostsViewModel model = null;
+
+            if (string.IsNullOrEmpty(searchTerm))
             {
-                return this.Index();
+                var userId = this.userProvider.GetUserId();
+                var user = this.userService.GetRegularUserById(userId);
+                var imagesFromFollowing = this.uploadedImageService.GetAllImages().Where(i => user.Following.Contains(i.Uploader)).ToList();
+                var imagesFromUser = this.uploadedImageService.GetAllImagesByUser(userId).ToList();
+
+                var imagesResult = imagesFromFollowing.Concat(imagesFromUser).OrderBy(i => i.DateUploaded);
+
+                model = new PostsViewModel()
+                {
+                    UploadedImages = imagesResult,
+                    AlreadyLikedImages = userService.GetLikedImagesForUser(userId)
+                };
+                return PartialView("_FilteredImagesPartial", model);
             }
             else
             {
-                var filteredImages = this.uploadedImageService.SearchImagesByUploader(searchTerm.ToString()).ToList();
+                var filteredImages = this.uploadedImageService.SearchImagesByUploader(searchTerm).ToList();
                 var userId = this.userProvider.GetUserId();
 
-                var model = new PostsViewModel()
+                model = new PostsViewModel()
                 {
                     UploadedImages = filteredImages,
                     AlreadyLikedImages = userService.GetLikedImagesForUser(userId)

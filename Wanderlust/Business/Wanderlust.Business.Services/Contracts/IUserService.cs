@@ -8,6 +8,8 @@ namespace Wanderlust.Business.Services.Contracts
     {
         IQueryable<RegularUser> GetAllRegularUsers();
 
+        IQueryable<RegularUser> SearchUsersByUsername(string searchTerm);
+
         RegularUser GetRegularUserById(string id);
 
         void LikeImage(string loggedUserId, int imageId);

@@ -87,6 +87,13 @@ namespace Wanderlust.Business.Services
             return this.regularUsersRepo.GetById(id);
         }
 
+        public IQueryable<RegularUser> SearchUsersByUsername(string searchTerm)
+        {
+            return string.IsNullOrEmpty(searchTerm) ? this.regularUsersRepo.All()
+                : this.regularUsersRepo.All().Where(u =>
+                (string.IsNullOrEmpty(u.Username) ? false : u.Username.Contains(searchTerm)));
+        }
+
         public void UpdateRegularUserAge(string id, int age)
         {
             var user = this.regularUsersRepo.GetById(id);

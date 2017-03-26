@@ -28,11 +28,8 @@
         $('.comment-input').val('');
     }
 
-    function OnKeyUp() {
-        var value = $('[name="searchTerm"]').val();
-        if (value.length > 0) {        
-            $('#ajaxSearchForm').submit();
-        }       
+    function OnKeyUp() {     
+        $('#ajaxSearchForm').submit();       
     }
 </script>
 
