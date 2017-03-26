@@ -6,7 +6,7 @@ namespace Wanderlust.WebClient.Models
     {
         public IEnumerable<TravellerViewModel> Travellers { get; set; }
 
-        public IEnumerable<TravellerViewModel> AlreadyFollowedTravellers { get; set; }
+        public string LoggedUserId { get; set; }
 
         public bool UserIsAuthenticated { get; set; }
     }

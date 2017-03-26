@@ -31,7 +31,7 @@ namespace Wanderlust.WebClient.Controllers
         {
             var userId = this.userProvider.GetUserId();
             var user = this.userService.GetRegularUserById(userId);
-            var imagesFromFollowing = this.uploadedImageService.GetAllImages().Where(i => user.Following.Contains(i.Uploader)).ToList();
+            var imagesFromFollowing = this.uploadedImageService.GetAllImages().ToList().Where(i => user.Following.Contains(i.Uploader)).ToList();
             var imagesFromUser = this.uploadedImageService.GetAllImagesByUser(userId).ToList();
 
             var imagesResult = imagesFromFollowing.Concat(imagesFromUser).OrderBy(i => i.DateUploaded);

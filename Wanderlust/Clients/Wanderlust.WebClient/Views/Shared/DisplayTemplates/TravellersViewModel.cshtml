@@ -19,9 +19,9 @@
                                     InsertionMode = InsertionMode.Replace
                                 }))
                     {
-                        <input type="hidden" value="@user.Id" name="imgId" />
+                        <input type="hidden" value="@user.Id" name="travellerId" />
                             <div class="follow-section" id="@user.Id">
-                                @if (Model.AlreadyFollowedTravellers.Contains(user))
+                                @if (user.Followers.Contains(Model.LoggedUserId))
                                 {
                                     <button class="btn btn-follow" name="follow" value="Unfollow"><i class="icon fa-heart"> Unfollow</i></button>
                                 }

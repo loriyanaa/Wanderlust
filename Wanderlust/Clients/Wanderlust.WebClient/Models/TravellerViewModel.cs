@@ -1,4 +1,6 @@
-﻿using Wanderlust.Business.Models.Users;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Wanderlust.Business.Models.Users;
 
 namespace Wanderlust.WebClient.Models
 {
@@ -13,6 +15,8 @@ namespace Wanderlust.WebClient.Models
             this.Id = user.Id;
             this.AvatarUrl = user.AvatarUrl;
             this.UserName = user.Username;
+            this.Followers = user.Followers.Select(f => f.Id).ToList();
+            this.Following = user.Following.Select(f => f.Id).ToList();
         }
 
         public string Id { get; set; }
@@ -20,5 +24,9 @@ namespace Wanderlust.WebClient.Models
         public string AvatarUrl { get; set; }
 
         public string UserName { get; set; }
+
+        public ICollection<string> Followers { get; set; }
+
+        public ICollection<string> Following { get; set; }
     }
 }

@@ -26,10 +26,16 @@ namespace Wanderlust.Business.Services.Contracts
 
         IQueryable<RegularUser> GetFollowingForUser(string userId);
 
+        IQueryable<RegularUser> GetAllRegularUsersExceptLogged(string userId);
+
         void UpdateRegularUserAge(string id, int age);
 
         void UpdateRegularUserInfo(string id, string userInfo);
 
         void UpdateRegularUserAvatarUrl(string id, string avatarUrl);
+
+        void FollowUser(string loggedUserId, string userToFollowId);
+
+        void UnfollowUser(string loggedUserId, string userToFollowId);
     }
 }

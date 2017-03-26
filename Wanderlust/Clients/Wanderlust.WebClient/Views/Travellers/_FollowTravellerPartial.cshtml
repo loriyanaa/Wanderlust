@@ -1,0 +1,15 @@
+﻿@model Wanderlust.WebClient.Models.FollowTravellerModelView
+
+<div class="follow-section" id="@Model.TravellerToFollow.Id">
+    @if (Model.TravellerToFollow.Followers.Contains(Model.LoggedUserId))
+    {
+        <button class="btn btn-follow" name="follow" value="Unfollow"><i class="icon fa-heart"> Unfollow</i></button>
+    }
+    else
+    {
+        <button class="btn btn-follow" name="follow" value="Follow"><i class="icon fa-heart-o"> Follow</i></button>
+    }
+</div>
+
+
+

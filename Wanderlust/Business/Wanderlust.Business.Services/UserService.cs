@@ -82,6 +82,12 @@ namespace Wanderlust.Business.Services
             return this.regularUsersRepo.All();
         }
 
+        public IQueryable<RegularUser> GetAllRegularUsersExceptLogged(string userId)
+        {
+            var loggedUser = this.GetRegularUserById(userId);
+            return this.regularUsersRepo.All().Where(u => u.Id != userId);
+        }
+
         public RegularUser GetRegularUserById(string id)
         {
             return this.regularUsersRepo.GetById(id);
@@ -132,6 +138,38 @@ namespace Wanderlust.Business.Services
             using (var unitOfWork = this.unitOfWork)
             {
                 this.uploadedImagesRepo.Update(image);
+                this.regularUsersRepo.Update(loggedUser);
+                unitOfWork.SaveChanges();
+            }
+        }
+
+        public void FollowUser(string loggedUserId, string userToFollowId)
+        {
+            var loggedUser = this.GetRegularUserById(loggedUserId);
+            var userToFollow = this.GetRegularUserById(userToFollowId);
+
+            userToFollow.Followers.Add(loggedUser);
+            loggedUser.Following.Add(userToFollow);
+
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.regularUsersRepo.Update(userToFollow);
+                this.regularUsersRepo.Update(loggedUser);
+                unitOfWork.SaveChanges();
+            }
+        }
+
+        public void UnfollowUser(string loggedUserId, string userToFollowId)
+        {
+            var loggedUser = this.GetRegularUserById(loggedUserId);
+            var userToFollow = this.GetRegularUserById(userToFollowId);
+
+            userToFollow.Followers.Remove(loggedUser);
+            loggedUser.Following.Remove(userToFollow);
+
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.regularUsersRepo.Update(userToFollow);
                 this.regularUsersRepo.Update(loggedUser);
                 unitOfWork.SaveChanges();
             }
