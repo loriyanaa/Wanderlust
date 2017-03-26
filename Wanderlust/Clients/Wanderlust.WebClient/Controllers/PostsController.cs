@@ -74,7 +74,7 @@ namespace Wanderlust.WebClient.Controllers
                 ImageToLike = image
             };
 
-            return PartialView("LikeImage", model);
+            return PartialView("_LikeImagePartial", model);
         }
 
         [Authorize]
@@ -93,7 +93,7 @@ namespace Wanderlust.WebClient.Controllers
                     CommentAuthor = user.Username
                 };
 
-                return PartialView("CommentImage", model);
+                return PartialView("_CommentImagePartial", model);
             }
 
             return Index();

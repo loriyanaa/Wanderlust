@@ -325,11 +325,12 @@
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
-    <Content Include="Views\Posts\LikeImage.cshtml" />
-    <Content Include="Views\Posts\CommentImage.cshtml" />
+    <Content Include="Views\Posts\_LikeImagePartial.cshtml" />
+    <Content Include="Views\Posts\_CommentImagePartial.cshtml" />
     <Content Include="Views\Posts\_FilteredImagesPartial.cshtml" />
     <Content Include="Views\Travellers\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ImagesViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\PostsViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
