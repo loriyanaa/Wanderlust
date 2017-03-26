@@ -62,16 +62,22 @@ namespace Wanderlust.WebClient.Controllers
                 if (userProvider.IsAuthenticated())
                 {
                     var userId = this.userProvider.GetUserId();
-                    model.Travellers = this.userService.GetAllRegularUsersExceptLogged(userId)
-                                                            .ToList().Select(t => new TravellerViewModel(t));
-                    model.LoggedUserId = this.userProvider.GetUserId();
-                    model.UserIsAuthenticated = true;
+                    model = new TravellersViewModel()
+                    {
+                        Travellers = this.userService.GetAllRegularUsersExceptLogged(userId)
+                                                            .ToList().Select(t => new TravellerViewModel(t)),
+                        LoggedUserId = this.userProvider.GetUserId(),
+                        UserIsAuthenticated = true
+                    };
                 }
                 else
                 {
-                    model.Travellers = this.userService.GetAllRegularUsers().ToList().Select(t => new TravellerViewModel(t));
-                    model.LoggedUserId = null;
-                    model.UserIsAuthenticated = false;
+                    model = new TravellersViewModel()
+                    {
+                        Travellers = this.userService.GetAllRegularUsers().ToList().Select(t => new TravellerViewModel(t)),
+                        LoggedUserId = null,
+                        UserIsAuthenticated = false
+                    };
                 }
             }
             else

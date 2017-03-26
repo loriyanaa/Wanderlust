@@ -101,7 +101,9 @@ namespace Wanderlust.WebClient.Controllers
             {
                 var userId = this.userProvider.GetUserId();
                 var user = this.userService.GetRegularUserById(userId);
-                var imagesFromFollowing = this.uploadedImageService.GetAllImages().Where(i => user.Following.Contains(i.Uploader)).ToList();
+                //TODO: Fix mapping
+                var user2 = new TravellerViewModel(user);
+                var imagesFromFollowing = this.uploadedImageService.GetAllImages().Where(i => user2.Following.Contains(i.Uploader.Id)).ToList();
                 var imagesFromUser = this.uploadedImageService.GetAllImagesByUser(userId).ToList();
 
                 var imagesResult = imagesFromFollowing.Concat(imagesFromUser).OrderBy(i => i.DateUploaded);
@@ -111,7 +113,6 @@ namespace Wanderlust.WebClient.Controllers
                     UploadedImages = imagesResult,
                     AlreadyLikedImages = userService.GetLikedImagesForUser(userId)
                 };
-                return PartialView("_FilteredImagesPartial", model);
             }
             else
             {
@@ -123,9 +124,9 @@ namespace Wanderlust.WebClient.Controllers
                     UploadedImages = filteredImages,
                     AlreadyLikedImages = userService.GetLikedImagesForUser(userId)
                 };
-
-                return PartialView("_FilteredImagesPartial", model);
             }
+
+            return PartialView("_FilteredImagesPartial", model);
         }
     }
 }
