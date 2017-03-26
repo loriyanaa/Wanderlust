@@ -1,0 +1,60 @@
+﻿.travellers-page{
+    text-align: center;
+}
+
+    .travellers-page header {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+        .travellers-page header a{
+            color: #333333;
+        }
+
+        .travellers-page header #ajaxSearchForm{
+            display: inline-block;
+        }
+
+        .travellers-page header .travellers-search-input{
+            border-radius: 5px;
+            height: 30px;
+            max-width: 300px;
+            width: 250px;
+        }
+
+.page-traveller-details {
+    min-height: 500px;
+    width: 100%;
+    border-top: 1px solid lightgrey;
+    padding-bottom: 40px;
+}
+
+.traveller-details {
+    text-align: center;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 60px;
+    background-color: white;
+    font-weight: 600;
+}
+
+    .traveller-details .traveller {
+        border-bottom: 1px solid lightgrey;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        font-weight: 600;
+    }
+
+        .traveller-details .traveller .avatar {
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;          
+        }
+
+    .traveller-details .btn-follow {
+        border: 0;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+

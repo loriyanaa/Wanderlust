@@ -1,8 +1,67 @@
-﻿
+﻿@model Wanderlust.WebClient.Models.TravellersViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="travellers-page">
+    <header>
+        <div>
+            @using (Ajax.BeginForm("FilteredUsers", new { },
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "travellersPanel",
+                            InsertionMode = InsertionMode.Replace,
+                        }, new { id = "ajaxSearchForm" }))
+            {
+                <input type="text" class="travellers-search-input" name="searchTerm" placeholder="Search by uploader.." onkeyup="OnKeyUp()" />
+            }
+        </div>
+    </header>
+    <section class="page-image-details body-content" id="travellersPanel">
+        <div>
+            @foreach (var user in Model.Travellers)
+            {
+                <div class="traveller-details">
+                    <h2>@user.UserName</h2>              
+                    <div class="traveller">
+                        <img src="@user.AvatarUrl" class="avatar" />
+                    </div>
+                    @if (Model.UserIsAuthenticated)
+                    {
+                        using (Ajax.BeginForm("FollowOrUnfollowTraveller", "Travellers",
+                                    new AjaxOptions
+                                    {
+                                        HttpMethod = "POST",
+                                        UpdateTargetId = user.Id.ToString(),
+                                        InsertionMode = InsertionMode.Replace
+                                    }))
+                        {
+                            <input type="hidden" value="@user.Id" name="imgId" />
+                            <div class="follow-section" id="@user.Id">
+                                @if (Model.AlreadyFollowedTravellers.Contains(user))
+                                {
+                                    <button class="btn btn-follow" name="follow" value="Unfollow"><i class="icon fa-heart"> Unfollow</i></button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-follow" name="follow" value="Follow"><i class="icon fa-heart-o"> Follow</i></button>
+                                }
+                            </div>
+                        }
+                }         
+                </div>
+            }
+        </div>
+    </section>
+</div>
 
+<script>
+    function OnKeyUp() {
+        var value = $('[name="searchTerm"]').val();
+        if (value.length > 0) {
+            $('#ajaxSearchForm').submit();
+        }
+    }
+</script>
