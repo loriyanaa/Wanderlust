@@ -1,0 +1,68 @@
+﻿@model Wanderlust.WebClient.Models.PostDetailsViewModel
+@{
+    ViewBag.Title = "PostDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <div class="image-details">
+        @using (Ajax.BeginForm("LikeOrDislikeImage", "Posts",
+                                new AjaxOptions
+                                {
+                                    HttpMethod = "POST",
+                                    UpdateTargetId = Model.Id.ToString(),
+                                    InsertionMode = InsertionMode.Replace
+                                }))
+        {
+            <input type="hidden" value="@Model.Id" name="imgId" />
+                <div class="image-uploader">
+                    <a href="/profile/@Model.UploaderId">
+                        <img src="@Model.UploaderAvatarUrl" class="uploader-avatar" />
+                    </a>
+                    @Model.UploaderUsername
+                </div>
+                    <img src="@Model.ImgUrl" class="uploaded-image" />
+                    <div class="likes-section" id="@Model.Id">
+                        <div class="likes"> @Model.LikesCount likes</div>
+                        @if (Model.HasBeenLiked)
+                        {
+                            <button class="btn btn-like" name="likeImg" value="Dislike"><i class="icon fa-heart"> Unlike</i></button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-like" name="likeImg" value="Like"><i class="icon fa-heart-o"> Like</i></button>
+                        }
+                    </div>
+                    <hr />
+        }
+        @using (Ajax.BeginForm("CommentImage", "Posts",
+                                new AjaxOptions
+                                {
+                                    HttpMethod = "POST",
+                                    UpdateTargetId = Model.Id.ToString() + "-comment",
+                                    InsertionMode = InsertionMode.InsertAfter,
+                                    OnSuccess = "OnSuccess"
+                                }))
+        {
+            <div class="comments-section" id="@Model.Id-comment">
+                @if (!string.IsNullOrEmpty(Model.ImgDescription))
+                {
+                    <div class="comment">
+                        <strong>@Model.UploaderUsername  </strong><span class="comment-content"> @Model.ImgDescription </span>
+                    </div>
+                }
+
+                @foreach (var comment in Model.Comments)
+                {
+                    <div class="comment">
+                        <strong>@comment.Author  </strong><span class="comment-content"> @comment.Content </span>
+                    </div>
+                }
+            </div>
+                <input type="hidden" value="@Model.Id" name="imgId" />
+                    <input type="text" class="comment-input" name="commentContent" placeholder="Add a comment.." />
+                    <button class="btn btn-comment"><i class="icon fa-arrow-circle-right"></i></button>
+        }
+    </div>
+</div>
+

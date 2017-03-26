@@ -6,9 +6,11 @@
             {
             <div class="traveller-details">
                 <h2>@user.UserName</h2>
-                <div class="traveller">
-                    <img src="@user.AvatarUrl" class="avatar" />
-                </div>
+                <a href="/profile/@user.Id">
+                    <div class="traveller">
+                        <img src="@user.AvatarUrl" class="avatar" />
+                    </div>
+                </a>       
                 @if (Model.UserIsAuthenticated)
                 {
                     using (Ajax.BeginForm("FollowOrUnfollowTraveller", "Travellers",

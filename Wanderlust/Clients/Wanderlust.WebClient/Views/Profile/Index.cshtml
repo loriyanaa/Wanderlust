@@ -11,7 +11,10 @@
         <div class="personal-info">
             <div class="profile-options">
                 <h1>@Model.Username's Profile</h1>
-                @Html.ActionLink("Edit Profile", "EditProfile", "Profile", new { area = ""}, new { @class = "btn btn-edit" })
+                @if (Model.CanEditProfile)
+                {
+                    @Html.ActionLink("Edit Profile", "EditProfile", "Profile", new { area = "" }, new { @class = "btn btn-edit" })
+                }             
             </div>
             <ul class="statistics">
                 <li>@Model.Posts posts</li>
@@ -33,9 +36,12 @@
     {
         <div class="container gallery">
             @Html.DisplayFor(Model => Model.UploadedImages, "ImagesViewModel")
-            <div class="show-more">
-                <input class="btn show-more-btn" type="submit" value="SHOW MORE" />
-            </div>
+            @if (Model.UploadedImages.UploadedImages.Count() > 0)
+            {
+                <div class="show-more">
+                    <input class="btn show-more-btn" type="submit" value="SHOW MORE" />
+                </div>
+            }         
         </div>
     }
 </div>

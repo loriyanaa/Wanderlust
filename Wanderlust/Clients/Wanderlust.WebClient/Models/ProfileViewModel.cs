@@ -18,5 +18,7 @@ namespace Wanderlust.WebClient.Models
         public string AvatarUrl { get; set; }
 
         public ImagesViewModel UploadedImages { get; set; }
+
+        public bool CanEditProfile { get; set; }
     }
 }

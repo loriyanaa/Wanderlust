@@ -15,7 +15,9 @@
                 {
                     <input type="hidden" value="@image.Id" name="imgId" />
                         <div class="image-uploader">
-                            <img src="@image.Uploader.AvatarUrl" class="uploader-avatar" />
+                            <a href="/profile/@image.UploaderId">
+                                <img src="@image.Uploader.AvatarUrl" class="uploader-avatar" />
+                            </a>
                             @image.Uploader.Username
                         </div>
                         <img src="@image.OriginalSrc" class="uploaded-image" />

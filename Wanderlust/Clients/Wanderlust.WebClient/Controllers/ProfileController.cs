@@ -28,12 +28,11 @@ namespace Wanderlust.WebClient.Controllers
 
         [Authorize]
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             this.TempData["images"] = GlobalConstants.ImagesInitial;
-            var userId = this.userProvider.GetUserId();
-            var regularUser = this.userService.GetRegularUserById(userId);
-            var userImages = this.uploadedImageService.GetImagesByUser(userId, 0, GlobalConstants.ImagesInitial);
+            var regularUser = this.userService.GetRegularUserById(id);
+            var userImages = this.uploadedImageService.GetImagesByUser(id, 0, GlobalConstants.ImagesInitial);
 
             var imageModel = new ImagesViewModel()
             {
@@ -45,10 +44,11 @@ namespace Wanderlust.WebClient.Controllers
                 Username = regularUser.Username,
                 AvatarUrl = regularUser.AvatarUrl,
                 Userinfo = regularUser.UserInfo,
-                Posts = userService.GetNumberOfPostsForUser(userId),
-                Followers = userService.GetNumberOfFollowersForUser(userId),
-                Following = userService.GetNumberOfFollowingForUser(userId),
-                UploadedImages = imageModel
+                Posts = userService.GetNumberOfPostsForUser(id),
+                Followers = userService.GetNumberOfFollowersForUser(id),
+                Following = userService.GetNumberOfFollowingForUser(id),
+                UploadedImages = imageModel,
+                CanEditProfile = id == this.userProvider.GetUserId()
             };
         
             return View(model);

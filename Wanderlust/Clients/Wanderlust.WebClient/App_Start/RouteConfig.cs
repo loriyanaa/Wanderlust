@@ -16,6 +16,12 @@ namespace Wanderlust.WebClient
             routes.LowercaseUrls = true;
 
             routes.MapRoute(
+                name: "Profile",
+                url: "profile/{id}",
+                defaults: new { controller = "Profile", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
