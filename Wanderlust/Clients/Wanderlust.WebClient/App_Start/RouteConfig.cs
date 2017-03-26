@@ -16,9 +16,35 @@ namespace Wanderlust.WebClient
             routes.LowercaseUrls = true;
 
             routes.MapRoute(
-                name: "Profile",
+                name: "GetImages",
+                url: "profile/getprofileimages",
+                defaults: new { controller = "Profile", action = "GetProfileImages" }
+            );
+
+            routes.MapRoute(
+                name: "UpdateInfo",
+                url: "profile/updateuserinfo",
+                defaults: new { controller = "Profile", action = "UpdateUserInfo" }
+            );
+
+            routes.MapRoute(
+                name: "Traveller",
                 url: "profile/{id}",
-                defaults: new { controller = "Profile", action = "Index" }
+                defaults: new { controller = "Profile", action = "Index" },
+                constraints: new { id = "(?!editprofile).*" }
+
+            );
+
+            routes.MapRoute(
+                name: "Profile",
+                url: "profile",
+                defaults: new { controller = "Profile", action = "UserProfile" }
+            );
+
+            routes.MapRoute(
+                name: "Post",
+                url: "post/{id}",
+                defaults: new { controller = "Posts", action = "PostDetails" }
             );
 
             routes.MapRoute(

@@ -46,6 +46,35 @@ namespace Wanderlust.WebClient.Controllers
         }
 
         [Authorize]
+        [HttpGet]
+        public ActionResult PostDetails(string id)
+        {
+            var image = this.uploadedImageService.GetImageById(int.Parse(id));
+            var userId = this.userProvider.GetUserId();
+
+            var user = this.userService.GetRegularUserById(userId);
+
+            var model = new PostDetailsViewModel()
+            {
+                Id = image.Id,
+                ImgDescription = image.Description,
+                UploaderId = image.UploaderId,
+                UploaderUsername = image.Uploader.Username,
+                UploaderAvatarUrl = image.Uploader.AvatarUrl,
+                ImgUrl = image.OriginalSrc,
+                LikesCount = image.LikesCount,
+                HasBeenLiked = user.LikedImages.Contains(image),
+                Comments = image.Comments.ToList().Select(c => new ImageCommentViewModel
+                                                                    {
+                                                                        Content = c.Content,
+                                                                        Author = c.Author.Username
+                                                                    })
+                                                                    .ToList()
+            };
+            return View(model);
+        }
+
+        [Authorize]
         [HttpPost]
         public ActionResult LikeOrDislikeImage(string likeImg, string imgId)
         {

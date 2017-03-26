@@ -34,6 +34,7 @@
                         InsertionMode = InsertionMode.InsertAfter
                     }))
     {
+        <input type="hidden" value="@Model.Id" name="userId"/>
         <div class="container gallery">
             @Html.DisplayFor(Model => Model.UploadedImages, "ImagesViewModel")
             @if (Model.UploadedImages.UploadedImages.Count() > 0)

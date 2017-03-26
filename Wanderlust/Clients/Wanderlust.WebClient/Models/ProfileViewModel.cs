@@ -5,6 +5,8 @@ namespace Wanderlust.WebClient.Models
 {
     public class ProfileViewModel
     {
+        public string Id { get; set; }
+
         public string Username { get; set; }
 
         public string Userinfo { get; set; }
