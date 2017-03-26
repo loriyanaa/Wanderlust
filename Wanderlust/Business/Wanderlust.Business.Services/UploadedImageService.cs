@@ -1,6 +1,5 @@
 ﻿using Bytes2you.Validation;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Wanderlust.Business.Data.Contracts;
 using Wanderlust.Business.Models.UploadedImageComments;
@@ -51,6 +50,13 @@ namespace Wanderlust.Business.Services
         public UploadedImage GetImageById(int id)
         {
             return this.imagesRepo.GetById(id);
+        }
+
+        public IQueryable<UploadedImage> SearchImagesByUploader(string searchTerm)
+        {
+            return string.IsNullOrEmpty(searchTerm) ? this.imagesRepo.All()
+                : this.imagesRepo.All().Where(i =>
+                (string.IsNullOrEmpty(i.Uploader.Username) ? false : i.Uploader.Username.Contains(searchTerm)));
         }
 
         public void CommentImage(int imgId, string comment, string authorId)

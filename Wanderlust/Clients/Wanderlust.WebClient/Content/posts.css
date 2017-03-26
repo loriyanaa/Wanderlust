@@ -28,7 +28,32 @@
     font-size: 18px
 }
 
+.posts-page{
+    text-align: center;
+}
+
+    .posts-page header {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+        .posts-page header a{
+            color: #333333;
+        }
+
+        .posts-page header #ajaxSearchForm{
+            display: inline-block;
+        }
+
+        .posts-page header .posts-search-input{
+            border-radius: 5px;
+            height: 30px;
+            max-width: 300px;
+            width: 250px;
+        }
+
 .page-image-details {
+    min-height: 500px;
     width: 100%;
     border-top: 1px solid lightgrey;
     padding-bottom: 40px;

@@ -14,6 +14,8 @@ namespace Wanderlust.Business.Services.Contracts
 
         IQueryable<UploadedImage> GetImagesByUser(string userId, int startAt, int count);
 
+        IQueryable<UploadedImage> SearchImagesByUploader(string searchTerm);
+
         UploadedImage GetImageById(int id);
 
         void UploadImage(string imgDescription, string country, string city, string thumbnailImgUrl, string originalImgUrl, RegularUser uploader);

@@ -87,17 +87,38 @@ namespace Wanderlust.WebClient.Controllers
             if (!string.IsNullOrEmpty(commentContent))
             {
                 this.uploadedImageService.CommentImage(int.Parse(imgId), commentContent, userId);
+                var model = new CommentImageModelView()
+                {
+                    CommentContent = commentContent,
+                    CommentAuthor = user.Username
+                };
+
+                return PartialView("CommentImage", model);
             }
 
-            var model = new CommentImageModelView()
+            return Index();
+        }
+
+        [HttpPost]
+        public ActionResult FilteredImages(string searchTerm)
+        {
+            if (string.IsNullOrEmpty(searchTerm.ToString()))
             {
-                CommentContent = commentContent,
-                CommentAuthor = user.Username
-            };
+                return this.Index();
+            }
+            else
+            {
+                var filteredImages = this.uploadedImageService.SearchImagesByUploader(searchTerm.ToString()).ToList();
+                var userId = this.userProvider.GetUserId();
 
-            ModelState.Clear();
+                var model = new PostsViewModel()
+                {
+                    UploadedImages = filteredImages,
+                    AlreadyLikedImages = userService.GetLikedImagesForUser(userId)
+                };
 
-            return PartialView("CommentImage", model);
+                return PartialView("_FilteredImagesPartial", model);
+            }
         }
     }
 }
