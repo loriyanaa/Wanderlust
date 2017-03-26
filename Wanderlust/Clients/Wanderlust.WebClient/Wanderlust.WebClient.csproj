@@ -204,6 +204,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\TravellersController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -310,8 +311,7 @@
     <Content Include="Views\Upload\UserUploadImage.cshtml" />
     <Content Include="Scripts\kendo.all.min.js.map" />
     <Content Include="Views\Upload\UploadImage.cshtml" />
-    <Content Include="Views\Profile\ProfileImages.cshtml" />
-    <Content Include="Views\Profile\ProfileImagesPresenter.cshtml" />
+    <Content Include="Views\Profile\_ProfileImagesPresenterPartial.cshtml" />
     <Content Include="Views\Profile\EditProfile.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
@@ -328,6 +328,8 @@
     <Content Include="Views\Posts\LikeImage.cshtml" />
     <Content Include="Views\Posts\CommentImage.cshtml" />
     <Content Include="Views\Posts\_FilteredImagesPartial.cshtml" />
+    <Content Include="Views\Travellers\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ImagesViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

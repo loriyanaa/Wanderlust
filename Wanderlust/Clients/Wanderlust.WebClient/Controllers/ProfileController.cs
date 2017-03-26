@@ -35,6 +35,11 @@ namespace Wanderlust.WebClient.Controllers
             var regularUser = this.userService.GetRegularUserById(userId);
             var userImages = this.uploadedImageService.GetImagesByUser(userId, 0, GlobalConstants.ImagesInitial);
 
+            var imageModel = new ImagesViewModel()
+            {
+                UploadedImages = userImages
+            };
+
             var model = new ProfileViewModel
             {
                 Username = regularUser.Username,
@@ -43,7 +48,7 @@ namespace Wanderlust.WebClient.Controllers
                 Posts = userService.GetNumberOfPostsForUser(userId),
                 Followers = userService.GetNumberOfFollowersForUser(userId),
                 Following = userService.GetNumberOfFollowingForUser(userId),
-                UploadedImages = userImages
+                UploadedImages = imageModel
             };
         
             return View(model);
@@ -60,7 +65,7 @@ namespace Wanderlust.WebClient.Controllers
 
             var model = new ImagesViewModel() { UploadedImages = moreImages };
 
-            return PartialView("ProfileImagesPresenter", model);
+            return PartialView("_ProfileImagesPresenterPartial", model);
         }
 
         [Authorize]
@@ -88,7 +93,7 @@ namespace Wanderlust.WebClient.Controllers
                 Posts = regularUser.UploadedImages.Count,
                 Followers = regularUser.Followers.Count(),
                 Following = regularUser.Following.Count(),
-                UploadedImages = userImages
+                //UploadedImages = userImages
             };
 
             return View("index", model);

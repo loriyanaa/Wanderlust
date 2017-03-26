@@ -22,7 +22,22 @@
             <div class="profile-info">@Model.Userinfo</div>
         </div>
     </div>   
-    @Html.Partial("ProfileImages", Model)
+    
+    @using (Ajax.BeginForm("GetProfileImages", "Profile",
+                    new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        UpdateTargetId = "gallery",
+                        InsertionMode = InsertionMode.InsertAfter
+                    }))
+    {
+        <div class="container gallery">
+            @Html.DisplayFor(Model => Model.UploadedImages, "ImagesViewModel")
+            <div class="show-more">
+                <input class="btn show-more-btn" type="submit" value="SHOW MORE" />
+            </div>
+        </div>
+    }
 </div>
 
 
