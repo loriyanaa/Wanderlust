@@ -39,6 +39,7 @@
       <HintPath>..\..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -95,11 +96,22 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Controllers\AccountController\Constructor_Should.cs" />
+    <Compile Include="Controllers\AccountController\Login_Should.cs" />
+    <Compile Include="Controllers\AccountController\Register_Should.cs" />
     <Compile Include="Controllers\HomeController\Constructor_Should.cs" />
     <Compile Include="Controllers\HomeController\Index_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Business\Wanderlust.Business.Identity\Wanderlust.Business.Identity.csproj">
+      <Project>{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD}</Project>
+      <Name>Wanderlust.Business.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\Wanderlust.Business.Services\Wanderlust.Business.Services.csproj">
+      <Project>{3D0D09C5-800A-4FF8-8D6B-C069718B8D8E}</Project>
+      <Name>Wanderlust.Business.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Clients\Wanderlust.WebClient\Wanderlust.WebClient.csproj">
       <Project>{6b8b1571-365b-4f01-bccf-42d2393556aa}</Project>
       <Name>Wanderlust.WebClient</Name>
@@ -109,9 +121,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\AccountController\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
