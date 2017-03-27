@@ -114,3 +114,8 @@ i {
 .edit-profile-page h4 {
     text-align: center;
 }
+
+.userinfo-textarea {
+    width: 100%;
+    height: 80px;
+}

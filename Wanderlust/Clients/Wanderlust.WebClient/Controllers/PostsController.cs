@@ -47,6 +47,24 @@ namespace Wanderlust.WebClient.Controllers
 
         [Authorize]
         [HttpGet]
+        public ActionResult GetPostsFromLocation(string city)
+        {
+            var userId = this.userProvider.GetUserId();
+            var user = this.userService.GetRegularUserById(userId);
+
+            var imagesResult = this.uploadedImageService.GetAllImagesFromLocation(city);
+
+            var model = new PostsViewModel()
+            {
+                UploadedImages = imagesResult,
+                AlreadyLikedImages = userService.GetLikedImagesForUser(userId)
+            };
+
+            return View("Index", model);
+        }
+
+        [Authorize]
+        [HttpGet]
         public ActionResult PostDetails(string id)
         {
             var image = this.uploadedImageService.GetImageById(int.Parse(id));

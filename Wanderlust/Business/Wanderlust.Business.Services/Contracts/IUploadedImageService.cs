@@ -10,6 +10,8 @@ namespace Wanderlust.Business.Services.Contracts
 
         IQueryable<UploadedImage> GetAllImagesByUser(string userId);
 
+        IQueryable<UploadedImage> GetAllImagesFromLocation(string city);
+
         IQueryable<UploadedImage> GetImagesByUser(string userId, int startAt, int count);
 
         IQueryable<UploadedImage> SearchImagesByUploader(string searchTerm);

@@ -48,6 +48,13 @@ namespace Wanderlust.WebClient
             );
 
             routes.MapRoute(
+                name: "Locations",
+                url: "{city}",
+                defaults: new { controller = "Posts", action = "GetPostsFromLocation" },
+                constraints: new { city = "london|phuket|barcelona|dubai|paris|venice" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
