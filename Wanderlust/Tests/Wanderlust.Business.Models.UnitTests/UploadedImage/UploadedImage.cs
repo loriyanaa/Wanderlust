@@ -33,6 +33,28 @@ namespace Wanderlust.Business.Models.UnitTests.UploadedImage
             Assert.AreEqual(description, image.Description);
         }
 
+        [TestCase("Bulgaria")]
+        [TestCase("Germany")]
+        public void Country_ShouldBeSetAndGottenCorrectly(string country)
+        {
+            // Arrange & Act
+            var image = new UploadedImages.UploadedImage() { Country = country };
+
+            //Assert
+            Assert.AreEqual(country, image.Country);
+        }
+
+        [TestCase("Veliko Tarnovo")]
+        [TestCase("Sofia")]
+        public void City_ShouldBeSetAndGottenCorrectly(string city)
+        {
+            // Arrange & Act
+            var image = new UploadedImages.UploadedImage() { City = city };
+
+            //Assert
+            Assert.AreEqual(city, image.City);
+        }
+
         [Test]
         public void Description_ShouldHaveCorrectMaxLength()
         {

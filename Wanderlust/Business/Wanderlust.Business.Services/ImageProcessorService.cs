@@ -14,11 +14,15 @@ namespace Wanderlust.Business.Services
         public ImageProcessorService(ImageFactory imgFactory)
         {
             Guard.WhenArgument(imgFactory, "imageFactory").IsNull().Throw();
+
             this.imageFactory = imgFactory;
         }
 
         public MemoryStream ProcessImage(byte[] photoBytes, int width, int height, string fileFormat, int qualityPercentage)
         {
+            Guard.WhenArgument(photoBytes, "photoBytes").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(fileFormat, "fileFormat").IsNullOrEmpty().Throw();
+
             using (MemoryStream inStream = new MemoryStream(photoBytes))
             {
                 MemoryStream outStream = new MemoryStream();

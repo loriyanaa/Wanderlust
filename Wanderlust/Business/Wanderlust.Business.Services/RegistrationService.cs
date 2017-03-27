@@ -9,18 +9,15 @@ namespace Wanderlust.Business.Services
 {
     public class RegistrationService : IRegistrationService
     {
-        private readonly IEfRepository<Role> userRolesRepo;
         private readonly IEfRepository<RegularUser> usersRepo;
         private readonly IEfUnitOfWork unitOfWork;
 
-        public RegistrationService(IEfRepository<Role> userRolesRepo, IEfRepository<RegularUser> usersRepo,
+        public RegistrationService(IEfRepository<RegularUser> usersRepo,
             IEfUnitOfWork unitOfWork)
         {
-            Guard.WhenArgument(userRolesRepo, "userRolesRepo").IsNull().Throw();
             Guard.WhenArgument(usersRepo, "usersRepo").IsNull().Throw();
             Guard.WhenArgument(unitOfWork, "unitOfWork").IsNull().Throw();
 
-            this.userRolesRepo = userRolesRepo;
             this.usersRepo = usersRepo;
             this.unitOfWork = unitOfWork;
         }

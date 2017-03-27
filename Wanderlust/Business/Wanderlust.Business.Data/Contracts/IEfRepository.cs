@@ -17,7 +17,5 @@ namespace Wanderlust.Business.Data.Contracts
         void Delete(T entity);
 
         void Delete(object id);
-
-        void Detach(T entity);
     }
 }

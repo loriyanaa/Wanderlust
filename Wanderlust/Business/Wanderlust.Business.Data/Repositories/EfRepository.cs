@@ -99,11 +99,5 @@ namespace Wanderlust.Business.Data.Repositories
                 this.Delete(entity);
             }
         }
-
-        public virtual void Detach(T entity)
-        {
-            var entry = this.context.Entry(entity);
-            entry.State = EntityState.Detached;
-        }
     }
 }

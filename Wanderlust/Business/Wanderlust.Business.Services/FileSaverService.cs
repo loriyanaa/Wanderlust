@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bytes2you.Validation;
+using System;
 using System.IO;
 using Wanderlust.Business.Services.Contracts;
 
@@ -8,6 +9,10 @@ namespace Wanderlust.Business.Services
     {
         public string SaveFile(MemoryStream fileToSave, string dirToSaveIn, string fileName, bool shouldReplaceFile = false)
         {
+            Guard.WhenArgument(fileToSave, "fileToSave").IsNull().Throw();
+            Guard.WhenArgument(dirToSaveIn, "dirToSaveIn").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(fileName, "fileName").IsNullOrEmpty().Throw();
+
             Directory.CreateDirectory(dirToSaveIn);
             string filePath = Path.Combine(dirToSaveIn, fileName);
             if (!shouldReplaceFile && File.Exists(filePath))

@@ -24,11 +24,7 @@ namespace Wanderlust.Business.Services.Contracts
 
         IQueryable<UploadedImage> GetLikedImagesForUser(string userId);
 
-        IQueryable<RegularUser> GetFollowingForUser(string userId);
-
         IQueryable<RegularUser> GetAllRegularUsersExceptLogged(string userId);
-
-        void UpdateRegularUserAge(string id, int age);
 
         void UpdateRegularUserInfo(string id, string userInfo);
 

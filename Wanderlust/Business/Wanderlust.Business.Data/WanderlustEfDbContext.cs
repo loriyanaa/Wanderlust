@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using Wanderlust.Business.Data.Contracts;
+using Wanderlust.Business.Models.UploadedImageComments;
 using Wanderlust.Business.Models.UploadedImages;
 using Wanderlust.Business.Models.Users;
 
@@ -31,5 +32,9 @@ namespace Wanderlust.Business.Data
         public virtual IDbSet<RegularUser> RegularUsers { get; set; }
 
         public virtual IDbSet<UploadedImage> UploadedImages { get; set; }
+
+        public virtual IDbSet<UploadedImageComment> UploadedImagesComments { get; set; }
+
+        public virtual IDbSet<Admin> Admins { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Wanderlust.Business.Models.UploadedImages;
 
 namespace Wanderlust.Business.Models.Users.Contracts
 {
@@ -25,5 +26,9 @@ namespace Wanderlust.Business.Models.Users.Contracts
         ICollection<RegularUser> Followers { get; set; }
 
         ICollection<RegularUser> Following { get; set; }
+
+        ICollection<UploadedImage> UploadedImages { get; set; }
+
+        ICollection<UploadedImage> LikedImages { get; set; }
     }
 }

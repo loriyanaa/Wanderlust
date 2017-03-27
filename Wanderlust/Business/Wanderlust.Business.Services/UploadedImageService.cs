@@ -32,11 +32,6 @@ namespace Wanderlust.Business.Services
             return this.imagesRepo.All().Where(i => !i.IsDeleted).OrderBy(i => i.DateUploaded);
         }
 
-        public IQueryable<UploadedImage> GetImages(int startAt, int count)
-        {
-            return this.imagesRepo.All().Where(i => !i.IsDeleted).OrderBy(i => i.DateUploaded).Skip(startAt).Take(count);
-        }
-
         public IQueryable<UploadedImage> GetAllImagesByUser(string userId)
         {
             return this.imagesRepo.All().Where(i => !i.IsDeleted && i.UploaderId == userId);

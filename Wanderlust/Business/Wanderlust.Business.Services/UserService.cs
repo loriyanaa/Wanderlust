@@ -4,6 +4,7 @@ using Wanderlust.Business.Data.Contracts;
 using Wanderlust.Business.Models.UploadedImages;
 using Wanderlust.Business.Models.Users;
 using Wanderlust.Business.Services.Contracts;
+using System;
 
 namespace Wanderlust.Business.Services
 {
@@ -23,6 +24,11 @@ namespace Wanderlust.Business.Services
             this.regularUsersRepo = regularUsersRepo;
             this.uploadedImagesRepo = uploadedImagesRepo;
             this.unitOfWork = unitOfWork;
+        }
+
+        public void LikeImage(Guid empty, string v)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateRegularUserAvatarUrl(string id, string avatarUrl)
@@ -49,30 +55,32 @@ namespace Wanderlust.Business.Services
 
         public int GetNumberOfPostsForUser(string userId)
         {
+            Guard.WhenArgument(userId, "userId").IsNullOrEmpty().Throw();
+
             var user = this.regularUsersRepo.GetById(userId);
             return user.UploadedImages.Count();
         }
 
         public int GetNumberOfFollowersForUser(string userId)
         {
+            Guard.WhenArgument(userId, "userId").IsNullOrEmpty().Throw();
+
             var user = this.regularUsersRepo.GetById(userId);
             return user.Followers.Count();
         }
 
         public IQueryable<UploadedImage> GetLikedImagesForUser(string userId)
         {
+            Guard.WhenArgument(userId, "userId").IsNullOrEmpty().Throw();
+
             var user = this.regularUsersRepo.GetById(userId);
             return user.LikedImages.AsQueryable();
         }
 
-        public IQueryable<RegularUser> GetFollowingForUser(string userId)
-        {
-            var user = this.regularUsersRepo.GetById(userId);
-            return user.Following.AsQueryable();
-        }
-
         public int GetNumberOfFollowingForUser(string userId)
         {
+            Guard.WhenArgument(userId, "userId").IsNullOrEmpty().Throw();
+
             var user = this.regularUsersRepo.GetById(userId);
             return user.Following.Count();
         }
@@ -84,6 +92,8 @@ namespace Wanderlust.Business.Services
 
         public IQueryable<RegularUser> GetAllRegularUsersExceptLogged(string userId)
         {
+            Guard.WhenArgument(userId, "userId").IsNullOrEmpty().Throw();
+
             var loggedUser = this.GetRegularUserById(userId);
             return this.regularUsersRepo.All().Where(u => u.Id != userId);
         }
@@ -100,19 +110,10 @@ namespace Wanderlust.Business.Services
                 (string.IsNullOrEmpty(u.Username) ? false : u.Username.Contains(searchTerm)));
         }
 
-        public void UpdateRegularUserAge(string id, int age)
-        {
-            var user = this.regularUsersRepo.GetById(id);
-            user.Age = age;
-            using (var unitOfWork = this.unitOfWork)
-            {
-                this.regularUsersRepo.Update(user);
-                unitOfWork.SaveChanges();
-            }
-        }
-
         public void LikeImage(string loggedUserId, int imageId)
         {
+            Guard.WhenArgument(loggedUserId, "loggedUserId").IsNullOrEmpty().Throw();
+
             var loggedUser = this.GetRegularUserById(loggedUserId);
             var image = this.uploadedImagesRepo.GetById(imageId);
 
@@ -129,6 +130,8 @@ namespace Wanderlust.Business.Services
 
         public void DislikeImage(string loggedUserId, int imageId)
         {
+            Guard.WhenArgument(loggedUserId, "loggedUserId").IsNullOrEmpty().Throw();
+
             var loggedUser = this.GetRegularUserById(loggedUserId);
             var image = this.uploadedImagesRepo.GetById(imageId);
 
@@ -145,6 +148,9 @@ namespace Wanderlust.Business.Services
 
         public void FollowUser(string loggedUserId, string userToFollowId)
         {
+            Guard.WhenArgument(loggedUserId, "loggedUserId").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(userToFollowId, "userToFollowId").IsNullOrEmpty().Throw();
+
             var loggedUser = this.GetRegularUserById(loggedUserId);
             var userToFollow = this.GetRegularUserById(userToFollowId);
 
@@ -161,6 +167,9 @@ namespace Wanderlust.Business.Services
 
         public void UnfollowUser(string loggedUserId, string userToFollowId)
         {
+            Guard.WhenArgument(loggedUserId, "loggedUserId").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(userToFollowId, "userToFollowId").IsNullOrEmpty().Throw();
+
             var loggedUser = this.GetRegularUserById(loggedUserId);
             var userToFollow = this.GetRegularUserById(userToFollowId);
 
