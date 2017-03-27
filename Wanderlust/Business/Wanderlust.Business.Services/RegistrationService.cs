@@ -1,7 +1,5 @@
 ﻿using Bytes2you.Validation;
-using System.Linq;
 using Wanderlust.Business.Data.Contracts;
-using Wanderlust.Business.Models.UserRoles;
 using Wanderlust.Business.Models.Users;
 using Wanderlust.Business.Services.Contracts;
 
@@ -35,7 +33,7 @@ namespace Wanderlust.Business.Services
                     Id = userId,
                     Username = username,
                     Email = email,
-                    AvatarUrl = "http://www.dev.wanderlust.com/Content/Images/profile.png"
+                    AvatarUrl = "http://www.wanderlust.com/Content/Images/profile.png"
                 });
 
                 uow.SaveChanges();

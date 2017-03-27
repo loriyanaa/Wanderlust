@@ -5,10 +5,10 @@
     var buttonToHide;
     var url = window.location.toString().toLowerCase();
     if (url.indexOf("/profile/editprofile") > 0) {
-        redirectUrl = "http://www.dev.wanderlust.com/profile";
+        redirectUrl = "http://www.wanderlust.com/profile";
         buttonToHide = $("#MainContent_ButtonUpdateAvatarUrl");
     } else if (url.indexOf("/upload/useruploadimage") > 0) {
-        redirectUrl = "http://www.dev.wanderlust.com/posts";
+        redirectUrl = "http://www.wanderlust.com/posts";
         buttonToHide = $("#Submit");
     }
 

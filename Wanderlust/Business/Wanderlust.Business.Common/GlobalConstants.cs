@@ -21,7 +21,7 @@
 
         public const string FailedUploadMessage = "Unfortunately, your uploading  has failed.\r\nPlease, try again later.";
 
-        public const string WanderlustUrl = "http://www.dev.wanderlust.com/";
+        public const string WanderlustUrl = "http://www.wanderlust.com/";
         public const string ContentUploadedWanderlustThumbnailsRelPath = "Content/Uploaded/Images/Thumbnails/";
         public const string ContentUploadedWanderlustOriginalsRelPath = "Content/Uploaded/Images/Originals/";
         public const string ContentUploadedProfilesRelPath = "Content/Uploaded/Profiles/";
