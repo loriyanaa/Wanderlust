@@ -96,6 +96,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Areas\Admin\Controllers\ImagesController\Constructor_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\ImagesController\Class_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\ImagesController\Index_Should.cs" />
     <Compile Include="Controllers\AccountController\Class_Should.cs" />
     <Compile Include="Controllers\AccountController\Constructor_Should.cs" />
     <Compile Include="Controllers\AccountController\Login_Should.cs" />

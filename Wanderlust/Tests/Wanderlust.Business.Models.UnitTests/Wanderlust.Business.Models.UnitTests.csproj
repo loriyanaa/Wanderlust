@@ -85,6 +85,7 @@
     <Compile Include="UploadedImage\UploadedImage.cs" />
     <Compile Include="UploadedImage\UploadedImageComment.cs" />
     <Compile Include="UserRoles\Role.cs" />
+    <Compile Include="Users\Admin.cs" />
     <Compile Include="Users\RegularUser.cs" />
   </ItemGroup>
   <ItemGroup>

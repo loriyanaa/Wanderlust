@@ -26,6 +26,7 @@ namespace Wanderlust.WebClient.Areas.Admin.Controllers
             this.userService = userService;
             this.userProvider = userProvider;
         }
+
         // GET: Admin/Posts
         public ActionResult Index()
         {
