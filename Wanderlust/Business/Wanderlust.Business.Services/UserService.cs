@@ -140,6 +140,30 @@ namespace Wanderlust.Business.Services
             }
         }
 
+        public void ShowImage (int imageId)
+        {
+            var image = this.uploadedImagesRepo.GetById(imageId);
+            image.IsDeleted = false;
+
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.uploadedImagesRepo.Update(image);
+                unitOfWork.SaveChanges();
+            }
+        }
+
+        public void HideImage(int imageId)
+        {
+            var image = this.uploadedImagesRepo.GetById(imageId);
+            image.IsDeleted = true;
+
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.uploadedImagesRepo.Update(image);
+                unitOfWork.SaveChanges();
+            }
+        }
+
         public void FollowUser(string loggedUserId, string userToFollowId)
         {
             Guard.WhenArgument(loggedUserId, "loggedUserId").IsNullOrEmpty().Throw();

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Wanderlust.WebClient.Areas.Admin.Models.ImageViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="posts-page">
+    <section class="page-image-details body-content" id="imagesPanel">
+        <div>
+            @foreach (var image in Model)
+            {
+                <div class="image-details">
+                    
+                    @using (Ajax.BeginForm("HideOrShowImage", "Images",
+                            new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                UpdateTargetId = image.Id.ToString(),
+                                InsertionMode = InsertionMode.Replace
+                            }))
+                    {
+                        <input type="hidden" value="@image.Id" name="imgId" />
+                        <div class="image-uploader">
+                            <img src="@image.UploaderAvatar" class="uploader-avatar" />
+                            @image.UploaderUsername
+                        </div>
+                        <a href="/post/@image.Id">
+                            <img src="@image.ImageUrl" class="uploaded-image" />
+                        </a>
+                        <div class="likes-section" id="@image.Id">
+                            @if (image.HasBeenHidden)
+                            {
+                                <button class="btn btn-like" name="hideImg" value="Show">Show to users</button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-like" name="hideImg" value="Hide">Hide from users</button>
+                            }
+                        </div>
+                        <hr />
+                    }
+                    
+                </div>
+            }
+        </div>
+    </section>
+</div>
+
+<script>
+    function OnSuccess() {
+        $('.comment-input').val('');
+    }
+</script>
+
+

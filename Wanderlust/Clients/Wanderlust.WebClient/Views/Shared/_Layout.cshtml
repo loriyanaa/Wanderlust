@@ -35,7 +35,11 @@
                     <li><a href="/#about">About</a></li>
                     <li><a href="/#contact">Contact</a></li>
                     <li>@Html.ActionLink("Travellers", "Index", "Travellers")</li>
-                    <li>@Html.ActionLink("Posts", "Index", "Posts")</li>                   
+                    <li>@Html.ActionLink("Posts", "Index", "Posts")</li>
+                    @if (this.User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Administration", "Index", "Images", new { Area = "Admin" }, new { })</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

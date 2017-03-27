@@ -4,7 +4,7 @@
     @foreach (var image in Model.UploadedImages)
         {
             <figure class="gallery-item">
-                <figcaption class="overlay"></figcaption><a href="http://externallinkgoeshere.co.uk" target="_blank"><img src="@image.ThumbnailSrc" class="image-gallery" alt=""></a>
+                <figcaption class="overlay"></figcaption><a href="/post/@image.Id" target="_blank"><img src="@image.ThumbnailSrc" class="image-gallery" alt=""></a>
                 <div class="image-stats"><i class="icon fa-heart"> @image.LikesCount</i> <i class="icon fa-comment"> @image.Comments.Count</i></div>
             </figure>
         }

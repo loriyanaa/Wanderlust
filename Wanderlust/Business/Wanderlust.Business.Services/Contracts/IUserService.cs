@@ -16,6 +16,10 @@ namespace Wanderlust.Business.Services.Contracts
 
         void DislikeImage(string loggedUserId, int imageId);
 
+        void ShowImage(int imageId);
+
+        void HideImage(int imageId);
+
         int GetNumberOfPostsForUser(string userId);
 
         int GetNumberOfFollowersForUser(string userId);
