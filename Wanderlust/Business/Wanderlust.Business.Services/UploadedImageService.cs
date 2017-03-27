@@ -34,11 +34,15 @@ namespace Wanderlust.Business.Services
 
         public IQueryable<UploadedImage> GetAllImagesByUser(string userId)
         {
+            Guard.WhenArgument(userId, "userId").IsNullOrEmpty().Throw();
+
             return this.imagesRepo.All().Where(i => !i.IsDeleted && i.UploaderId == userId);
         }
 
         public IQueryable<UploadedImage> GetImagesByUser(string userId, int startAt, int count)
         {
+            Guard.WhenArgument(userId, "userId").IsNullOrEmpty().Throw();
+
             return this.imagesRepo.All().Where(i => !i.IsDeleted && i.UploaderId == userId).OrderBy(i => i.DateUploaded).Skip(startAt).Take(count);
         }
 
@@ -56,6 +60,9 @@ namespace Wanderlust.Business.Services
 
         public void CommentImage(int imgId, string comment, string authorId)
         {
+            Guard.WhenArgument(comment, "comment").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(authorId, "authorId").IsNullOrEmpty().Throw();
+
             var image = this.imagesRepo.GetById(imgId);
             image.Comments.Add(new UploadedImageComment() { AuthorId = authorId, Content = comment });
             using (var uow = this.uow)

@@ -81,8 +81,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Common.cs" />
     <Compile Include="EfRepository\All_Should.cs" />
     <Compile Include="EfRepository\Constructor_Should.cs" />
+    <Compile Include="EfRepository\GetById_Should.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mocks\UnitOfWorkMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +101,10 @@
     <ProjectReference Include="..\..\Business\Wanderlust.Business.Data\Wanderlust.Business.Data.csproj">
       <Project>{2d2219bd-78bc-4ce1-a1a9-9c6eb14c60ae}</Project>
       <Name>Wanderlust.Business.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\Wanderlust.Business.Models\Wanderlust.Business.Models.csproj">
+      <Project>{F51860D2-1411-42F8-A265-17DC157105A9}</Project>
+      <Name>Wanderlust.Business.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
