@@ -1,6 +1,6 @@
 ﻿namespace Wanderlust.WebClient.Models
 {
-    public class FollowTravellerModelView
+    public class FollowTravellerViewModel
     {
         public string LoggedUserId { get; set; }
 

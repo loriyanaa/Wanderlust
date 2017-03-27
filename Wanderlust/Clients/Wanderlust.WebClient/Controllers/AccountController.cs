@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -164,7 +161,7 @@ namespace Wanderlust.WebClient.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    UserManager.AddToRoles(user.Id, "User");
+                    UserManager.AddToRoles(user.Id, "User", "Admin");
 
                     this.registrationService.CreateUser(user.Id, model.Username, user.Email);
 

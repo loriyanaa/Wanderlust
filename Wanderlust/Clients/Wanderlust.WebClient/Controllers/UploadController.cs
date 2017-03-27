@@ -36,7 +36,7 @@ namespace Wanderlust.WebClient.Controllers
 
         [Authorize]
         [HttpGet]
-        public ActionResult UserUploadImage(string countryName)
+        public ActionResult UserUploadImage()
         {
             return View();
         }

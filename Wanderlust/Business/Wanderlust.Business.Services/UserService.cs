@@ -4,7 +4,6 @@ using Wanderlust.Business.Data.Contracts;
 using Wanderlust.Business.Models.UploadedImages;
 using Wanderlust.Business.Models.Users;
 using Wanderlust.Business.Services.Contracts;
-using System;
 
 namespace Wanderlust.Business.Services
 {
@@ -24,11 +23,6 @@ namespace Wanderlust.Business.Services
             this.regularUsersRepo = regularUsersRepo;
             this.uploadedImagesRepo = uploadedImagesRepo;
             this.unitOfWork = unitOfWork;
-        }
-
-        public void LikeImage(Guid empty, string v)
-        {
-            throw new NotImplementedException();
         }
 
         public void UpdateRegularUserAvatarUrl(string id, string avatarUrl)

@@ -3,7 +3,7 @@ using Wanderlust.Business.Models.UploadedImages;
 
 namespace Wanderlust.WebClient.Models
 {
-    public class LikeImageModelView
+    public class LikeImageViewModel
     {
         public IEnumerable<UploadedImage> AlreadyLikedImages { get; set; }
 

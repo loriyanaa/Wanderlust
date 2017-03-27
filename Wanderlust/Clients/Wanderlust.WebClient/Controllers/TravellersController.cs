@@ -121,7 +121,7 @@ namespace Wanderlust.WebClient.Controllers
 
             var travellerToFollow = new TravellerViewModel(this.userService.GetRegularUserById(travellerId));
 
-            var model = new FollowTravellerModelView()
+            var model = new FollowTravellerViewModel()
             {
                 LoggedUserId = userId,
                 TravellerToFollow = travellerToFollow

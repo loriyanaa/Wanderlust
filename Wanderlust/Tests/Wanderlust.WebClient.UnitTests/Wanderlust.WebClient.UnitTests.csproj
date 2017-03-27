@@ -96,17 +96,31 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Controllers\AccountController\Class_Should.cs" />
     <Compile Include="Controllers\AccountController\Constructor_Should.cs" />
     <Compile Include="Controllers\AccountController\Login_Should.cs" />
     <Compile Include="Controllers\AccountController\Register_Should.cs" />
     <Compile Include="Controllers\HomeController\Constructor_Should.cs" />
     <Compile Include="Controllers\HomeController\Index_Should.cs" />
+    <Compile Include="Controllers\PostsController\Constructor_Should.cs" />
+    <Compile Include="Controllers\PostsController\Index_Should.cs" />
+    <Compile Include="Controllers\ProfileController\Constructor_Should.cs" />
+    <Compile Include="Controllers\ProfileController\EditProfile_Should.cs" />
+    <Compile Include="Controllers\ProfileController\UserProfile_Should.cs" />
+    <Compile Include="Controllers\TravellersController\Constructor_Should.cs" />
+    <Compile Include="Controllers\TravellersController\Index_Should.cs" />
+    <Compile Include="Controllers\UploadController\Constructor_Should.cs" />
+    <Compile Include="Controllers\UploadController\UserUploadImage_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Business\Wanderlust.Business.Identity\Wanderlust.Business.Identity.csproj">
       <Project>{95172D8B-EBAA-455A-8AE0-3CB3D717ADAD}</Project>
       <Name>Wanderlust.Business.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\Wanderlust.Business.Models\Wanderlust.Business.Models.csproj">
+      <Project>{f51860d2-1411-42f8-a265-17dc157105a9}</Project>
+      <Name>Wanderlust.Business.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Business\Wanderlust.Business.Services\Wanderlust.Business.Services.csproj">
       <Project>{3D0D09C5-800A-4FF8-8D6B-C069718B8D8E}</Project>

@@ -1,5 +1,7 @@
 ﻿using Moq;
 using NUnit.Framework;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using TestStack.FluentMVCTesting;
@@ -42,6 +44,15 @@ namespace Wanderlust.WebClient.UnitTests.Controllers.AccountController
 
             //Act & Assert
             Assert.IsInstanceOf<Task<ActionResult>>(accountController.Register(model));
+        }
+
+        [Test]
+        public void HaveAllowAnonymousAttribute()
+        {
+            var method = typeof(WebClient.Controllers.AccountController).GetMethod("Register", new Type[0]);
+            var hasAttr = method.GetCustomAttributes(typeof(AllowAnonymousAttribute), false).Any();
+
+            Assert.IsTrue(hasAttr);
         }
     }
 }

@@ -90,7 +90,7 @@ namespace Wanderlust.WebClient.Controllers
                 this.userService.DislikeImage(userId, int.Parse(imgId));
             }
 
-            var model = new LikeImageModelView()
+            var model = new LikeImageViewModel()
             {
                 AlreadyLikedImages = userService.GetLikedImagesForUser(userId),
                 ImageToLike = image
@@ -109,10 +109,10 @@ namespace Wanderlust.WebClient.Controllers
             if (!string.IsNullOrEmpty(commentContent))
             {
                 this.uploadedImageService.CommentImage(int.Parse(imgId), commentContent, userId);
-                var model = new CommentImageModelView()
+                var model = new ImageCommentViewModel()
                 {
-                    CommentContent = commentContent,
-                    CommentAuthor = user.Username
+                    Content = commentContent,
+                    Author = user.Username
                 };
 
                 return PartialView("_CommentImagePartial", model);
