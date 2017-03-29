@@ -32,12 +32,9 @@ namespace Wanderlust.WebClient.Controllers
         {
             this.TempData["images"] = GlobalConstants.ImagesInitial;
             var regularUser = this.userService.GetRegularUserById(id);
-            var userImages = this.uploadedImageService.GetImagesByUser(id, 0, GlobalConstants.ImagesInitial);
-
-            var imageModel = new ImagesViewModel()
-            {
-                UploadedImages = userImages
-            };
+            var userImages = this.uploadedImageService.GetImagesByUser(id, 0, GlobalConstants.ImagesInitial)
+                                                      .ToList()
+                                                      .Select(i => new ImageViewModel(i)).ToList();
 
             var model = new ProfileViewModel
             {
@@ -48,7 +45,7 @@ namespace Wanderlust.WebClient.Controllers
                 Posts = userService.GetNumberOfPostsForUser(id),
                 Followers = userService.GetNumberOfFollowersForUser(id),
                 Following = userService.GetNumberOfFollowingForUser(id),
-                UploadedImages = imageModel,
+                UploadedImages = userImages,
                 CanEditProfile = id == this.userProvider.GetUserId()
             };
         
@@ -63,12 +60,9 @@ namespace Wanderlust.WebClient.Controllers
 
             var userId = this.userProvider.GetUserId();
             var regularUser = this.userService.GetRegularUserById(userId);
-            var userImages = this.uploadedImageService.GetImagesByUser(userId, 0, GlobalConstants.ImagesInitial);
-
-            var imageModel = new ImagesViewModel()
-            {
-                UploadedImages = userImages
-            };
+            var userImages = this.uploadedImageService.GetImagesByUser(userId, 0, GlobalConstants.ImagesInitial)
+                                                      .ToList()
+                                                      .Select(i => new ImageViewModel(i)).ToList();
 
             var model = new ProfileViewModel
             {
@@ -79,7 +73,7 @@ namespace Wanderlust.WebClient.Controllers
                 Posts = userService.GetNumberOfPostsForUser(userId),
                 Followers = userService.GetNumberOfFollowersForUser(userId),
                 Following = userService.GetNumberOfFollowingForUser(userId),
-                UploadedImages = imageModel,
+                UploadedImages = userImages,
                 CanEditProfile = userId == this.userProvider.GetUserId()
             };
 
@@ -91,11 +85,13 @@ namespace Wanderlust.WebClient.Controllers
         public ActionResult GetProfileImages(string userId)
         {
             var images = this.TempData["images"];
-            var moreImages = uploadedImageService.GetImagesByUser(userId, (int)images, GlobalConstants.ImagesInitial);
+            var moreImages = uploadedImageService.GetImagesByUser(userId, (int)images, GlobalConstants.ImagesInitial)
+                                                 .ToList()
+                                                 .Select(i => new ImageViewModel(i)).ToList();
             var count = moreImages.Count();
             this.TempData["images"] = (int)this.TempData["images"] + moreImages.Count();
 
-            var model = new ImagesViewModel() { UploadedImages = moreImages };
+            var model = moreImages;
 
             return PartialView("_ProfileImagesPresenterPartial", model);
         }
@@ -114,24 +110,6 @@ namespace Wanderlust.WebClient.Controllers
             this.userService.UpdateRegularUserInfo(this.userProvider.GetUserId(), userInfo);
 
             var userId = this.userProvider.GetUserId();
-            var regularUser = this.userService.GetRegularUserById(userId);
-            var userImages = this.uploadedImageService.GetImagesByUser(userId, 0, GlobalConstants.ImagesInitial);
-
-            var imageModel = new ImagesViewModel()
-            {
-                UploadedImages = userImages
-            };
-
-            var model = new ProfileViewModel
-            {
-                Username = regularUser.Username,
-                AvatarUrl = regularUser.AvatarUrl,
-                Userinfo = regularUser.UserInfo,
-                Posts = regularUser.UploadedImages.Count,
-                Followers = regularUser.Followers.Count(),
-                Following = regularUser.Following.Count(),
-                UploadedImages = imageModel
-            };
 
             return Redirect(string.Format("/profile/{0}", userId));
         }

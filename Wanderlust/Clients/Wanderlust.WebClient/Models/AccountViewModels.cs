@@ -10,6 +10,7 @@ namespace Wanderlust.WebClient.Models
         public string Email { get; set; }
 
         [Required]
+        [StringLength(20, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         [Display(Name = "Username")]
         public string Username { get; set; }
     }

@@ -3,9 +3,9 @@
     ViewBag.Title = "LikeImage";
 }
 
-<div class="likes-section" id="@Model.ImageToLike.Id">
-    <div class="likes">@Model.ImageToLike.LikesCount likes</div>
-    @if (Model.AlreadyLikedImages.Contains(Model.ImageToLike))
+<div class="likes-section" id="@Model.ImageToLikeId">
+    <div class="likes">@Model.LikesCount likes</div>
+    @if (Model.AlreadyLikedImages.Contains(Model.ImageToLikeId))
     {
         <button class="btn btn-like" name="likeImg" value="Dislike"><i class="icon fa-heart"> Unlike</i></button>
     }

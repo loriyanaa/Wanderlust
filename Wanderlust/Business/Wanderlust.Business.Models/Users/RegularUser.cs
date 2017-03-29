@@ -41,6 +41,8 @@ namespace Wanderlust.Business.Models.Users
 
         public string FacebookProfile { get; set; }
 
+        [MinLength(GlobalConstants.DescriptionMinLength)]
+        [MaxLength(GlobalConstants.DescriptionMaxLength)]
         public string UserInfo { get; set; }
 
         public int Age { get; set; }

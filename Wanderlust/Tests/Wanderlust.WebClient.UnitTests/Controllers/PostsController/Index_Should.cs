@@ -1,13 +1,9 @@
 ﻿using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestStack.FluentMVCTesting;
 using Wanderlust.Business.Identity.Contracts;
 using Wanderlust.Business.Services.Contracts;
+using Wanderlust.WebClient.Models;
 
 namespace Wanderlust.WebClient.UnitTests.Controllers.PostsController
 {
@@ -38,6 +34,8 @@ namespace Wanderlust.WebClient.UnitTests.Controllers.PostsController
             var mockedImageService = new Mock<IUploadedImageService>();
             var mockedUserService = new Mock<IUserService>();
             var mockedUserProvider = new Mock<IUserProvider>();
+
+            var postsModel = new PostsViewModel();
 
             var postsController = new WebClient.Controllers.PostsController(mockedImageService.Object,
                 mockedUserService.Object, mockedUserProvider.Object);

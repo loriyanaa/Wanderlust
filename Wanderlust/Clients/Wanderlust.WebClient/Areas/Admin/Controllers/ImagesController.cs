@@ -30,7 +30,7 @@ namespace Wanderlust.WebClient.Areas.Admin.Controllers
         // GET: Admin/Posts
         public ActionResult Index()
         {
-            var model = uploadedImageService.GetAllImages().ToList().Select(i => new ImageViewModel()
+            var model = uploadedImageService.GetAllImagesForAdmin().ToList().Select(i => new ImageViewModel()
             {
                 Id = i.Id,
                 UploaderAvatar = i.Uploader.AvatarUrl,

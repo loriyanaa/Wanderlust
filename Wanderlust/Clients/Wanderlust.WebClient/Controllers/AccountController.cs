@@ -161,7 +161,7 @@ namespace Wanderlust.WebClient.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    UserManager.AddToRoles(user.Id, "User", "Admin");
+                    UserManager.AddToRoles(user.Id, "User");
 
                     this.registrationService.CreateUser(user.Id, model.Username, user.Email);
 

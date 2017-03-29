@@ -16,16 +16,16 @@
                     <input type="hidden" value="@image.Id" name="imgId" />
                         <div class="image-uploader">
                             <a href="/profile/@image.UploaderId">
-                                <img src="@image.Uploader.AvatarUrl" class="uploader-avatar" />
+                                <img src="@image.UploaderAvatarUrl" class="uploader-avatar" />
                             </a>
-                            @image.Uploader.Username
+                            @image.UploaderUsername
                         </div>
                         <a href="/post/@image.Id">
-                            <img src="@image.OriginalSrc" class="uploaded-image" />
+                            <img src="@image.ImgUrl" class="uploaded-image" />
                         </a>
                         <div class="likes-section" id="@image.Id">
                             <div class="likes"> @image.LikesCount likes</div>
-                            @if (Model.AlreadyLikedImages.Contains(image))
+                            @if (Model.AlreadyLikedImages.Contains(image.Id))
                             {
                                 <button class="btn btn-like" name="likeImg" value="Dislike"><i class="icon fa-heart"> Unlike</i></button>
                             }
@@ -46,17 +46,17 @@
                                     }))
                             {
                                 <div class="comments-section" id="@image.Id-comment">
-                                    @if (!string.IsNullOrEmpty(image.Description))
+                                    @if (!string.IsNullOrEmpty(image.ImgDescription))
                                     {
                                         <div class="comment">
-                                            <strong>@image.Uploader.Username  </strong><span class="comment-content"> @image.Description </span>
+                                            <strong>@image.UploaderUsername  </strong><span class="comment-content"> @image.ImgDescription.ToString().Replace("%20", " ") </span>
                                         </div>
                                     }
 
                                     @foreach (var comment in image.Comments)
                                     {
                                         <div class="comment">
-                                            <strong>@comment.Author.Username  </strong><span class="comment-content"> @comment.Content </span>
+                                            <strong>@comment.Author  </strong><span class="comment-content"> @comment.Content </span>
                                         </div>
                                     }
                                 </div>

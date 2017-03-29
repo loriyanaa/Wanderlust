@@ -139,3 +139,8 @@
 .post-details .image-details{
     margin-bottom: 20px;
 }
+
+.upload-page{
+    min-height: 500px;
+    padding-top: 20px;
+}

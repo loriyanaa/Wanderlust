@@ -1,4 +1,4 @@
-﻿
+﻿@model Wanderlust.WebClient.Models.UpdateProfileViewModel
 @{
     ViewBag.Title = "Edit Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -25,7 +25,6 @@
                 <script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>
                 <script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.aspnetmvc.min.js"></script>
                 <div class="form-horizontal">
-                    @Html.ValidationSummary(true)
                     <div class="upload-image">
                         <div class="file-upload k-content upload">
                             <p class="upload-by">
@@ -64,8 +63,9 @@
                 <hr />
                 @using (Html.BeginForm("UpdateUserInfo", "Profile", FormMethod.Post))
                 {
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
                     @Html.AntiForgeryToken()
-                    <textarea name="userInfo" class="userinfo-textarea"></textarea>
+                    @Html.TextAreaFor(m => m.UserInfo, new { @class = "userinfo-textarea", name = "userInfo" })
                     <input type="submit" id="Submit" class="btn btn-default" value="Update" />
                 }
         </section>

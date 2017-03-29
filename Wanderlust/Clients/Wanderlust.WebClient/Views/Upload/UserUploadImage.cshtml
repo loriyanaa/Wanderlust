@@ -11,30 +11,31 @@
     <link href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.dataviz.silver.min.css" rel="stylesheet" type="text/css" />
 }
 
-@using (Html.BeginForm("UserUploadImage", "Upload", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    <script src="https://kendo.cdn.telerik.com/2017.1.223/js/jquery.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2017.1.223/js/jszip.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.aspnetmvc.min.js"></script>
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true)
-        <div class="upload-image">
-            <div class="file-upload k-content upload">
-                <p class="upload-by">
-                    Upload by:
-                    <select name="upload-by" id="upload-by" class="upload-by">
-                        <option selected="selected" value="file">File</option>
-                        <option value="url">Url</option>
-                    </select>
-                </p>
-                <input name="countryName" id="Country" type="text" class="img-title" placeholder="Country..." />
-                <input name="cityName" id="City" type="text" class="img-title" placeholder="City..." />
-                <input name="imgDescription" id="ImageDescription" type="text" class="img-title" placeholder="Image description..." />
-                <input name="imgUrl" hidden="hidden" id="ImageUrl" type="text" class="img-title" placeholder="Image url..." />
-                @using Kendo.Mvc.UI
-                @(Html.Kendo().Upload()
+<div class="upload-page">
+    @using (Html.BeginForm("UserUploadImage", "Upload", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <script src="https://kendo.cdn.telerik.com/2017.1.223/js/jquery.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2017.1.223/js/jszip.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.aspnetmvc.min.js"></script>
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+            <div class="upload-image">
+                <div class="file-upload k-content upload">
+                    <p class="upload-by">
+                        Upload by:
+                        <select name="upload-by" id="upload-by" class="upload-by">
+                            <option selected="selected" value="file">File</option>
+                            <option value="url">Url</option>
+                        </select>
+                    </p>
+                    <input name="countryName" id="Country" type="text" class="img-title" placeholder="Country..." />
+                    <input name="cityName" id="City" type="text" class="img-title" placeholder="City..." />
+                    <input name="imgDescription" id="ImageDescription" type="text" class="img-title" placeholder="Image description..." />
+                    <input name="imgUrl" hidden="hidden" id="ImageUrl" type="text" class="img-title" placeholder="Image url..." />
+                    @using Kendo.Mvc.UI
+                    @(Html.Kendo().Upload()
                 .Name("file-upload-image")
                 .Async(a => a
                     .Save("UploadImage", "Upload")
@@ -48,12 +49,14 @@
                     .Success("onAvatarUploadSuccess")
                     .Error("onAvatarUploadError")
                 ))
-                <input type="submit" id="Submit" class="btn btn-default" value="Upload" />
+                    <input type="submit" id="Submit" class="btn btn-default" value="Upload" />
+                </div>
             </div>
-        </div>
 
-    </div>
-}
+        </div>
+    }
+</div>
+
 
 @section Scripts {
     <script src="~/Scripts/my-scripts/user-upload-image.js"></script>

@@ -74,6 +74,7 @@
     <Compile Include="RegistrationService\CreateRegularUser_Should.cs" />
     <Compile Include="UploadedImageService\CommentImage_Should.cs" />
     <Compile Include="UploadedImageService\Constructor_Should.cs" />
+    <Compile Include="UploadedImageService\GetAllImageForAdmin_Should.cs" />
     <Compile Include="UploadedImageService\GetAllImagesByUser_Should.cs" />
     <Compile Include="UploadedImageService\GetAllImagesFromLocation_Should.cs" />
     <Compile Include="UploadedImageService\GetAllImages_Should.cs" />

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Wanderlust.Business.Models.UploadedImages;
 
 namespace Wanderlust.WebClient.Models
 {
@@ -19,7 +18,7 @@ namespace Wanderlust.WebClient.Models
 
         public string AvatarUrl { get; set; }
 
-        public ImagesViewModel UploadedImages { get; set; }
+        public IEnumerable<ImageViewModel> UploadedImages { get; set; }
 
         public bool CanEditProfile { get; set; }
     }

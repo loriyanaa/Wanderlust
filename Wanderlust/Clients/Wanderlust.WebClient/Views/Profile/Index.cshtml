@@ -37,7 +37,7 @@
         <input type="hidden" value="@Model.Id" name="userId"/>
         <div class="container gallery">
             @Html.DisplayFor(Model => Model.UploadedImages, "ImagesViewModel")
-            @if (Model.UploadedImages.UploadedImages.Count() > 0)
+            @if (Model.UploadedImages.Count() > 0)
             {
                 <div class="show-more">
                     <input class="btn show-more-btn" type="submit" value="SHOW MORE" />

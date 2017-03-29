@@ -103,6 +103,10 @@ i {
     padding-bottom: 25px;
 }
 
+.edit-profile-page{
+    min-height: 500px;
+}
+
 .show-more-btn {
     padding: 10px 30px;
 }

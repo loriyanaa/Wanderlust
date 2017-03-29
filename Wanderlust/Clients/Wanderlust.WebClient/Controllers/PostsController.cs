@@ -34,12 +34,14 @@ namespace Wanderlust.WebClient.Controllers
             var imagesFromFollowing = this.uploadedImageService.GetAllImages().ToList().Where(i => user.Following.Contains(i.Uploader)).ToList();
             var imagesFromUser = this.uploadedImageService.GetAllImagesByUser(userId).ToList();
 
-            var imagesResult = imagesFromFollowing.Concat(imagesFromUser).OrderBy(i => i.DateUploaded);
+            var imagesResult = imagesFromFollowing.Concat(imagesFromUser)
+                                                  .OrderBy(i => i.DateUploaded)
+                                                  .Select(i => new PostDetailsViewModel(i)).ToList();
 
             var model = new PostsViewModel()
             {
                 UploadedImages = imagesResult,
-                AlreadyLikedImages = userService.GetLikedImagesForUser(userId)
+                AlreadyLikedImages = this.userService.GetLikedImagesForUser(userId).ToList().Select(i => i.Id).ToList()
             };
 
             return View(model);
@@ -52,12 +54,12 @@ namespace Wanderlust.WebClient.Controllers
             var userId = this.userProvider.GetUserId();
             var user = this.userService.GetRegularUserById(userId);
 
-            var imagesResult = this.uploadedImageService.GetAllImagesFromLocation(city);
+            var imagesResult = this.uploadedImageService.GetAllImagesFromLocation(city).ToList().Select(i => new PostDetailsViewModel(i)).ToList();
 
             var model = new PostsViewModel()
             {
                 UploadedImages = imagesResult,
-                AlreadyLikedImages = userService.GetLikedImagesForUser(userId)
+                AlreadyLikedImages = this.userService.GetLikedImagesForUser(userId).ToList().Select(i => i.Id).ToList()
             };
 
             return View("Index", model);
@@ -83,11 +85,10 @@ namespace Wanderlust.WebClient.Controllers
                 LikesCount = image.LikesCount,
                 HasBeenLiked = user.LikedImages.Contains(image),
                 Comments = image.Comments.ToList().Select(c => new ImageCommentViewModel
-                                                                    {
-                                                                        Content = c.Content,
-                                                                        Author = c.Author.Username
-                                                                    })
-                                                                    .ToList()
+                {
+                    Content = c.Content,
+                    Author = c.Author.Username
+                }).ToList()
             };
             return View(model);
         }
@@ -110,8 +111,9 @@ namespace Wanderlust.WebClient.Controllers
 
             var model = new LikeImageViewModel()
             {
-                AlreadyLikedImages = userService.GetLikedImagesForUser(userId),
-                ImageToLike = image
+                AlreadyLikedImages = userService.GetLikedImagesForUser(userId).Select(i => i.Id).ToList(),
+                ImageToLikeId = int.Parse(imgId),
+                LikesCount = image.LikesCount
             };
 
             return PartialView("_LikeImagePartial", model);
@@ -148,28 +150,30 @@ namespace Wanderlust.WebClient.Controllers
             {
                 var userId = this.userProvider.GetUserId();
                 var user = this.userService.GetRegularUserById(userId);
-                //TODO: Fix mapping
-                var user2 = new TravellerViewModel(user);
-                var imagesFromFollowing = this.uploadedImageService.GetAllImages().Where(i => user2.Following.Contains(i.Uploader.Id)).ToList();
+                var traveller = new TravellerViewModel(user);
+
+                var imagesFromFollowing = this.uploadedImageService.GetAllImages().Where(i => traveller.Following.Contains(i.UploaderId)).ToList();
                 var imagesFromUser = this.uploadedImageService.GetAllImagesByUser(userId).ToList();
 
-                var imagesResult = imagesFromFollowing.Concat(imagesFromUser).OrderBy(i => i.DateUploaded);
+                var imagesResult = imagesFromFollowing.Concat(imagesFromUser).OrderBy(i => i.DateUploaded).Select(i => new PostDetailsViewModel(i)).ToList();
 
                 model = new PostsViewModel()
                 {
                     UploadedImages = imagesResult,
-                    AlreadyLikedImages = userService.GetLikedImagesForUser(userId)
+                    AlreadyLikedImages = user.LikedImages.Select(i => i.Id).ToList()
                 };
             }
             else
             {
-                var filteredImages = this.uploadedImageService.SearchImagesByUploader(searchTerm).ToList();
+                var filteredImages = this.uploadedImageService.SearchImagesByUploader(searchTerm).ToList().Select(i => new PostDetailsViewModel(i)).ToList();
+                
                 var userId = this.userProvider.GetUserId();
+                var user = this.userService.GetRegularUserById(userId);
 
                 model = new PostsViewModel()
                 {
                     UploadedImages = filteredImages,
-                    AlreadyLikedImages = userService.GetLikedImagesForUser(userId)
+                    AlreadyLikedImages = user.LikedImages.Select(i => i.Id).ToList()
                 };
             }
 

@@ -41,7 +41,7 @@ namespace Wanderlust.WebClient.UnitTests.Areas.Admin.Controllers.ImagesControlle
             imagesController.Index();
 
             //Assert
-            mockedImageService.Verify(x => x.GetAllImages(), Times.Once());
+            mockedImageService.Verify(x => x.GetAllImagesForAdmin(), Times.Once());
         }
     }
 }

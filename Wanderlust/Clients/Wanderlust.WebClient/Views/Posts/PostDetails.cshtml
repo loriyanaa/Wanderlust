@@ -48,7 +48,7 @@
                 @if (!string.IsNullOrEmpty(Model.ImgDescription))
                 {
                     <div class="comment">
-                        <strong>@Model.UploaderUsername  </strong><span class="comment-content"> @Model.ImgDescription </span>
+                        <strong>@Model.UploaderUsername  </strong><span class="comment-content"> @Model.ImgDescription.ToString().Replace("%20", " ") </span>
                     </div>
                 }
 
