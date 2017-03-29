@@ -12,6 +12,4 @@
 
 # Wanderlust
 
-# programmerSSpot
-
 ### This project is a Web Application built with ASP.NET MVC. It is designed for passionate travellers, providing them with chance to present themselves, share their travel experience by posting awesome photos and get inspired by others posts.
